@@ -14,4 +14,5 @@
     gatsby develop
     ```
 
-    Your site is now running at http://localhost:8000 !
+    Site is now running at http://localhost:8000
+    View GraphiQL, an in-browser IDE, to explore your site's data and schema is running at http://localhost:8000/\_\_\_graphql
