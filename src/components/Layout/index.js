@@ -6,9 +6,9 @@ import Navigation from "./Navigation";
 // import Footer from "./Footer";
 
 const StyledContainer = styled.div`
-  padding: 0 15px;
+  padding: 0 ${(props) => props.theme.columnGap.mobile};
   @media ${(props) => props.theme.minWidth.sm} {
-    padding: 0 25px;
+    padding: 0 ${(props) => props.theme.columnGap.desktop};
   }
 `;
 

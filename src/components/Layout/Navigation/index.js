@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PPlogo from "assets/logos/logo-pivot-panda-paysage.svg";
+import Grid from "components/global/Grid";
 import { Link } from "gatsby";
 
 const StyledNav = styled.nav`
@@ -8,16 +9,10 @@ const StyledNav = styled.nav`
   top: 0;
   background-color: white;
   z-index: 1;
-  display: flex;
   padding: 15px 0;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: ${(props) => props.theme.columnGap.mobile};
   align-items: center;
   @media ${(props) => props.theme.minWidth.md} {
     padding: 25px 0;
-    grid-template-columns: repeat(7, 1fr);
-    grid-column-gap: ${(props) => props.theme.columnGap.desktop};
   }
   img {
     height: 26px;
@@ -40,16 +35,18 @@ const StyledNav = styled.nav`
 const Navigation = () => {
   return (
     <StyledNav>
-      <img src={PPlogo} alt="Logo Pivot Panda" />
-      <Link to="/realisations" activeClassName="active">
-        Réalisations
-      </Link>
-      <Link to="/savoir-faire" activeClassName="active">
-        Savoir-faire{" "}
-      </Link>
-      <Link to="/contact" activeClassName="active">
-        contact
-      </Link>
+      <Grid>
+        <img src={PPlogo} alt="Logo Pivot Panda" />
+        <Link to="/realisations" activeClassName="active">
+          Réalisations
+        </Link>
+        <Link to="/savoir-faire" activeClassName="active">
+          Savoir-faire{" "}
+        </Link>
+        <Link to="/contact" activeClassName="active">
+          contact
+        </Link>
+      </Grid>
     </StyledNav>
   );
 };

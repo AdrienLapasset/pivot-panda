@@ -1,11 +1,11 @@
 import * as React from "react";
 import Layout from "components/Layout";
-import ComingSoon from "./coming-soon";
+import HeroSection from "components/home/HeroSection";
 
 const IndexPage = () => {
   return (
     <Layout>
-      <ComingSoon />
+      <HeroSection />
     </Layout>
   );
 };

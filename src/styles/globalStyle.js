@@ -29,6 +29,10 @@ textarea {
   box-sizing: border-box;
 }
 
+p {
+  line-height: 25px;
+}
+
 a {
   text-decoration: none;
   color: ${(props) => props.theme.colors.black};
