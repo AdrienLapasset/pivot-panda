@@ -16,11 +16,7 @@ const StyledContainer = styled.div`
     padding: 25px;
   };
   img {
-    height: 20vh;
-    margin-bottom: 40px;
-    @media ${(props) => props.theme.minWidth.lg} {
-      margin-bottom: 60px;
-    }
+    height: 30vh;
   }
   h1 {
     color: ${(props) => props.theme.colors.black};
@@ -28,7 +24,7 @@ const StyledContainer = styled.div`
     font-size: 28px;
     font-weight:  700;
     line-height: 35px;
-    margin-bottom:  40px;
+    margin-top:  40px;
     @media ${(props) => props.theme.minWidth.lg} {
       font-size: 33px;
     }
