@@ -15,11 +15,12 @@ const IndexPage = () => {
 
   // const posts = data.allSanityPost.nodes;
   // console.log(posts);
-  return;
-  <Layout>
-    {/* {posts[0].title}; */}
-    toto
-  </Layout>;
+  return (
+    <Layout>
+      {/* {posts[0].title}; */}
+      toto
+    </Layout>
+  );
 };
 
 export default IndexPage;

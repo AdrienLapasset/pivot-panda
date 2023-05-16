@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components/macro";
+import "@fontsource/space-grotesk";
 
 export default createGlobalStyle`
 
@@ -20,7 +21,7 @@ select,
 textarea { 
   margin: 0;
   padding: 0;
-  /* font-family: "Söhne Buch", sans-serif; */
+  font-family: "Space Grotesk", sans-serif;
   list-style: none;
   font-size: 14px;
   font-weight: 400;
