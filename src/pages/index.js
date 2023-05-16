@@ -1,5 +1,6 @@
 import * as React from "react";
 import Layout from "components/Layout";
+
 import ComingSoon from "./coming-soon";
 
 const IndexPage = () => {
@@ -11,3 +12,4 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+

@@ -49,7 +49,7 @@ const comingSoon = () => {
       <img src={PPlogo} alt="Logo" />
       <h1>Le site de pivot panda se refait une beauté !</h1>
       <p>Nous travaillons actuellement sur notre nouveau site. Pendant ce temps, nous vous prions de bien vouloir patienter. </p>
-      <p>N'hésitez pas à nous contacter à l'adresse suivante : <a href="mailto:contact@pivotpanda.com">contact@pivotpanda.com</a></p>
+      <p>Vous pouvez nous contacter à l'adresse suivante : <a href="mailto:contact@pivotpanda.com">contact@pivotpanda.com</a></p>
     </StyledContainer>
   );
 };
