@@ -3,32 +3,52 @@ import styled from "styled-components";
 import PPlogo from "assets/logos/logo-pivot-panda-paysage.svg";
 import { Link } from "gatsby";
 
-const StyledNav = styled.nav``;
+const StyledNav = styled.nav`
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1;
+  display: flex;
+  padding: 15px 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: ${(props) => props.theme.columnGap.mobile};
+  align-items: center;
+  @media ${(props) => props.theme.minWidth.md} {
+    padding: 25px 0;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column-gap: ${(props) => props.theme.columnGap.desktop};
+  }
+  img {
+    height: 26px;
+    @media ${(props) => props.theme.minWidth.md} {
+      height: 30px;
+    }
+  }
+  a {
+    font-size: 10px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: left;
+    @media ${(props) => props.theme.minWidth.md} {
+      text-align: right;
+      font-size: 12px;
+    }
+  }
+`;
 
 const Navigation = () => {
   return (
     <StyledNav>
       <img src={PPlogo} alt="Logo Pivot Panda" />
-      <Link to="/a-propos-de-nous" activeClassName="active">
-        Expertises
+      <Link to="/realisations" activeClassName="active">
+        Réalisations
       </Link>
-      <Link to="/expertises" activeClassName="active">
-        e-Services
+      <Link to="/savoir-faire" activeClassName="active">
+        Savoir-faire{" "}
       </Link>
-      <Link to="/projets" activeClassName="active">
-        Formations
-      </Link>
-      <Link to="/actus" activeClassName="active">
-        Actualités
-      </Link>
-      <Link to="/actus" activeClassName="active">
-        L’équipe
-      </Link>
-      <Link to="/actus" activeClassName="active">
-        Contact
-      </Link>
-      <Link to="/actus" activeClassName="active">
-        Paiement
+      <Link to="/contact" activeClassName="active">
+        contact
       </Link>
     </StyledNav>
   );

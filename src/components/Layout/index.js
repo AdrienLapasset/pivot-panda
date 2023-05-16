@@ -5,7 +5,12 @@ import GlobalStyle from "styles/globalStyle";
 import Navigation from "./Navigation";
 // import Footer from "./Footer";
 
-const StyledContainer = styled.div``;
+const StyledContainer = styled.div`
+  padding: 0 15px;
+  @media ${(props) => props.theme.minWidth.sm} {
+    padding: 0 25px;
+  }
+`;
 
 const Layout = ({ children }) => {
   return (

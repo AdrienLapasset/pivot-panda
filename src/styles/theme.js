@@ -27,8 +27,8 @@ const theme = {
   },
   transitionTime: "0.3s",
   columnGap: {
-    lg: "20px",
-    xl: "30px",
+    mobile: "15px",
+    desktop: "25px",
   },
 };
 
