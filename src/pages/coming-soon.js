@@ -1,8 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import PPlogo from "assets/logo.svg";
-import { StaticImage } from "gatsby-plugin-image"
-
+import { StaticImage } from "gatsby-plugin-image";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -14,45 +13,58 @@ const StyledContainer = styled.div`
   text-align: center;
   @media ${(props) => props.theme.minWidth.lg} {
     padding: 25px;
-  };
-  img {
-    height: 30vh;
+  }
+  .logo {
+    height: 170px;
   }
   h1 {
     color: ${(props) => props.theme.colors.black};
     text-transform: uppercase;
     font-size: 28px;
-    font-weight:  700;
-    line-height: 35px;
-    margin-top:  40px;
+    font-weight: 700;
+    margin: 40px 0;
     @media ${(props) => props.theme.minWidth.lg} {
       font-size: 33px;
     }
   }
   p {
     color: ${(props) => props.theme.colors.black};
-    margin-bottom:20px;
+    margin-bottom: 10px;
     @media ${(props) => props.theme.minWidth.lg} {
-      margin-bottom:25px;
+      margin-bottom: 25px;
     }
   }
   a {
-  display: inline;
-  text-decoration:underline;
-}
+    display: inline;
+    text-decoration: underline;
+  }
+  .gatsby-image-wrapper {
+    margin-top: -30px;
+    z-index: -1;
+    @media ${(props) => props.theme.minWidth.sm} {
+      margin-top: -80px;
+    }
+  }
 `;
 
 const comingSoon = () => {
   return (
     <StyledContainer>
-      <img src={PPlogo} alt="Logo" />
+      <img className="logo" src={PPlogo} alt="Logo" />
       <h1>Le site de pivot panda se refait une beauté !</h1>
+      <p>
+        Nous travaillons actuellement sur notre nouveau site. Pendant ce temps,
+        nous vous prions de bien vouloir patienter.{" "}
+      </p>
+      <p>
+        Vous pouvez nous contacter à l'adresse suivante :{" "}
+        <a href="mailto:contact@pivotpanda.com">contact@pivotpanda.com</a>
+      </p>
       <StaticImage
         src="../assets/coming-soon-panda.png"
         alt="Panda"
+        height={500}
       />
-      <p>Nous travaillons actuellement sur notre nouveau site. Pendant ce temps, nous vous prions de bien vouloir patienter. </p>
-      <p>Vous pouvez nous contacter à l'adresse suivante : <a href="mailto:contact@pivotpanda.com">contact@pivotpanda.com</a></p>
     </StyledContainer>
   );
 };
