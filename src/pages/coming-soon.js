@@ -19,8 +19,7 @@ const StyledContainer = styled.div`
     height: 20vh;
     margin-bottom: 40px;
     @media ${(props) => props.theme.minWidth.lg} {
-      height: 245px;
-      margin-bottom: 90px;
+      margin-bottom: 60px;
     }
   }
   h1 {
