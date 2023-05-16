@@ -7,7 +7,7 @@ const StyledContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 15px;
   text-align: center;
   @media ${(props) => props.theme.minWidth.lg} {
