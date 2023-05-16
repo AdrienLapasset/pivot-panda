@@ -1,6 +1,8 @@
 import * as React from "react";
 import styled from "styled-components";
 import PPlogo from "assets/logo.svg";
+import { StaticImage } from "gatsby-plugin-image"
+
 
 const StyledContainer = styled.div`
   display: flex;
@@ -14,7 +16,7 @@ const StyledContainer = styled.div`
     padding: 25px;
   };
   img {
-    height: 225px;
+    height: 20vh;
     margin-bottom: 40px;
     @media ${(props) => props.theme.minWidth.lg} {
       height: 245px;
@@ -22,6 +24,7 @@ const StyledContainer = styled.div`
     }
   }
   h1 {
+    color: ${(props) => props.theme.colors.black};
     text-transform: uppercase;
     font-size: 28px;
     font-weight:  700;
@@ -32,6 +35,7 @@ const StyledContainer = styled.div`
     }
   }
   p {
+    color: ${(props) => props.theme.colors.black};
     margin-bottom:20px;
     @media ${(props) => props.theme.minWidth.lg} {
       margin-bottom:25px;
@@ -48,6 +52,10 @@ const comingSoon = () => {
     <StyledContainer>
       <img src={PPlogo} alt="Logo" />
       <h1>Le site de pivot panda se refait une beauté !</h1>
+      <StaticImage
+        src="../assets/coming-soon-panda.png"
+        alt="Panda"
+      />
       <p>Nous travaillons actuellement sur notre nouveau site. Pendant ce temps, nous vous prions de bien vouloir patienter. </p>
       <p>Vous pouvez nous contacter à l'adresse suivante : <a href="mailto:contact@pivotpanda.com">contact@pivotpanda.com</a></p>
     </StyledContainer>

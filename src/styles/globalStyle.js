@@ -22,7 +22,6 @@ textarea {
   margin: 0;
   padding: 0;
   font-family: "Space Grotesk", sans-serif;
-  color: ${(props) => props.theme.colors.black};
   list-style: none;
   font-size: 14px;
   font-weight: 400;
