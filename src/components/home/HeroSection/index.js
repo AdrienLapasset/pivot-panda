@@ -1,6 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
+import CTA from "components/global/CTA";
 
 const StyledContainer = styled.div`
   h1 {
@@ -14,6 +15,15 @@ const StyledContainer = styled.div`
       font-size: 107px;
       line-height: 100px;
       grid-column: 2 / 7;
+    }
+  }
+  a {
+    margin-top: 25px;
+    grid-column: 1/7;
+
+    @media ${(props) => props.theme.minWidth.md} {
+      margin-top: 50px;
+      grid-column: 3/7;
     }
   }
 `;
@@ -65,6 +75,9 @@ const comingSoon = () => {
         </aside>
         <aside>depuis 2019</aside>
       </StyledRow>
+      <Grid>
+        <CTA>nous contacter</CTA>
+      </Grid>
     </StyledContainer>
   );
 };

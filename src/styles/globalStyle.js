@@ -27,6 +27,7 @@ textarea {
   font-weight: 400;
   display: block;
   box-sizing: border-box;
+  color: ${(props) => props.theme.colors.black};
 }
 
 p {
