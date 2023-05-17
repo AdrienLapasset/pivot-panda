@@ -17,6 +17,37 @@ const StyledContainer = styled.div`
     }
   }
 `;
+const StyledRow = styled(Grid)`
+  margin-top: 30px;
+  @media ${(props) => props.theme.minWidth.md} {
+    margin-top: 70px;
+  }
+  & > * {
+    align-self: start;
+  }
+  p {
+    line-height: 10px;
+    grid-column: 1/5;
+    @media ${(props) => props.theme.minWidth.md} {
+      grid-column: 3/6;
+    }
+  }
+  aside {
+    text-transform: uppercase;
+    opacity: 0.5;
+    display: none;
+    font-size: 11px;
+    @media ${(props) => props.theme.minWidth.md} {
+      display: block;
+    }
+    &:first-of-type {
+      grid-column: 6;
+    }
+    &:last-of-type {
+      grid-column: 7;
+    }
+  }
+`;
 
 const comingSoon = () => {
   return (
@@ -27,6 +58,13 @@ const comingSoon = () => {
           <br /> de lieux uniques
         </h1>
       </Grid>
+      <StyledRow>
+        <p>Nous donnons vie à votre projet, étape par étape.</p>
+        <aside>
+          Paris <br /> Marseille
+        </aside>
+        <aside>depuis 2019</aside>
+      </StyledRow>
     </StyledContainer>
   );
 };

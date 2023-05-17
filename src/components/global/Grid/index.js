@@ -12,8 +12,8 @@ const StyledContainer = styled.div`
   }
 `;
 
-const Grid = ({ children }) => {
-  return <StyledContainer>{children}</StyledContainer>;
+const Grid = ({ children, className }) => {
+  return <StyledContainer className={className}>{children}</StyledContainer>;
 };
 
 export default Grid;
