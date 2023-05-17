@@ -36,7 +36,7 @@ const StyledRow = styled(Grid)`
     align-self: start;
   }
   p {
-    line-height: 10px;
+    line-height: 9px;
     grid-column: 1/5;
     @media ${(props) => props.theme.minWidth.md} {
       grid-column: 3/6;
