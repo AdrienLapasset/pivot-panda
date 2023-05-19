@@ -2,14 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
 
-const StyledContainer = styled(Grid)`
-  display: flex;
-  flex-direction: column;
-  @media ${(props) => props.theme.minWidth.md} {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
+const StyledContainer = styled.div`
   h1 {
     text-transform: uppercase;
     font-size: 38px;
@@ -22,16 +15,6 @@ const StyledContainer = styled(Grid)`
       line-height: 75px;
       margin-top: 260px;
       grid-column: 1/5;
-    }
-    &::after {
-      content: "";
-      display: block;
-      padding-top: 15px;
-      border-bottom: 1px solid ${(props) => props.theme.colors.black};
-      margin: 0 -15px;
-      @media ${(props) => props.theme.minWidth.md} {
-        display: none;
-      }
     }
   }
   p {
