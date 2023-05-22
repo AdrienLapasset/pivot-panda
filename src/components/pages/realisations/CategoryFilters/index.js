@@ -2,7 +2,17 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
 import ArrowDropdown from "../../../../assets/icons/ArrowDropdown";
-import RadioButton from "../../../global/RadioButton";
+import RadioButton from "./RadioButton";
+
+//créer un tableau avec les catégorie
+const categories = [
+  "Tout voir",
+  "Bars restaurants",
+  "Bureaux",
+  "Coworking",
+  "Hôtels",
+  "Logements",
+];
 
 const StyledContainer = styled.div`
   height: 45px;
@@ -39,8 +49,6 @@ const StyledRadioGroup = styled(Grid)`
   }
 `;
 
-const StyledRadioButton = styled(RadioButton)``;
-
 const CategoryFilters = () => {
   const [selectedValue, setSelectedValue] = useState("tout-voir");
 
@@ -57,48 +65,13 @@ const CategoryFilters = () => {
         </StyledDropdown>
       </Grid>
       <StyledRadioGroup>
-        <StyledRadioButton
-          label="Tout voir"
-          id="tout-voir"
-          value="tout-voir"
-          checked={selectedValue === "tout-voir"}
-          onChange={handleChange}
-        />
-        <StyledRadioButton
-          label="Bars Restaurants"
-          id="bars-restaurants"
-          value="bars-restaurants"
-          checked={selectedValue === "bars-restaurants"}
-          onChange={handleChange}
-        />
-        <StyledRadioButton
-          label="Bureaux"
-          id="bureaux"
-          value="bureaux"
-          checked={selectedValue === "bureaux"}
-          onChange={handleChange}
-        />
-        <RadioButton
-          label="Coworking"
-          id="coworking"
-          value="coworking"
-          checked={selectedValue === "coworking"}
-          onChange={handleChange}
-        />
-        <StyledRadioButton
-          label="Hôtels"
-          id="hotels"
-          value="hotels"
-          checked={selectedValue === "hotels"}
-          onChange={handleChange}
-        />
-        <StyledRadioButton
-          label="Logements"
-          id="logements"
-          value="logements"
-          checked={selectedValue === "logements"}
-          onChange={handleChange}
-        />
+        {categories.map((category) => (
+          <RadioButton
+            category={category}
+            onChange={handleChange}
+            selectedValue={selectedValue}
+          />
+        ))}
       </StyledRadioGroup>
     </StyledContainer>
   );

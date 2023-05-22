@@ -7,8 +7,8 @@ const RadioButtonWrapper = styled.div`
 `;
 const RadioButtonInput = styled.input`
   appearance: none;
-  width: 15px;
-  height: 15px;
+  width: 25px;
+  height: 25px;
   border: 1px solid ${(props) => props.theme.colors.black};
   border-radius: 50%;
   cursor: pointer;
@@ -18,9 +18,9 @@ const RadioButtonInput = styled.input`
   &:checked::after {
     content: "";
     display: block;
-    width: 8px;
-    height: 8px;
-    margin: 3px;
+    width: 15px;
+    height: 15px;
+    margin: 4px;
     background-color: ${(props) => props.theme.colors.black};
     border-radius: 50%;
   }
@@ -33,18 +33,18 @@ const RadioButtonLabel = styled.label`
   line-height: 25px;
 `;
 
-const RadioButton = ({ label, id, value, checked, onChange }) => {
+const RadioButton = ({ category, onChange, selectedValue }) => {
   return (
     <RadioButtonWrapper>
       <RadioButtonInput
         type="radio"
-        id={id}
-        value={value}
-        checked={checked}
+        id={category}
+        value={category}
+        checked={selectedValue === category}
         onChange={onChange}
       />
 
-      <RadioButtonLabel for={id}>{label}</RadioButtonLabel>
+      <RadioButtonLabel for={category}>{category}</RadioButtonLabel>
     </RadioButtonWrapper>
   );
 };
