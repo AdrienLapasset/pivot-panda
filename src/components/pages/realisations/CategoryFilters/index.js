@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
-import ArrowDropdown from "../../../../assets/icons/ArrowDropdown";
 import RadioButton from "./RadioButton";
 
-//créer un tableau avec les catégorie
+//créer ces catégories dans sanity et le récupérer ici
 const categories = [
-  "Tout voir",
+  "Tout les projets",
   "Bars restaurants",
   "Bureaux",
   "Coworking",
@@ -25,15 +24,14 @@ const StyledContainer = styled.div`
   }
 `;
 
-const StyledDropdown = styled.div`
-  display: flex;
-  align-items: center;
-  grid-column: 1 / 5;
-  p {
-    padding: 15px;
-    line-height: 15px;
-    text-transform: uppercase;
-  }
+const MobileDropdown = styled.select`
+  grid-column: 1 / 3;
+  font-size: 12px;
+  padding: 15px;
+  line-height: 15px;
+  text-transform: uppercase;
+  border: none;
+  background-color: transparent;
   @media ${(props) => props.theme.minWidth.md} {
     display: none;
   }
@@ -50,7 +48,7 @@ const StyledRadioGroup = styled(Grid)`
 `;
 
 const CategoryFilters = () => {
-  const [selectedValue, setSelectedValue] = useState("tout-voir");
+  const [selectedValue, setSelectedValue] = useState("Tout les projets");
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -59,10 +57,13 @@ const CategoryFilters = () => {
   return (
     <StyledContainer>
       <Grid>
-        <StyledDropdown>
-          <p>Tous les projets</p>
-          <ArrowDropdown />
-        </StyledDropdown>
+        <MobileDropdown>
+          {categories.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
+        </MobileDropdown>
       </Grid>
       <StyledRadioGroup>
         {categories.map((category) => (
