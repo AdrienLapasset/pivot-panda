@@ -1,7 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
-import CTAButton from "components/global/CTAButton";
+import Button from "components/global/Button";
+import NoPaddingContainer from "components/global/NoPaddingContainer";
+import HeroVideo from "assets/videos/placeholder.mp4";
 
 const StyledContainer = styled.div`
   h1 {
@@ -58,6 +60,13 @@ const StyledRow = styled(Grid)`
     }
   }
 `;
+const StyledVideo = styled.video`
+  max-width: 100%;
+  margin-top: 30px;
+  @media ${(props) => props.theme.minWidth.md} {
+    margin-top: 150px;
+  }
+`;
 
 const comingSoon = () => {
   return (
@@ -76,8 +85,13 @@ const comingSoon = () => {
         <aside>depuis 2019</aside>
       </StyledRow>
       <Grid>
-        <CTAButton>nous contacter</CTAButton>
+        <Button>nous contacter</Button>
       </Grid>
+      <NoPaddingContainer>
+        <StyledVideo controls>
+          <source src={HeroVideo} type="video/mp4" />
+        </StyledVideo>
+      </NoPaddingContainer>
     </StyledContainer>
   );
 };
