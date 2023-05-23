@@ -1,11 +1,28 @@
 import * as React from "react";
 import Layout from "components/Layout";
 import HeroSection from "components/pages/home/HeroSection";
+import SectionHeader from "components/pages/home/SectionHeader";
+import styled from "styled-components";
+
+const StyledSectionHeader = styled(SectionHeader)`
+  margin-top: 15px;
+  @media ${(props) => props.theme.minWidth.md} {
+    margin-top: 35px;
+  }
+`;
 
 const IndexPage = () => {
   return (
     <Layout>
       <HeroSection />
+      <StyledSectionHeader
+        title="Dénicheurs et concepteurs de votre futur espace"
+        button="nos métiers"
+      >
+        En tant que contractant général, Pivot Panda réalise différents types de
+        missions, de la conception de projet à la réalisation des travaux, avec
+        Panda Invest en tant qu’opérateur immobilier.
+      </StyledSectionHeader>
     </Layout>
   );
 };

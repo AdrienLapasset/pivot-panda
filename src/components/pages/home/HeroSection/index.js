@@ -68,7 +68,7 @@ const StyledVideo = styled.video`
   }
 `;
 
-const comingSoon = () => {
+const HeroSection = () => {
   return (
     <StyledContainer>
       <Grid>
@@ -96,4 +96,4 @@ const comingSoon = () => {
   );
 };
 
-export default comingSoon;
+export default HeroSection;
