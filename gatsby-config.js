@@ -17,6 +17,7 @@ module.exports = {
       options: {
         projectId: "pp1ujuyb",
         dataset: "production",
+        //enables real-time preview, transfer token into environment variable
         token:
           "skaSSnr4RVqeNFO9BAX8USaAjqgIOe8KYrZt0M0Jmx0Illj58HISvySctU5biBLnlboWGGzT0BMhXVdgIaXj9N1HZTcZqzPXROmvOvmxOd21jo0WKhd7tiP55jELnJcX4ZiKuc1kuipFJxhVHXoUqWm89IFbAUoEvNhJBySoIWqmLMnLzV6L",
         watchMode: true, //real-time content preview
