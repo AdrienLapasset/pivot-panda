@@ -2,9 +2,9 @@ import * as React from "react";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  margin: 0 -30px;
+  margin: 0 -${(props) => props.theme.columnGap.mobile};
   @media ${(props) => props.theme.minWidth.md} {
-    margin: 0 -50px;
+    margin: 0 -${(props) => props.theme.columnGap.desktop};
   }
 `;
 
