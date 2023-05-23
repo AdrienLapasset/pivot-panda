@@ -2,8 +2,8 @@ import * as React from "react";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
 import Button from "components/global/Button";
-import NoPaddingContainer from "components/global/NoPaddingContainer";
 import HeroVideo from "assets/videos/placeholder.mp4";
+import PageContainer from "components/global/PageContainer";
 
 const StyledContainer = styled.div`
   h1 {
@@ -71,27 +71,27 @@ const StyledVideo = styled.video`
 const HeroSection = () => {
   return (
     <StyledContainer>
-      <Grid>
-        <h1>
-          Créateurs
-          <br /> de lieux uniques
-        </h1>
-      </Grid>
-      <StyledRow>
-        <p>Nous donnons vie à votre projet, étape par étape.</p>
-        <aside>
-          Paris <br /> Marseille
-        </aside>
-        <aside>depuis 2019</aside>
-      </StyledRow>
-      <Grid>
-        <Button>nous contacter</Button>
-      </Grid>
-      <NoPaddingContainer>
-        <StyledVideo muted autoplay preload="auto" loop>
-          <source src={HeroVideo} type="video/mp4" />
-        </StyledVideo>
-      </NoPaddingContainer>
+      <PageContainer>
+        <Grid>
+          <h1>
+            Créateurs
+            <br /> de lieux uniques
+          </h1>
+        </Grid>
+        <StyledRow>
+          <p>Nous donnons vie à votre projet, étape par étape.</p>
+          <aside>
+            Paris <br /> Marseille
+          </aside>
+          <aside>depuis 2019</aside>
+        </StyledRow>
+        <Grid>
+          <Button>nous contacter</Button>
+        </Grid>
+      </PageContainer>
+      <StyledVideo muted autoplay preload="auto" loop>
+        <source src={HeroVideo} type="video/mp4" />
+      </StyledVideo>
     </StyledContainer>
   );
 };

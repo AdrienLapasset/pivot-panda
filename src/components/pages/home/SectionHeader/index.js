@@ -4,6 +4,7 @@ import Grid from "components/global/Grid";
 import Button from "components/global/Button";
 import Title from "components/global/Title";
 import Text from "components/global/Text";
+import PageContainer from "components/global/PageContainer";
 
 const StyledContainer = styled(Grid)`
   & > div {
@@ -27,13 +28,15 @@ const StyledTitle = styled(Title)`
 
 const SectionHeader = ({ title, button, children, className }) => {
   return (
-    <StyledContainer className={className}>
-      <StyledTitle>{title}</StyledTitle>
-      <div>
-        <Text> {children}</Text>
-        <Button>{button}</Button>
-      </div>
-    </StyledContainer>
+    <PageContainer>
+      <StyledContainer className={className}>
+        <StyledTitle>{title}</StyledTitle>
+        <div>
+          <Text> {children}</Text>
+          <Button>{button}</Button>
+        </div>
+      </StyledContainer>
+    </PageContainer>
   );
 };
 
