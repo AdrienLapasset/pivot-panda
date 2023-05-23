@@ -21,7 +21,6 @@ const ProjectsList = () => {
     }
   `);
 
-  console.log("Projects list gives: ", data);
   const projects = data.allSanityProject.nodes;
   return (
     <div>

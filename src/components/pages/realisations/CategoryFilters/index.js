@@ -54,6 +54,8 @@ const CategoryFilters = () => {
     setSelectedValue(event.target.value);
   };
 
+  //add query for categories
+
   return (
     <StyledContainer>
       <Grid>
