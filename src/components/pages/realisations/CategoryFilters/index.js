@@ -1,17 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useStaticQuery, graphql } from "gatsby";
 import Grid from "components/global/Grid";
 import RadioButton from "./RadioButton";
-
-//créer ces catégories dans sanity et le récupérer ici
-const categories = [
-  "Tout les projets",
-  "Bars restaurants",
-  "Bureaux",
-  "Coworking",
-  "Hôtels",
-  "Logements",
-];
 
 const StyledContainer = styled.div`
   height: 45px;
@@ -48,19 +39,28 @@ const StyledRadioGroup = styled(Grid)`
 `;
 
 const CategoryFilters = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allSanityProject {
+        distinct(field: { category: SELECT })
+      }
+    }
+  `);
+
+  const categories = data.allSanityProject.distinct;
+  const allCategories = ["Tout les projets", ...categories];
+
   const [selectedValue, setSelectedValue] = useState("Tout les projets");
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
 
-  //add query for categories
-
   return (
     <StyledContainer>
       <Grid>
         <MobileDropdown>
-          {categories.map((category) => (
+          {allCategories.map((category) => (
             <option key={category} value={category}>
               {category}
             </option>
@@ -68,8 +68,9 @@ const CategoryFilters = () => {
         </MobileDropdown>
       </Grid>
       <StyledRadioGroup>
-        {categories.map((category) => (
+        {allCategories.map((category) => (
           <RadioButton
+            key={category}
             category={category}
             onChange={handleChange}
             selectedValue={selectedValue}
