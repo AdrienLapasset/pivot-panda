@@ -33,14 +33,14 @@ const RadioButtonLabel = styled.label`
   line-height: 25px;
 `;
 
-const RadioButton = ({ category, onChange, selectedValue }) => {
+const RadioButton = ({ category, onChange, selectedCategory }) => {
   return (
     <RadioButtonWrapper>
       <RadioButtonInput
         type="radio"
         id={category}
         value={category}
-        checked={selectedValue === category}
+        checked={selectedCategory === category}
         onChange={onChange}
       />
 

@@ -38,7 +38,7 @@ const StyledRadioGroup = styled(Grid)`
   }
 `;
 
-const CategoryFilters = () => {
+const CategoryFilters = ({ onCategoryChange }) => {
   const data = useStaticQuery(graphql`
     query {
       allSanityProject {
@@ -50,10 +50,12 @@ const CategoryFilters = () => {
   const categories = data.allSanityProject.distinct;
   const allCategories = ["Tout les projets", ...categories];
 
-  const [selectedValue, setSelectedValue] = useState("Tout les projets");
+  const [selectedCategory, setSelectedCategory] = useState("Tout les projets");
 
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
+  const handleChange = (category) => {
+    const selectedCategory = category.target.value;
+    setSelectedCategory(selectedCategory);
+    onCategoryChange(selectedCategory);
   };
 
   return (
@@ -73,7 +75,7 @@ const CategoryFilters = () => {
             key={category}
             category={category}
             onChange={handleChange}
-            selectedValue={selectedValue}
+            selectedCategory={selectedCategory}
           />
         ))}
       </StyledRadioGroup>

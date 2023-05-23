@@ -2,29 +2,35 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const ProjectsList = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allSanityProject {
-        nodes {
-          category
-          city
-          name
-          surface
-          image {
-            asset {
-              gatsbyImageData
+const ProjectsList = ({ selectedCategory }) => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allSanityProject {
+          nodes {
+            category
+            city
+            name
+            surface
+            image {
+              asset {
+                gatsbyImageData
+              }
             }
           }
         }
       }
-    }
-  `);
+    `
+  );
 
   const projects = data.allSanityProject.nodes;
+  const filteredProjects = selectedCategory
+    ? projects.filter((project) => project.category === selectedCategory)
+    : projects;
+
   return (
     <div>
-      {projects.map((project) => {
+      {filteredProjects.map((project) => {
         const image = getImage(project.image.asset);
         return (
           <div key={project.name}>
