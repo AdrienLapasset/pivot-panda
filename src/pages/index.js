@@ -1,8 +1,9 @@
 import * as React from "react";
+import styled from "styled-components";
 import Layout from "components/Layout";
 import HeroSection from "components/pages/home/HeroSection";
 import SectionHeader from "components/pages/home/SectionHeader";
-import styled from "styled-components";
+import NumbersSection from "components/pages/home/NumbersSection";
 
 const StyledSectionHeader = styled(SectionHeader)`
   margin-top: 15px;
@@ -23,6 +24,7 @@ const IndexPage = () => {
         missions, de la conception de projet à la réalisation des travaux, avec
         Panda Invest en tant qu’opérateur immobilier.
       </StyledSectionHeader>
+      <NumbersSection />
     </Layout>
   );
 };
