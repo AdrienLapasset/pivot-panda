@@ -88,7 +88,7 @@ const comingSoon = () => {
         <Button>nous contacter</Button>
       </Grid>
       <NoPaddingContainer>
-        <StyledVideo controls>
+        <StyledVideo muted autoplay preload="auto" loop>
           <source src={HeroVideo} type="video/mp4" />
         </StyledVideo>
       </NoPaddingContainer>
