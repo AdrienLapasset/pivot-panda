@@ -25,7 +25,7 @@ const StyledArrow = styled(Arrow)`
   }
 `;
 
-const CTA = ({ children, className }) => {
+const CTAButton = ({ children, className }) => {
   return (
     <StyledContainer className={className}>
       {children}
@@ -34,4 +34,4 @@ const CTA = ({ children, className }) => {
   );
 };
 
-export default CTA;
+export default CTAButton;

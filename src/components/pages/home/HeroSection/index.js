@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
-import CTA from "components/global/CTA";
+import CTAButton from "components/global/CTAButton";
 
 const StyledContainer = styled.div`
   h1 {
@@ -76,7 +76,7 @@ const comingSoon = () => {
         <aside>depuis 2019</aside>
       </StyledRow>
       <Grid>
-        <CTA>nous contacter</CTA>
+        <CTAButton>nous contacter</CTAButton>
       </Grid>
     </StyledContainer>
   );
