@@ -89,7 +89,7 @@ const HeroSection = () => {
           <Button>nous contacter</Button>
         </Grid>
       </PageContainer>
-      <StyledVideo muted autoplay preload="auto" loop>
+      <StyledVideo autoPlay muted loop>
         <source src={HeroVideo} type="video/mp4" />
       </StyledVideo>
     </StyledContainer>
