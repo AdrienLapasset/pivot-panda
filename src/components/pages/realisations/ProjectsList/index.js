@@ -8,6 +8,10 @@ const StyledProjectContainer = styled.div`
   padding: 15px 15px;
   margin: 0 -15px;
   border-bottom: 1px solid ${(props) => props.theme.colors.black};
+  @media ${(props) => props.theme.minWidth.md} {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `;
 
 const StyledTextLabel = styled.div`
@@ -15,15 +19,28 @@ const StyledTextLabel = styled.div`
   opacity: 0.5;
   line-height: 15px;
   text-transform: uppercase;
+  @media ${(props) => props.theme.minWidth.md} {
+    display: none;
+  }
 `;
 
 const StyledProjectName = styled.div`
   grid-column: 1 / 3;
+  @media ${(props) => props.theme.minWidth.md} {
+    grid-column: 1 / 8;
+  }
 `;
 
-const StyledProjectCategory = styled.div`
+const StyledProjectInfo = styled.div`
   grid-column: 3 / 5;
+  @media ${(props) => props.theme.minWidth.md} {
+    grid-column: 1 / 8;
+    display: flex;
+    justify-content: space-between;
+  }
 `;
+
+const StyledProjectCategory = styled.div``;
 
 const StyledDesktopTags = styled.div`
   display: none;
@@ -34,6 +51,11 @@ const StyledDesktopTags = styled.div`
 
 const StyledGatsbyImage = styled(GatsbyImage)`
   margin-top: 15px;
+  aspect-ratio: 1.3;
+  @media ${(props) => props.theme.minWidth.md} {
+    aspect-ratio: auto;
+    width: 100%;
+  }
 `;
 
 const ProjectsList = ({ selectedCategory }) => {
@@ -48,7 +70,7 @@ const ProjectsList = ({ selectedCategory }) => {
             surface
             image {
               asset {
-                gatsbyImageData(aspectRatio: 1.3)
+                gatsbyImageData
               }
             }
           }
@@ -63,30 +85,38 @@ const ProjectsList = ({ selectedCategory }) => {
     : projects;
 
   return (
-    <div>
-      {filteredProjects.map((project) => {
+    <Grid>
+      {filteredProjects.map((project, i) => {
         const image = getImage(project.image.asset);
+
+        const gridColumnStart = i % 3 === 0 ? 1 : i % 3 === 1 ? 4 : 6;
+        const gridColumnEnd = i % 3 === 0 ? "span 3" : "span 2";
+
         return (
-          <StyledProjectContainer key={project.name}>
+          <StyledProjectContainer
+            key={i}
+            gridColumnStart={gridColumnStart}
+            gridColumnEnd={gridColumnEnd}
+          >
             <Grid>
               <StyledProjectName>
                 <StyledTextLabel>Projet</StyledTextLabel>
                 <p>{project.name}</p>
               </StyledProjectName>
-              <StyledProjectCategory>
+              <StyledProjectInfo>
                 <StyledTextLabel>Catégorie</StyledTextLabel>
-                <p>{project.category}</p>
-              </StyledProjectCategory>
-              <StyledDesktopTags>
-                <p>{project.city}</p>
-                <p>{project.surface} m²</p>
-              </StyledDesktopTags>
+                <StyledProjectCategory>
+                  {project.category}
+                </StyledProjectCategory>
+                <StyledDesktopTags>{project.city}</StyledDesktopTags>
+                <StyledDesktopTags>{project.surface} m²</StyledDesktopTags>
+              </StyledProjectInfo>
             </Grid>
             <StyledGatsbyImage image={image} alt={project.name} />
           </StyledProjectContainer>
         );
       })}
-    </div>
+    </Grid>
   );
 };
 
