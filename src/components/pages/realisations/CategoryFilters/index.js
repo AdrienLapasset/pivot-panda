@@ -63,7 +63,12 @@ const CategoryFilters = ({ onCategoryChange }) => {
       <Grid>
         <MobileDropdown>
           {allCategories.map((category) => (
-            <option key={category} value={category}>
+            <option
+              key={category}
+              category={category}
+              onChange={handleChange}
+              selectedCategory={selectedCategory}
+            >
               {category}
             </option>
           ))}
