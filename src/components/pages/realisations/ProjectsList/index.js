@@ -88,15 +88,18 @@ const ProjectsList = ({ selectedCategory }) => {
     <Grid>
       {filteredProjects.map((project, i) => {
         const image = getImage(project.image.asset);
+        //commencer à afficher la meme ligne
+        //créer une variable gridrow qui itère tous les 3 (1,1,1,2,2,2...) et donner un style pour les impair et pour les pair
+        //et mettre la gridrow dans un usestate si besoin pour amener la donnnée au styled component
 
-        const gridColumnStart = i % 3 === 0 ? 1 : i % 3 === 1 ? 4 : 6;
-        const gridColumnEnd = i % 3 === 0 ? "span 3" : "span 2";
+        // const gridColumnStart = i % 3 === 0 ? 1 : i % 3 === 1 ? 4 : 6;
+        // const gridColumnEnd = i % 3 === 0 ? "span 3" : "span 2";
 
         return (
           <StyledProjectContainer
             key={i}
-            gridColumnStart={gridColumnStart}
-            gridColumnEnd={gridColumnEnd}
+            // gridColumnStart={gridColumnStart}
+            // gridColumnEnd={gridColumnEnd}
           >
             <Grid>
               <StyledProjectName>
