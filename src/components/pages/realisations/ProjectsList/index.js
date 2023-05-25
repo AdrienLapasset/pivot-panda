@@ -4,11 +4,23 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
 
+const StyledProjectsList = styled.div`
+  @media ${(props) => props.theme.minWidth.md} {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column-gap: ${(props) => props.theme.columnGap.desktop};
+    margin: 0 -10px;
+  }
+`;
+
 const StyledProjectContainer = styled.div`
   padding: 15px 15px;
   margin: 0 -15px;
   border-bottom: 1px solid ${(props) => props.theme.colors.black};
+  border-right: 1px solid ${(props) => props.theme.colors.black};
   @media ${(props) => props.theme.minWidth.md} {
+    padding: 25px;
+    grid-column: ${(props) => props.gridColumn};
     display: flex;
     flex-direction: column-reverse;
   }
@@ -28,6 +40,9 @@ const StyledProjectName = styled.div`
   grid-column: 1 / 3;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: 1 / 8;
+    font-size: 24px;
+    line-height: 31px;
+    margin-bottom: 15px;
   }
 `;
 
@@ -40,12 +55,23 @@ const StyledProjectInfo = styled.div`
   }
 `;
 
-const StyledProjectCategory = styled.div``;
+const StyledProjectCategory = styled.div`
+  @media ${(props) => props.theme.minWidth.md} {
+    font-size: 12px;
+    opacity: 0.5;
+    line-height: 15px;
+    text-transform: uppercase;
+  }
+`;
 
 const StyledDesktopTags = styled.div`
   display: none;
   @media ${(props) => props.theme.minWidth.md} {
     display: block;
+    font-size: 12px;
+    opacity: 0.5;
+    line-height: 15px;
+    text-transform: uppercase;
   }
 `;
 
@@ -53,8 +79,10 @@ const StyledGatsbyImage = styled(GatsbyImage)`
   margin-top: 15px;
   aspect-ratio: 1.3;
   @media ${(props) => props.theme.minWidth.md} {
-    aspect-ratio: auto;
     width: 100%;
+    height: 26vw;
+    margin-top: 0;
+    margin-bottom: 25px;
   }
 `;
 
@@ -85,26 +113,22 @@ const ProjectsList = ({ selectedCategory }) => {
     : projects;
 
   return (
-    <Grid>
+    <StyledProjectsList>
       {filteredProjects.map((project, i) => {
         const image = getImage(project.image.asset);
-        //commencer à afficher la meme ligne
-        //créer une variable gridrow qui itère tous les 3 (1,1,1,2,2,2...) et donner un style pour les impair et pour les pair
-        //et mettre la gridrow dans un usestate si besoin pour amener la donnnée au styled component
-
-        // const gridColumnStart = i % 3 === 0 ? 1 : i % 3 === 1 ? 4 : 6;
-        // const gridColumnEnd = i % 3 === 0 ? "span 3" : "span 2";
+        let gridColumn;
+        if (i % 6 === 0 || i % 6 === 5) {
+          gridColumn = "span 3";
+        } else {
+          gridColumn = "span 2";
+        }
 
         return (
-          <StyledProjectContainer
-            key={i}
-            // gridColumnStart={gridColumnStart}
-            // gridColumnEnd={gridColumnEnd}
-          >
+          <StyledProjectContainer key={i} gridColumn={gridColumn}>
             <Grid>
               <StyledProjectName>
                 <StyledTextLabel>Projet</StyledTextLabel>
-                <p>{project.name}</p>
+                {project.name}
               </StyledProjectName>
               <StyledProjectInfo>
                 <StyledTextLabel>Catégorie</StyledTextLabel>
@@ -119,7 +143,7 @@ const ProjectsList = ({ selectedCategory }) => {
           </StyledProjectContainer>
         );
       })}
-    </Grid>
+    </StyledProjectsList>
   );
 };
 
