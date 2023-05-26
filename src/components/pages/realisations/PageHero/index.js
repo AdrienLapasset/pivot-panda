@@ -7,14 +7,15 @@ const StyledContainer = styled.div`
     text-transform: uppercase;
     font-size: 38px;
     line-height: 45px;
-    margin-top: 100px;
+    padding-top: 100px;
     padding-bottom: 15px;
     grid-column: 1/5;
     @media ${(props) => props.theme.minWidth.md} {
       font-size: 70px;
       line-height: 75px;
-      margin-top: 260px;
+      padding-top: 260px;
       grid-column: 1/5;
+      border-right: 1px solid ${(props) => props.theme.colors.black};
     }
   }
   p {
