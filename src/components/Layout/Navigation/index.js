@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PPlogo from "assets/logos/logo-pivot-panda-paysage.svg";
 import Grid from "components/global/Grid";
 import { Link } from "gatsby";
+import PageContainer from "components/global/PageContainer";
 
 const StyledNav = styled.nav`
   position: sticky;
@@ -35,18 +36,20 @@ const StyledNav = styled.nav`
 const Navigation = () => {
   return (
     <StyledNav>
-      <Grid>
-        <img src={PPlogo} alt="Logo Pivot Panda" />
-        <Link to="/realisations" activeClassName="active">
-          Réalisations
-        </Link>
-        <Link to="/savoir-faire" activeClassName="active">
-          Savoir-faire{" "}
-        </Link>
-        <Link to="/contact" activeClassName="active">
-          contact
-        </Link>
-      </Grid>
+      <PageContainer>
+        <Grid>
+          <img src={PPlogo} alt="Logo Pivot Panda" />
+          <Link to="/realisations" activeClassName="active">
+            Réalisations
+          </Link>
+          <Link to="/savoir-faire" activeClassName="active">
+            Savoir-faire{" "}
+          </Link>
+          <Link to="/contact" activeClassName="active">
+            contact
+          </Link>
+        </Grid>
+      </PageContainer>
     </StyledNav>
   );
 };

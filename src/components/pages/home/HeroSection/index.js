@@ -1,7 +1,9 @@
 import * as React from "react";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
-import CTAButton from "components/global/CTAButton";
+import Button from "components/global/Button";
+import HeroVideo from "assets/videos/placeholder.mp4";
+import PageContainer from "components/global/PageContainer";
 
 const StyledContainer = styled.div`
   h1 {
@@ -58,28 +60,40 @@ const StyledRow = styled(Grid)`
     }
   }
 `;
+const StyledVideo = styled.video`
+  max-width: 100%;
+  margin-top: 30px;
+  @media ${(props) => props.theme.minWidth.md} {
+    margin-top: 150px;
+  }
+`;
 
-const comingSoon = () => {
+const HeroSection = () => {
   return (
     <StyledContainer>
-      <Grid>
-        <h1>
-          Créateurs
-          <br /> de lieux uniques
-        </h1>
-      </Grid>
-      <StyledRow>
-        <p>Nous donnons vie à votre projet, étape par étape.</p>
-        <aside>
-          Paris <br /> Marseille
-        </aside>
-        <aside>depuis 2019</aside>
-      </StyledRow>
-      <Grid>
-        <CTAButton>nous contacter</CTAButton>
-      </Grid>
+      <PageContainer>
+        <Grid>
+          <h1>
+            Créateurs
+            <br /> de lieux uniques
+          </h1>
+        </Grid>
+        <StyledRow>
+          <p>Nous donnons vie à votre projet, étape par étape.</p>
+          <aside>
+            Paris <br /> Marseille
+          </aside>
+          <aside>depuis 2019</aside>
+        </StyledRow>
+        <Grid>
+          <Button>nous contacter</Button>
+        </Grid>
+      </PageContainer>
+      <StyledVideo autoPlay muted loop>
+        <source src={HeroVideo} type="video/mp4" />
+      </StyledVideo>
     </StyledContainer>
   );
 };
 
-export default comingSoon;
+export default HeroSection;

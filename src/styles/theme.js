@@ -27,6 +27,7 @@ const theme = {
     mobile: "15px",
     desktop: "25px",
   },
+  border: "1px solid #3A3A1F",
 };
 
 export default theme;
