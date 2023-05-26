@@ -14,12 +14,13 @@ const StyledProjectsList = styled.div`
 `;
 
 const StyledProjectContainer = styled.div`
-  padding: 15px 15px;
+  padding: 15px;
   margin: 0 -15px;
   border-bottom: 1px solid ${(props) => props.theme.colors.black};
   border-right: 1px solid ${(props) => props.theme.colors.black};
   @media ${(props) => props.theme.minWidth.md} {
     padding: 25px;
+    padding-left: ${(props) => props.paddingLeft};
     grid-column: ${(props) => props.gridColumn};
     display: flex;
     flex-direction: column-reverse;
@@ -117,14 +118,23 @@ const ProjectsList = ({ selectedCategory }) => {
       {filteredProjects.map((project, i) => {
         const image = getImage(project.image.asset);
         let gridColumn;
+        let paddingLeft;
         if (i % 6 === 0 || i % 6 === 5) {
           gridColumn = "span 3";
         } else {
           gridColumn = "span 2";
         }
 
+        if (i % 3 !== 0) {
+          paddingLeft = "30px";
+        }
+
         return (
-          <StyledProjectContainer key={i} gridColumn={gridColumn}>
+          <StyledProjectContainer
+            key={i}
+            gridColumn={gridColumn}
+            paddingLeft={paddingLeft}
+          >
             <Grid>
               <StyledProjectName>
                 <StyledTextLabel>Projet</StyledTextLabel>
