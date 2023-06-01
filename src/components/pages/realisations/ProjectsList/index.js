@@ -162,7 +162,7 @@ const ProjectsList = ({ selectedCategory }) => {
 
           return (
             <StyledProjectContainer
-              to={"/" + project.slug.current}
+              to={"/projet/" + project.slug.current}
               key={i}
               gridColumnProject={gridColumnProject}
               paddingLeft={paddingLeft}
