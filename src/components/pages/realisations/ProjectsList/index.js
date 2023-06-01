@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
@@ -14,7 +14,7 @@ const StyledProjectsList = styled.div`
   }
 `;
 
-const StyledProjectContainer = styled.div`
+const StyledProjectContainer = styled(Link)`
   padding-top: 15px;
   @media ${(props) => props.theme.minWidth.md} {
     display: flex;
@@ -123,6 +123,9 @@ const ProjectsList = ({ selectedCategory }) => {
                 gatsbyImageData
               }
             }
+            slug {
+              current
+            }
           }
         }
       }
@@ -159,6 +162,7 @@ const ProjectsList = ({ selectedCategory }) => {
 
           return (
             <StyledProjectContainer
+              to={"/" + project.slug.current}
               key={i}
               gridColumnProject={gridColumnProject}
               paddingLeft={paddingLeft}
