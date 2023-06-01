@@ -14,6 +14,10 @@ const StyledContainer = styled.div`
   }
 `;
 
+const StyledPageContainer = styled(PageContainer)`
+  height: 100%;
+`;
+
 const MobileDropdown = styled.select`
   grid-column: 1 / 3;
   font-size: 12px;
@@ -31,7 +35,6 @@ const StyledRadioGroup = styled(Grid)`
   display: none;
   @media ${(props) => props.theme.minWidth.md} {
     display: grid;
-    padding: 25px 0;
     align-items: center;
     height: 100%;
   }
@@ -47,23 +50,23 @@ const CategoryFilters = ({ onCategoryChange }) => {
   `);
 
   const categories = data.allSanityProject.distinct;
-  const allCategories = ["Tout les projets", ...categories];
+  const allCategories = ["Tous les projets", ...categories];
 
-  const [selectedCategory, setSelectedCategory] = useState("Tout les projets");
+  const [selectedCategory, setSelectedCategory] = useState("Tous les projets");
 
-  const handleChange = (e) => {
-    const newCategory = e.target.value;
+  const handleChange = (event) => {
+    const newCategory = event.target.value;
     setSelectedCategory(newCategory);
     onCategoryChange(newCategory);
   };
 
   return (
     <StyledContainer>
-      <PageContainer>
+      <StyledPageContainer>
         <Grid>
           <MobileDropdown value={selectedCategory} onChange={handleChange}>
-            {allCategories.map((i, category) => (
-              <option key={i} value={category}>
+            {allCategories.map((category) => (
+              <option key={category} value={category}>
                 {category}
               </option>
             ))}
@@ -79,7 +82,7 @@ const CategoryFilters = ({ onCategoryChange }) => {
             />
           ))}
         </StyledRadioGroup>
-      </PageContainer>
+      </StyledPageContainer>
     </StyledContainer>
   );
 };

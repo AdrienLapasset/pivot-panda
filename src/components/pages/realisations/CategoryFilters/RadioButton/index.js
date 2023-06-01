@@ -37,13 +37,14 @@ const RadioButtonLabel = styled.label`
 
 const RadioButton = ({ category, onChange, selectedCategory }) => {
   return (
-    <RadioButtonWrapper onClick={onChange}>
+    <RadioButtonWrapper>
       <RadioButtonInput
         type="radio"
         id={category}
         name="category"
         value={category}
-        checked={selectedCategory === category}
+        defaultChecked={selectedCategory === category}
+        onChange={onChange}
       />
 
       <RadioButtonLabel htmlFor={category}>{category}</RadioButtonLabel>

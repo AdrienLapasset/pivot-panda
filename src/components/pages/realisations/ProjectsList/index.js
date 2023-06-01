@@ -140,8 +140,6 @@ const ProjectsList = ({ selectedCategory }) => {
       <StyledProjectsList>
         {filteredProjects.map((project, i) => {
           const image = getImage(project.image.asset);
-
-          //Give different sizes to the first and last project of a 6-project series, and its tags
           let gridColumnProject;
           let gridColumnProjectTags;
           if (i % 6 === 0 || i % 6 === 5) {
@@ -157,7 +155,6 @@ const ProjectsList = ({ selectedCategory }) => {
             paddingLeft = "25px";
           }
 
-          //Check if it is the first project in row
           const isFirstInRow = i % 3 === 0;
 
           return (
