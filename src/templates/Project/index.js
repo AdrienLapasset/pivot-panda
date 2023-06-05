@@ -14,6 +14,10 @@ export const query = graphql`
       city
       name
       surface
+      mission
+      year
+      address
+      description
       image {
         asset {
           gatsbyImageData
@@ -62,12 +66,19 @@ const HorizontalLine = styled.div`
   background-color: ${(props) => props.theme.colors.black};
 `;
 
-const StyledMissionContainer = styled(PageContainer)`
+const StyledInfoContainer = styled(PageContainer)`
   padding-bottom: 15px;
 `;
 
-const StyledMissionType = styled(Text)`
+const StyledText = styled(Text)`
   padding-top: 15px;
+`;
+
+const SmallVerticalLine = styled.div`
+  width: 1px;
+  height: 100%;
+  background-color: ${(props) => props.theme.colors.black};
+  justify-self: end;
 `;
 
 const Project = ({ data }) => {
@@ -84,10 +95,27 @@ const Project = ({ data }) => {
         <ProjectTitle>{project.name}</ProjectTitle>
       </Grid>
       <HorizontalLine />
-      <StyledMissionContainer>
-        <StyledMissionType type="label">Mission Pivot Panda</StyledMissionType>
-        <p>Add dynamic mission type</p>
-      </StyledMissionContainer>
+      <StyledInfoContainer>
+        <StyledText type="label">Mission Pivot Panda</StyledText>
+        <p>{project.mission}</p>
+      </StyledInfoContainer>
+      <HorizontalLine />
+      <Grid>
+        <StyledInfoContainer>
+          <StyledText type="label">Surface</StyledText>
+          <p>{project.surface} m²</p>
+        </StyledInfoContainer>
+        <SmallVerticalLine />
+        <StyledInfoContainer>
+          <StyledText type="label">Année</StyledText>
+          <p>{project.year}</p>
+        </StyledInfoContainer>
+      </Grid>
+      <HorizontalLine />
+      <StyledInfoContainer>
+        <StyledText type="label">Adresse</StyledText>
+        <p>{project.address}</p>
+      </StyledInfoContainer>
       <HorizontalLine />
     </Layout>
   );
