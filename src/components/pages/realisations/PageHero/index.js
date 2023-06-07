@@ -27,7 +27,8 @@ const StyledContainer = styled.div`
     @media ${(props) => props.theme.minWidth.md} {
       font-size: 14px;
       line-height: 25px;
-      margin-top: 260px;
+      padding-top: 260px;
+      padding-bottom: 0;
       grid-column: 5/7;
     }
   }

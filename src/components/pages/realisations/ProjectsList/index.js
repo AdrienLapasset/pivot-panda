@@ -47,7 +47,7 @@ const StyledProjectInfo = styled.div`
     grid-column: ${(props) => props.gridColumnProjectTags};
     display: flex;
     justify-content: space-between;
-    padding-bottom: 25px;
+    padding-bottom: 13px;
   }
 `;
 
