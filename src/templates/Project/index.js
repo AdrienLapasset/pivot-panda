@@ -30,8 +30,17 @@ export const query = graphql`
   }
 `;
 
+const StyledHero = styled(Grid)`
+  height: calc(100vh - 57px);
+  grid-template-rows: 1fr 30px 1fr;
+`;
+
 const StyledGatsbyImage = styled(GatsbyImage)`
-  width: 100vw;
+  grid-column: 1 / 5;
+  grid-row: span 1;
+  height: 100%;
+  width: 100%;
+  border-bottom: solid ${(props) => props.theme.colors.black} 1px;
 `;
 
 const VerticalLine = styled.div`
@@ -39,16 +48,18 @@ const VerticalLine = styled.div`
   background-color: ${(props) => props.theme.colors.black};
   height: 100%;
   grid-column: 1 / 2;
-  grid-row: span 2;
+  grid-row: 2 / 4;
   justify-self: end;
 `;
 
 const StyledCategory = styled(Text)`
   grid-column: 2 / 4;
+  padding-top: 15px;
 `;
 
 const StyledCity = styled(Text)`
   grid-column: 4 / 5;
+  padding-top: 15px;
 `;
 
 const ProjectTitle = styled.div`
@@ -56,8 +67,8 @@ const ProjectTitle = styled.div`
   font-size: 38px;
   line-height: 45px;
   grid-column: 2 / 5;
-  margin-top: 185px;
-  margin-bottom: 5px;
+  align-self: end;
+  padding-bottom: 15px;
 `;
 
 const HorizontalLine = styled.div`
@@ -66,12 +77,18 @@ const HorizontalLine = styled.div`
   background-color: ${(props) => props.theme.colors.black};
 `;
 
-const StyledInfoContainer = styled(PageContainer)`
+const StyledContainer = styled(PageContainer)`
   padding-bottom: 15px;
 `;
 
 const StyledText = styled(Text)`
   padding-top: 15px;
+`;
+
+const StyledDescription = styled(Text)`
+  padding-top: 30px;
+  padding-bottom: 30px;
+  white-space: pre-line;
 `;
 
 const SmallVerticalLine = styled.div`
@@ -84,38 +101,43 @@ const SmallVerticalLine = styled.div`
 const Project = ({ data }) => {
   const project = data.sanityProject;
   const image = getImage(project.image.asset);
+  const projectYear = new Date(project.year).getFullYear();
 
   return (
     <Layout>
-      <StyledGatsbyImage image={image} alt={project.name} />
-      <Grid>
+      <StyledHero>
+        <StyledGatsbyImage image={image} alt={project.name} />
         <VerticalLine />
         <StyledCategory type="label">{project.category}</StyledCategory>
         <StyledCity type="label">{project.city}</StyledCity>
         <ProjectTitle>{project.name}</ProjectTitle>
-      </Grid>
+      </StyledHero>
       <HorizontalLine />
-      <StyledInfoContainer>
+      <StyledContainer>
         <StyledText type="label">Mission Pivot Panda</StyledText>
         <p>{project.mission}</p>
-      </StyledInfoContainer>
+      </StyledContainer>
       <HorizontalLine />
       <Grid>
-        <StyledInfoContainer>
+        <StyledContainer>
           <StyledText type="label">Surface</StyledText>
           <p>{project.surface} m²</p>
-        </StyledInfoContainer>
+        </StyledContainer>
         <SmallVerticalLine />
-        <StyledInfoContainer>
+        <StyledContainer>
           <StyledText type="label">Année</StyledText>
-          <p>{project.year}</p>
-        </StyledInfoContainer>
+          <p>{projectYear}</p>
+        </StyledContainer>
       </Grid>
       <HorizontalLine />
-      <StyledInfoContainer>
+      <StyledContainer>
         <StyledText type="label">Adresse</StyledText>
         <p>{project.address}</p>
-      </StyledInfoContainer>
+      </StyledContainer>
+      <HorizontalLine />
+      <StyledContainer>
+        <StyledDescription>{project.description}</StyledDescription>
+      </StyledContainer>
       <HorizontalLine />
     </Layout>
   );
