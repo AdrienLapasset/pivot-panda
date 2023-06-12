@@ -12,6 +12,7 @@ const RadioButtonInput = styled.input`
   border: 1px solid ${(props) => props.theme.colors.black};
   border-radius: 50%;
   cursor: pointer;
+
   &:checked {
     background-color: ${(props) => props.theme.colors.white};
   }
@@ -31,20 +32,22 @@ const RadioButtonLabel = styled.label`
   text-transform: uppercase;
   font-size: 12px;
   line-height: 25px;
+  cursor: pointer;
 `;
 
-const RadioButton = ({ category, onChange, selectedValue }) => {
+const RadioButton = ({ category, onChange, selectedCategory }) => {
   return (
     <RadioButtonWrapper>
       <RadioButtonInput
         type="radio"
         id={category}
+        name="category"
         value={category}
-        checked={selectedValue === category}
+        defaultChecked={selectedCategory === category}
         onChange={onChange}
       />
 
-      <RadioButtonLabel for={category}>{category}</RadioButtonLabel>
+      <RadioButtonLabel htmlFor={category}>{category}</RadioButtonLabel>
     </RadioButtonWrapper>
   );
 };
