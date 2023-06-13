@@ -26,6 +26,14 @@ export const query = graphql`
       slug {
         current
       }
+      contentBlocks {
+        image {
+          asset {
+            gatsbyImageData
+          }
+        }
+        text
+      }
     }
   }
 `;
@@ -35,7 +43,7 @@ const StyledHero = styled(Grid)`
   grid-template-rows: 1fr 30px 1fr;
 `;
 
-const StyledGatsbyImage = styled(GatsbyImage)`
+const HeroImage = styled(GatsbyImage)`
   grid-column: 1 / 5;
   grid-row: span 1;
   height: 100%;
@@ -83,6 +91,7 @@ const StyledContainer = styled(PageContainer)`
 
 const StyledText = styled(Text)`
   padding-top: 15px;
+  white-space: pre-line;
 `;
 
 const StyledDescription = styled(Text)`
@@ -98,6 +107,14 @@ const SmallVerticalLine = styled.div`
   justify-self: end;
 `;
 
+const StyledGatsbyImage = styled(GatsbyImage)`
+  margin: 15px 0;
+`;
+
+const ParagraphSeparator = styled(HorizontalLine)`
+  margin-top: 60px;
+`;
+
 const Project = ({ data }) => {
   const project = data.sanityProject;
   const image = getImage(project.image.asset);
@@ -106,7 +123,7 @@ const Project = ({ data }) => {
   return (
     <Layout>
       <StyledHero>
-        <StyledGatsbyImage image={image} alt={project.name} />
+        <HeroImage image={image} alt={project.name} />
         <VerticalLine />
         <StyledCategory type="label">{project.category}</StyledCategory>
         <StyledCity type="label">{project.city}</StyledCity>
@@ -139,6 +156,46 @@ const Project = ({ data }) => {
         <StyledDescription>{project.description}</StyledDescription>
       </StyledContainer>
       <HorizontalLine />
+      {project.contentBlocks.map((block, i) => {
+        if (block.image) {
+          const blockImage = getImage(block.image.asset);
+          if (block.text) {
+            return (
+              <div key={i}>
+                <StyledContainer>
+                  <StyledGatsbyImage
+                    image={blockImage}
+                    alt={`Block image ${i}`}
+                  />
+                  <StyledText>{block.text}</StyledText>
+                </StyledContainer>
+                <ParagraphSeparator />
+              </div>
+            );
+          } else {
+            return (
+              <div key={i}>
+                <StyledContainer>
+                  <StyledGatsbyImage
+                    image={blockImage}
+                    alt={`Block image ${i}`}
+                  />
+                </StyledContainer>
+                <ParagraphSeparator />
+              </div>
+            );
+          }
+        } else {
+          return (
+            <div key={i}>
+              <StyledContainer>
+                <StyledText>{block.text}</StyledText>
+              </StyledContainer>
+              <ParagraphSeparator />
+            </div>
+          );
+        }
+      })}
     </Layout>
   );
 };
