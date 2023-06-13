@@ -41,6 +41,10 @@ export const query = graphql`
 const StyledHero = styled(Grid)`
   height: calc(100vh - 57px);
   grid-template-rows: 1fr 30px 1fr;
+  @media ${(props) => props.theme.minWidth.md} {
+    height: 100%;
+    grid-template-rows: 1fr repeat(3, 75px) 1fr;
+  }
 `;
 
 const HeroImage = styled(GatsbyImage)`
@@ -49,6 +53,10 @@ const HeroImage = styled(GatsbyImage)`
   height: 100%;
   width: 100%;
   border-bottom: solid ${(props) => props.theme.colors.black} 1px;
+  @media ${(props) => props.theme.minWidth.md} {
+    height: calc(100vh - 80px);
+    grid-column: 1 / 8;
+  }
 `;
 
 const VerticalLine = styled.div`
@@ -58,16 +66,28 @@ const VerticalLine = styled.div`
   grid-column: 1 / 2;
   grid-row: 2 / 4;
   justify-self: end;
+  @media ${(props) => props.theme.minWidth.md} {
+    grid-column: 3 / 4;
+    grid-row: 2 / 6;
+  }
 `;
 
 const StyledCategory = styled(Text)`
   grid-column: 2 / 4;
   padding-top: 15px;
+  @media ${(props) => props.theme.minWidth.md} {
+    grid-column: 4 / 5;
+    padding-top: 0;
+  }
 `;
 
 const StyledCity = styled(Text)`
   grid-column: 4 / 5;
   padding-top: 15px;
+  @media ${(props) => props.theme.minWidth.md} {
+    grid-column: 5 / 6;
+    padding-top: 0;
+  }
 `;
 
 const ProjectTitle = styled.div`
@@ -77,6 +97,13 @@ const ProjectTitle = styled.div`
   grid-column: 2 / 5;
   align-self: end;
   padding-bottom: 15px;
+  @media ${(props) => props.theme.minWidth.md} {
+    grid-column: 4 / 8;
+    grid-row: 4 / 5;
+    font-size: 70px;
+    line-height: 75px;
+    padding-bottom: 10px;
+  }
 `;
 
 const HorizontalLine = styled.div`
@@ -87,6 +114,10 @@ const HorizontalLine = styled.div`
 
 const StyledContainer = styled(PageContainer)`
   padding-bottom: 15px;
+  @media ${(props) => props.theme.minWidth.md} {
+    grid-column: 1 / 3;
+    grid-row: 2 / 5;
+  }
 `;
 
 const StyledText = styled(Text)`
