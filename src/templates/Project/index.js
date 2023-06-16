@@ -6,6 +6,11 @@ import styled from "styled-components";
 import Grid from "components/global/Grid";
 import PageContainer from "components/global/PageContainer";
 import Text from "components/global/Text";
+import ContentBlock from "components/pages/project/ContentBlock";
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage,
+} from "react-compare-slider";
 
 export const query = graphql`
   query ProjectBySlug($slug: String!) {
@@ -208,53 +213,38 @@ const StyledText = styled(Text)`
   }
 `;
 
-const StyledBlockContainer = styled(PageContainer)`
-  border-top: solid ${(props) => props.theme.colors.black} 1px;
-`;
-
-const StyledContentBlock = styled(Grid)`
-  padding-top: 15px;
-  padding-bottom: 60px;
-`;
-
-const StyledBlockImage = styled(GatsbyImage)`
-  max-height: calc(100vh - 60px);
-  grid-column: span 4;
-  margin-bottom: 30px;
-  @media ${(props) => props.theme.minWidth.md} {
-    max-height: calc(100vh - 80px);
-    grid-column: ${({ isLandscape }) => (isLandscape ? "span 7" : "span 4")};
-  }
-`;
-
-const StyledBlockText = styled(StyledText)`
-  grid-column: span 4;
-  @media ${(props) => props.theme.minWidth.md} {
-    grid-column: 4 / 6;
-  }
-`;
-
 const Project = ({ data }) => {
-  const project = data.sanityProject;
-  const image = getImage(project.image.asset);
-  const projectYear = new Date(project.year).getFullYear();
+  const {
+    name,
+    category,
+    city,
+    description,
+    mission,
+    surface,
+    address,
+    image,
+    year,
+    contentBlocks,
+  } = data.sanityProject;
+  const heroImage = getImage(image.asset);
+  const projectYear = new Date(year).getFullYear();
 
   return (
     <Layout>
       <StyledHeader>
-        <StyledHeroImage image={image} alt={project.name} />
+        <StyledHeroImage image={heroImage} alt={name} />
         <StyledVerticalLine />
-        <StyledCategory type="label">{project.category}</StyledCategory>
-        <StyledCity type="label">{project.city}</StyledCity>
-        <StyledTitle>{project.name}</StyledTitle>
+        <StyledCategory type="label">{category}</StyledCategory>
+        <StyledCity type="label">{city}</StyledCity>
+        <StyledTitle>{name}</StyledTitle>
         <StyledMission>
           <StyledText type="label">Mission Pivot Panda</StyledText>
-          <p>{project.mission}</p>
+          <p>{mission}</p>
         </StyledMission>
         <StyledContainer>
           <StyledSurface>
             <StyledText type="label">Surface</StyledText>
-            <p>{project.surface} m²</p>
+            <p>{surface} m²</p>
           </StyledSurface>
           <StyledYear>
             <StyledText type="label">Année</StyledText>
@@ -263,51 +253,34 @@ const Project = ({ data }) => {
         </StyledContainer>
         <StyledAddress>
           <StyledText type="label">Adresse</StyledText>
-          <p>{project.address}</p>
+          <p>{address}</p>
         </StyledAddress>
         <StyledDescription>
-          <StyledText>{project.description}</StyledText>
+          <StyledText>{description}</StyledText>
         </StyledDescription>
       </StyledHeader>
-      {project.contentBlocks.map((block, i) => {
-        if (block.image) {
-          const blockImage = getImage(block.image.asset);
-          const isLandscape = block.orientation === "landscape";
-          if (block.text) {
-            return (
-              <StyledBlockContainer key={i}>
-                <StyledContentBlock>
-                  <StyledBlockImage
-                    image={blockImage}
-                    isLandscape={isLandscape}
-                    alt={`Block image ${i}`}
-                  />
-                  <StyledBlockText>{block.text}</StyledBlockText>
-                </StyledContentBlock>
-              </StyledBlockContainer>
-            );
-          } else {
-            return (
-              <StyledBlockContainer key={i}>
-                <StyledContentBlock>
-                  <StyledBlockImage
-                    image={blockImage}
-                    alt={`Block image ${i}`}
-                  />
-                </StyledContentBlock>
-              </StyledBlockContainer>
-            );
-          }
-        } else {
-          return (
-            <StyledBlockContainer key={i}>
-              <StyledContentBlock>
-                <StyledBlockText>{block.text}</StyledBlockText>
-              </StyledContentBlock>
-            </StyledBlockContainer>
-          );
+      {contentBlocks.map(({ image, text, orientation }) => (
+        <ContentBlock
+          key={text}
+          image={image}
+          text={text}
+          orientation={orientation}
+        />
+      ))}
+      <ReactCompareSlider
+        itemOne={
+          <ReactCompareSliderImage
+            src="https://images.unsplash.com/photo-1438401171849-74ac270044ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1784&q=70"
+            alt="Image one"
+          />
         }
-      })}
+        itemTwo={
+          <ReactCompareSliderImage
+            src="https://images.unsplash.com/photo-1437809781432-a957377661ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1784&q=70"
+            alt="Image two"
+          />
+        }
+      />
     </Layout>
   );
 };
