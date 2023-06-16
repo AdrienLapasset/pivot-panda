@@ -1,9 +1,9 @@
-import * as React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Button from "components/global/Button";
-import Grid from "components/global/Grid";
+// import Grid from "components/global/Grid";
 import Text from "components/global/Text";
 import SectionHeader from "components/pages/home/SectionHeader";
 import Slider from "react-slick";
@@ -67,6 +67,16 @@ const ProjectsSection = () => {
   );
 
   const projects = data.allSanityProject.nodes;
+  const initProjectName = projects[0].name;
+
+  const [currentProjectName, setCurrentProjectName] = useState(initProjectName);
+
+  const handleProjectChange = (oldIndex, newIndex) => {
+    const projectName = projects[newIndex].name;
+    console.log("projectName =>", projectName);
+    setCurrentProjectName(projectName);
+  };
+
   const sliderSettings = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -74,6 +84,9 @@ const ProjectsSection = () => {
     focusOnSelect: true,
     nextArrow: <CarouselNextArrow />,
     prevArrow: <CarousePrevArrow />,
+    beforeChange: (oldIndex, newIndex) => {
+      handleProjectChange(oldIndex, newIndex);
+    },
   };
   return (
     <>
@@ -88,11 +101,11 @@ const ProjectsSection = () => {
       </StyledSectionHeader>
       <StyledCarouselContainer>
         <Text type="label">Projet</Text>
-        <Text>Projet</Text>
+        <Text>{currentProjectName}</Text>
         <StyledSlider {...sliderSettings}>
           {projects.map(({ name, image }) => {
             const getGatsbyImage = getImage(image.asset);
-            return <GatsbyImage image={getGatsbyImage} alt={name} />;
+            return <GatsbyImage key={name} image={getGatsbyImage} alt={name} />;
           })}
         </StyledSlider>
       </StyledCarouselContainer>
