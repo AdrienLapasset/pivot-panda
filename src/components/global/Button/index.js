@@ -1,9 +1,9 @@
 import * as React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "gatsby";
 import Arrow from "assets/icons/ArrowBtn.js";
 
-const StyledContainer = styled(Link)`
+const SharedStyled = css`
   font-size: 8px;
   display: flex;
   align-items: center;
@@ -17,6 +17,15 @@ const StyledContainer = styled(Link)`
     font-size: 10px;
   }
 `;
+const StyledButton = styled.button`
+  ${SharedStyled}
+`;
+const StyledLink = styled(Link)`
+  ${SharedStyled}
+`;
+const StyledA = styled.a`
+  ${SharedStyled}
+`;
 const StyledArrow = styled(Arrow)`
   width: 15px;
   margin-left: 8px;
@@ -25,13 +34,33 @@ const StyledArrow = styled(Arrow)`
   }
 `;
 
-const Button = ({ children, className }) => {
-  return (
-    <StyledContainer className={className}>
-      {children}
-      <StyledArrow />
-    </StyledContainer>
-  );
+const Button = ({ children, className, onClick, to, href }) => {
+  if (onClick)
+    return (
+      <StyledButton className={className} onClick={() => onClick()}>
+        {children}
+        <StyledArrow />
+      </StyledButton>
+    );
+  if (to)
+    return (
+      <StyledLink to={to} className={className} href={href}>
+        {children}
+        <StyledArrow />
+      </StyledLink>
+    );
+  if (href)
+    return (
+      <StyledA
+        className={className}
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {children}
+        <StyledArrow />
+      </StyledA>
+    );
 };
 
 export default Button;
