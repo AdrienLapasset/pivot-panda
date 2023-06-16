@@ -20,6 +20,9 @@ const StyledBlockContainer = styled(PageContainer)`
 const StyledContentBlock = styled(Grid)`
   padding-top: 15px;
   padding-bottom: 60px;
+  @media ${(props) => props.theme.minWidth.md} {
+    padding-top: 25px;
+  }
 `;
 
 const StyledBlockImage = styled(GatsbyImage)`
@@ -29,6 +32,7 @@ const StyledBlockImage = styled(GatsbyImage)`
   @media ${(props) => props.theme.minWidth.md} {
     max-height: calc(100vh - 80px);
     grid-column: ${({ isLandscape }) => (isLandscape ? "span 7" : "span 4")};
+    margin-bottom: 50px;
   }
 `;
 
