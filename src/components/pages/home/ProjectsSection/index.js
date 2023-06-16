@@ -2,14 +2,13 @@ import * as React from "react";
 import styled from "styled-components";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
-// import Grid from "components/global/Grid";
-// import Text from "components/global/Text";
+import Button from "components/global/Button";
+import Grid from "components/global/Grid";
+import Text from "components/global/Text";
 import SectionHeader from "components/pages/home/SectionHeader";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import theme from "styles/theme";
 
 const StyledSectionHeader = styled(SectionHeader)`
   margin: 80px 0 30px;
@@ -17,13 +16,31 @@ const StyledSectionHeader = styled(SectionHeader)`
     margin: 180px 0 50px;
   }
 `;
+const StyledCarouselContainer = styled.div`
+  border-top: ${({ theme }) => theme.border};
+  border-bottom: ${({ theme }) => theme.border};
+  padding: 15px;
+`;
+const StyledSlider = styled(Slider)``;
+const StyledCarouselNextArrow = styled(Button)``;
 
-const sliderSettings = {
-  centerMode: true,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  infinite: true,
-  focusOnSelect: true,
+const CarouselNextArrow = ({ className, style, onClick }) => {
+  return (
+    <StyledCarouselNextArrow
+      className={className}
+      onClick={onClick}
+      style={{ ...style, display: "block", background: "green" }}
+    ></StyledCarouselNextArrow>
+  );
+};
+const CarousePrevArrow = ({ className, style, onClick }) => {
+  return (
+    <StyledCarouselNextArrow
+      className={className}
+      onClick={onClick}
+      style={{ ...style, display: "block", background: "green" }}
+    ></StyledCarouselNextArrow>
+  );
 };
 
 const ProjectsSection = () => {
@@ -50,7 +67,14 @@ const ProjectsSection = () => {
   );
 
   const projects = data.allSanityProject.nodes;
-
+  const sliderSettings = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    infinite: true,
+    focusOnSelect: true,
+    nextArrow: <CarouselNextArrow />,
+    prevArrow: <CarousePrevArrow />,
+  };
   return (
     <>
       <StyledSectionHeader
@@ -62,12 +86,16 @@ const ProjectsSection = () => {
         co-living, co-working ou des logements meublés, centrés sur les usages
         et adaptés aux besoins du client.
       </StyledSectionHeader>
-      <Slider {...sliderSettings}>
-        {projects.map(({ name, image, category, city }) => {
-          const getGatsbyImage = getImage(image.asset);
-          return <GatsbyImage image={getGatsbyImage} alt={name} />;
-        })}
-      </Slider>
+      <StyledCarouselContainer>
+        <Text type="label">Projet</Text>
+        <Text>Projet</Text>
+        <StyledSlider {...sliderSettings}>
+          {projects.map(({ name, image }) => {
+            const getGatsbyImage = getImage(image.asset);
+            return <GatsbyImage image={getGatsbyImage} alt={name} />;
+          })}
+        </StyledSlider>
+      </StyledCarouselContainer>
     </>
   );
 };
