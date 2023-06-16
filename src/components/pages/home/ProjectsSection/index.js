@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Button from "components/global/Button";
-// import Grid from "components/global/Grid";
+import Grid from "components/global/Grid";
 import Text from "components/global/Text";
 import SectionHeader from "components/pages/home/SectionHeader";
 import Slider from "react-slick";
@@ -16,21 +16,65 @@ const StyledSectionHeader = styled(SectionHeader)`
     margin: 180px 0 50px;
   }
 `;
-const StyledCarouselContainer = styled.div`
+const StyledCarouselContainer = styled(Grid)`
   border-top: ${({ theme }) => theme.border};
   border-bottom: ${({ theme }) => theme.border};
-  padding: 15px;
-  .btn-container {
+  padding: ${({ theme }) => theme.columnGap.mobile};
+  display: block;
+  @media ${(props) => props.theme.minWidth.md} {
+    display: grid;
+    padding: 0;
+  }
+  .info-container {
+    @media ${(props) => props.theme.minWidth.md} {
+      grid-column: 1 / span 2;
+      padding: ${({ theme }) => theme.columnGap.desktop};
+      align-self: start;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    & > div:not(.btn-container-desktop) {
+      display: none;
+      @media ${(props) => props.theme.minWidth.md} {
+        display: block;
+        margin-top: ${({ theme }) => theme.columnGap.desktop};
+      }
+    }
+  }
+  .slider-container {
+    margin: ${({ theme }) => theme.columnGap.mobile} 0;
+    @media ${(props) => props.theme.minWidth.md} {
+      margin: 0;
+      grid-column: 3 / span 5;
+      border-left: ${({ theme }) => theme.border};
+      padding: ${({ theme }) => theme.columnGap.desktop};
+    }
+    .gatsby-image-wrapper {
+      aspect-ratio: 1.25;
+      @media ${(props) => props.theme.minWidth.md} {
+        aspect-ratio: 1.65;
+      }
+    }
+  }
+  .btn-container-mobile {
     display: flex;
+    @media ${(props) => props.theme.minWidth.md} {
+      display: none;
+    }
     button {
       margin-right: 15px;
     }
   }
-`;
-const StyledSlider = styled(Slider)`
-  margin: 15px 0;
-  .gatsby-image-wrapper {
-    aspect-ratio: 1.25;
+  .btn-container-desktop {
+    display: none;
+    @media ${(props) => props.theme.minWidth.md} {
+      display: flex;
+      margin-top: auto;
+    }
+    button {
+      margin-right: 15px;
+    }
   }
 `;
 
@@ -43,6 +87,7 @@ const ProjectsSection = () => {
             category
             city
             name
+            mission
             image {
               asset {
                 gatsbyImageData
@@ -58,13 +103,13 @@ const ProjectsSection = () => {
   );
 
   const projects = data.allSanityProject.nodes;
-  const initProjectName = projects[0].name;
-  const [currentProjectName, setCurrentProjectName] = useState(initProjectName);
+  const initProject = projects[0];
+  const [currentProject, setCurrentProject] = useState(initProject);
   const sliderRef = useRef();
 
   const handleProjectChange = (oldIndex, newIndex) => {
-    const projectName = projects[newIndex].name;
-    setCurrentProjectName(projectName);
+    const project = projects[newIndex];
+    setCurrentProject(project);
   };
 
   const sliderSettings = {
@@ -89,15 +134,37 @@ const ProjectsSection = () => {
         et adaptés aux besoins du client.
       </StyledSectionHeader>
       <StyledCarouselContainer>
-        <Text type="label">Projet</Text>
-        <Text type="projectTitle">{currentProjectName}</Text>
-        <StyledSlider {...sliderSettings} ref={sliderRef}>
-          {projects.map(({ name, image }) => {
-            const getGatsbyImage = getImage(image.asset);
-            return <GatsbyImage key={name} image={getGatsbyImage} alt={name} />;
-          })}
-        </StyledSlider>
-        <div className="btn-container">
+        <div className="info-container">
+          <Text type="label">Projet</Text>
+          <Text type="projectTitle">{currentProject.name}</Text>
+          <div>
+            <Text type="label">Catégorie</Text>
+            <Text type="projectInfo">{currentProject.category}</Text>
+          </div>
+          <div>
+            <Text type="label">Lieu</Text>
+            <Text type="projectInfo">{currentProject.city}</Text>
+          </div>
+          <div>
+            <Text type="label">Mission</Text>
+            <Text type="projectInfo">{currentProject.mission}</Text>
+          </div>
+          <div className="btn-container-desktop">
+            <Button prev onClick={() => sliderRef.current.slickPrev()}></Button>
+            <Button next onClick={() => sliderRef.current.slickNext()}></Button>
+          </div>
+        </div>
+        <div className="slider-container">
+          <Slider {...sliderSettings} ref={sliderRef}>
+            {projects.map(({ name, image }) => {
+              const getGatsbyImage = getImage(image.asset);
+              return (
+                <GatsbyImage key={name} image={getGatsbyImage} alt={name} />
+              );
+            })}
+          </Slider>
+        </div>
+        <div className="btn-container-mobile">
           <Button prev onClick={() => sliderRef.current.slickPrev()}></Button>
           <Button next onClick={() => sliderRef.current.slickNext()}></Button>
         </div>

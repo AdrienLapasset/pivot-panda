@@ -17,6 +17,9 @@ const ProjectTitle = styled.h3`
     font-size: 24px;
   }
 `;
+const ProjectInfo = styled.h3`
+  font-size: 12px;
+`;
 
 const Title = ({ children, className, as, type }) => {
   if (type === "projectTitle") {
@@ -24,6 +27,13 @@ const Title = ({ children, className, as, type }) => {
       <ProjectTitle as={as} className={className}>
         {children}
       </ProjectTitle>
+    );
+  }
+  if (type === "projectInfo") {
+    return (
+      <ProjectInfo as={as} className={className}>
+        {children}
+      </ProjectInfo>
     );
   } else {
     return (
