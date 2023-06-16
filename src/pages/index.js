@@ -4,6 +4,7 @@ import Layout from "components/Layout";
 import HeroSection from "components/pages/home/HeroSection";
 import SectionHeader from "components/pages/home/SectionHeader";
 import NumbersSection from "components/pages/home/NumbersSection";
+import ProjectsSection from "components/pages/home/ProjectsSection";
 
 const StyledSectionHeader = styled(SectionHeader)`
   margin-top: 15px;
@@ -25,6 +26,7 @@ const IndexPage = () => {
         Panda Invest en tant qu’opérateur immobilier.
       </StyledSectionHeader>
       <NumbersSection />
+      <ProjectsSection />
     </Layout>
   );
 };
