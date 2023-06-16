@@ -7,42 +7,7 @@ import Grid from "components/global/Grid";
 import PageContainer from "components/global/PageContainer";
 import Text from "components/global/Text";
 import ContentBlock from "components/pages/project/ContentBlock";
-import {
-  ReactCompareSlider,
-  ReactCompareSliderImage,
-} from "react-compare-slider";
-
-export const query = graphql`
-  query ProjectBySlug($slug: String!) {
-    sanityProject(slug: { current: { eq: $slug } }) {
-      category
-      city
-      name
-      surface
-      mission
-      year
-      address
-      description
-      image {
-        asset {
-          gatsbyImageData
-        }
-      }
-      slug {
-        current
-      }
-      contentBlocks {
-        image {
-          asset {
-            gatsbyImageData
-          }
-        }
-        text
-        orientation
-      }
-    }
-  }
-`;
+import BeforeAfterSlider from "components/pages/project/BeforeAfterSlider";
 
 const StyledHeader = styled(Grid)`
   grid-template-rows: calc(50vh - 23px) 15px calc(50vh - 78px) 60px 60px 60px 1fr;
@@ -213,6 +178,51 @@ const StyledText = styled(Text)`
   }
 `;
 
+export const query = graphql`
+  query ProjectBySlug($slug: String!) {
+    sanityProject(slug: { current: { eq: $slug } }) {
+      category
+      city
+      name
+      surface
+      mission
+      year
+      address
+      description
+      image {
+        asset {
+          gatsbyImageData
+        }
+      }
+      slug {
+        current
+      }
+      contentBlocks {
+        image {
+          asset {
+            gatsbyImageData
+          }
+        }
+        text
+        orientation
+      }
+      beforeAfterImages {
+        imageAfter {
+          asset {
+            gatsbyImageData
+          }
+        }
+        imageBefore {
+          asset {
+            gatsbyImageData
+          }
+        }
+        text
+      }
+    }
+  }
+`;
+
 const Project = ({ data }) => {
   const {
     name,
@@ -225,10 +235,10 @@ const Project = ({ data }) => {
     image,
     year,
     contentBlocks,
+    beforeAfterImages,
   } = data.sanityProject;
   const heroImage = getImage(image.asset);
   const projectYear = new Date(year).getFullYear();
-
   return (
     <Layout>
       <StyledHeader>
@@ -267,20 +277,14 @@ const Project = ({ data }) => {
           orientation={orientation}
         />
       ))}
-      <ReactCompareSlider
-        itemOne={
-          <ReactCompareSliderImage
-            src="https://images.unsplash.com/photo-1438401171849-74ac270044ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1784&q=70"
-            alt="Image one"
-          />
-        }
-        itemTwo={
-          <ReactCompareSliderImage
-            src="https://images.unsplash.com/photo-1437809781432-a957377661ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1784&q=70"
-            alt="Image two"
-          />
-        }
-      />
+      {beforeAfterImages.map(({ imageBefore, imageAfter, text }) => (
+        <BeforeAfterSlider
+          key={text}
+          imageBefore={imageBefore}
+          imageAfter={imageAfter}
+          text={text}
+        />
+      ))}
     </Layout>
   );
 };
