@@ -26,14 +26,20 @@ const StyledTitle = styled(Title)`
   }
 `;
 
-const SectionHeader = ({ title, button, children, className }) => {
+const SectionHeader = ({
+  title,
+  buttonText,
+  buttonTo,
+  children,
+  className,
+}) => {
   return (
     <PageContainer>
       <StyledContainer className={className}>
         <StyledTitle>{title}</StyledTitle>
         <div>
           <Text> {children}</Text>
-          <Button>{button}</Button>
+          <Button to={buttonTo}>{buttonText}</Button>
         </div>
       </StyledContainer>
     </PageContainer>

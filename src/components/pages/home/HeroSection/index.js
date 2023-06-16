@@ -86,7 +86,7 @@ const HeroSection = () => {
           <aside>depuis 2019</aside>
         </StyledRow>
         <Grid>
-          <Button>nous contacter</Button>
+          <Button to="/contact">nous contacter</Button>
         </Grid>
       </PageContainer>
       <StyledVideo autoPlay muted loop>

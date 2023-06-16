@@ -19,7 +19,8 @@ const IndexPage = () => {
       <HeroSection />
       <StyledSectionHeader
         title="Dénicheurs et concepteurs de votre futur espace"
-        button="nos métiers"
+        buttonText="nos métiers"
+        buttonTo="savoir-faire"
       >
         En tant que contractant général, Pivot Panda réalise différents types de
         missions, de la conception de projet à la réalisation des travaux, avec
