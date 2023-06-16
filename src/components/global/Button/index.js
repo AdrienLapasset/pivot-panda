@@ -16,9 +16,20 @@ const SharedStyled = css`
   @media ${(props) => props.theme.minWidth.md} {
     font-size: 10px;
   }
+  svg {
+    width: 15px;
+    margin-left: 8px;
+    @media ${(props) => props.theme.minWidth.md} {
+      margin-left: 15px;
+    }
+  }
 `;
 const StyledButton = styled.button`
   ${SharedStyled}
+  svg {
+    margin-left: ${({ prev, next }) => (prev || next) && 0};
+    transform: rotate(${({ prev }) => prev && 180}deg);
+  }
 `;
 const StyledLink = styled(Link)`
   ${SharedStyled}
@@ -26,27 +37,25 @@ const StyledLink = styled(Link)`
 const StyledA = styled.a`
   ${SharedStyled}
 `;
-const StyledArrow = styled(Arrow)`
-  width: 15px;
-  margin-left: 8px;
-  @media ${(props) => props.theme.minWidth.md} {
-    margin-left: 15px;
-  }
-`;
 
-const Button = ({ children, className, onClick, to, href }) => {
+const Button = ({ children, className, onClick, to, href, prev, next }) => {
   if (onClick)
     return (
-      <StyledButton className={className} onClick={() => onClick()}>
+      <StyledButton
+        className={className}
+        onClick={() => onClick()}
+        prev={prev}
+        next={next}
+      >
         {children}
-        <StyledArrow />
+        <Arrow />
       </StyledButton>
     );
   if (to)
     return (
       <StyledLink to={to} className={className} href={href}>
         {children}
-        <StyledArrow />
+        <Arrow />
       </StyledLink>
     );
   if (href)
@@ -58,7 +67,7 @@ const Button = ({ children, className, onClick, to, href }) => {
         rel="noreferrer"
       >
         {children}
-        <StyledArrow />
+        <Arrow />
       </StyledA>
     );
 };

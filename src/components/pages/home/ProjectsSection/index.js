@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -20,28 +20,19 @@ const StyledCarouselContainer = styled.div`
   border-top: ${({ theme }) => theme.border};
   border-bottom: ${({ theme }) => theme.border};
   padding: 15px;
+  .btn-container {
+    display: flex;
+    button {
+      margin-right: 15px;
+    }
+  }
 `;
-const StyledSlider = styled(Slider)``;
-const StyledCarouselNextArrow = styled(Button)``;
-
-const CarouselNextArrow = ({ className, style, onClick }) => {
-  return (
-    <StyledCarouselNextArrow
-      className={className}
-      onClick={onClick}
-      style={{ ...style, display: "block", background: "green" }}
-    ></StyledCarouselNextArrow>
-  );
-};
-const CarousePrevArrow = ({ className, style, onClick }) => {
-  return (
-    <StyledCarouselNextArrow
-      className={className}
-      onClick={onClick}
-      style={{ ...style, display: "block", background: "green" }}
-    ></StyledCarouselNextArrow>
-  );
-};
+const StyledSlider = styled(Slider)`
+  margin: 15px 0;
+  .gatsby-image-wrapper {
+    aspect-ratio: 1.25;
+  }
+`;
 
 const ProjectsSection = () => {
   const data = useStaticQuery(
@@ -68,12 +59,11 @@ const ProjectsSection = () => {
 
   const projects = data.allSanityProject.nodes;
   const initProjectName = projects[0].name;
-
   const [currentProjectName, setCurrentProjectName] = useState(initProjectName);
+  const sliderRef = useRef();
 
   const handleProjectChange = (oldIndex, newIndex) => {
     const projectName = projects[newIndex].name;
-    console.log("projectName =>", projectName);
     setCurrentProjectName(projectName);
   };
 
@@ -82,8 +72,6 @@ const ProjectsSection = () => {
     slidesToScroll: 1,
     infinite: true,
     focusOnSelect: true,
-    nextArrow: <CarouselNextArrow />,
-    prevArrow: <CarousePrevArrow />,
     beforeChange: (oldIndex, newIndex) => {
       handleProjectChange(oldIndex, newIndex);
     },
@@ -92,7 +80,8 @@ const ProjectsSection = () => {
     <>
       <StyledSectionHeader
         title="Sélection de projets"
-        button="Tous nos projets"
+        buttonText="Tous nos projets"
+        buttonTo="/realisation"
       >
         Basé à Marseille et Paris, nous réalisons des projets d’espaces de
         travail, de lieux de vie tels que des hôtels, des commerces, du
@@ -101,13 +90,17 @@ const ProjectsSection = () => {
       </StyledSectionHeader>
       <StyledCarouselContainer>
         <Text type="label">Projet</Text>
-        <Text>{currentProjectName}</Text>
-        <StyledSlider {...sliderSettings}>
+        <Text type="projectTitle">{currentProjectName}</Text>
+        <StyledSlider {...sliderSettings} ref={sliderRef}>
           {projects.map(({ name, image }) => {
             const getGatsbyImage = getImage(image.asset);
             return <GatsbyImage key={name} image={getGatsbyImage} alt={name} />;
           })}
         </StyledSlider>
+        <div className="btn-container">
+          <Button prev onClick={() => sliderRef.current.slickPrev()}></Button>
+          <Button next onClick={() => sliderRef.current.slickNext()}></Button>
+        </div>
       </StyledCarouselContainer>
     </>
   );
