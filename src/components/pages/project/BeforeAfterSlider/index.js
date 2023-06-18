@@ -3,11 +3,11 @@ import styled from "styled-components";
 import {
   ReactCompareSlider,
   ReactCompareSliderImage,
-  ReactCompareSliderHandle,
 } from "react-compare-slider";
 import PageContainer from "components/global/PageContainer";
 import Grid from "components/global/Grid";
 import Text from "components/global/Text";
+import CtaSlider from "assets/icons/CtaSlider.svg";
 
 const StyledBlockContainer = styled(PageContainer)`
   border-top: solid ${(props) => props.theme.colors.black} 1px;
@@ -24,10 +24,36 @@ const StyledContentBlock = styled(Grid)`
 const StyledReactCompareSlider = styled(ReactCompareSlider)`
   grid-column: span 4;
   margin-bottom: 30px;
+  max-height: calc(100vh - 60px);
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: span 7;
     margin-bottom: 50px;
+    max-height: calc(100vh - 80px);
   }
+`;
+
+const HandleContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
+
+const StyledVerticalLine = styled.div`
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  background-color: ${(props) => props.theme.colors.black};
+  z-index: 1;
+`;
+
+const StyledButton = styled.button`
+  all: unset;
+  font-size: 56px;
+  border-radius: 50%;
+  z-index: 2;
 `;
 
 const StyledText = styled(Text)`
@@ -53,22 +79,19 @@ const BeforeAfterSlider = ({ imageBefore, imageAfter, text }) => {
       <StyledContentBlock>
         <StyledReactCompareSlider
           handle={
-            <ReactCompareSliderHandle
-              buttonStyle={{
-                backdropFilter: undefined,
-                WebkitBackdropFilter: undefined,
-                backgroundColor: "white",
-                color: "black",
-                boxShadow: undefined,
-                border: 0,
-              }}
-            />
+            <HandleContainer>
+              <StyledButton>
+                <img src={CtaSlider} alt="" />
+              </StyledButton>
+              <StyledVerticalLine />
+            </HandleContainer>
           }
           itemOne={
             <ReactCompareSliderImage src={beforeSrc} alt="Image avant" />
           }
           itemTwo={<ReactCompareSliderImage src={afterSrc} alt="Image après" />}
         />
+
         <StyledBlockText>{text}</StyledBlockText>
       </StyledContentBlock>
     </StyledBlockContainer>
