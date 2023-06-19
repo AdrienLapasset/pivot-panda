@@ -2,6 +2,14 @@ const theme = {
   colors: {
     black: "#3A3A1F",
   },
+  breakpoint: {
+    xs: "375px",
+    sm: "768px",
+    md: "1024px",
+    lg: "1280px",
+    xl: "1440px",
+    xxl: "1728px",
+  },
   minWidth: {
     xs: `(min-width: 375px)`,
     sm: `(min-width: 768px)`,
@@ -9,14 +17,6 @@ const theme = {
     lg: `(min-width: 1280px)`,
     xl: `(min-width: 1440px)`,
     xxl: `(min-width: 1728px)`,
-  },
-  layoutWidth: {
-    xs: "100%",
-    sm: "768px",
-    md: "1024px",
-    lg: "1280px",
-    xl: "1440px",
-    xxl: "1728px",
   },
   cubicBezier: {
     base: "cubic-bezier(.25, .8, .25, 1)",
