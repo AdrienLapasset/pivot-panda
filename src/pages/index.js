@@ -5,6 +5,7 @@ import HeroSection from "components/pages/home/HeroSection";
 import SectionHeader from "components/pages/home/SectionHeader";
 import NumbersSection from "components/pages/home/NumbersSection";
 import ProjectsSection from "components/pages/home/ProjectsSection";
+import NewsSection from "components/pages/home/NewsSection";
 
 const StyledSectionHeader = styled(SectionHeader)`
   margin-top: 15px;
@@ -28,6 +29,7 @@ const IndexPage = () => {
       </StyledSectionHeader>
       <NumbersSection />
       <ProjectsSection />
+      <NewsSection />
     </Layout>
   );
 };
