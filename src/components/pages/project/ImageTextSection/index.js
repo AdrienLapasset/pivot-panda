@@ -13,11 +13,11 @@ const StyledText = styled(Text)`
   }
 `;
 
-const StyledBlockContainer = styled(PageContainer)`
+const StyledSectionContainer = styled(PageContainer)`
   border-top: solid ${(props) => props.theme.colors.black} 1px;
 `;
 
-const StyledContentBlock = styled(Grid)`
+const StyledImageTextSection = styled(Grid)`
   padding-top: 15px;
   padding-bottom: 60px;
   @media ${(props) => props.theme.minWidth.md} {
@@ -25,7 +25,7 @@ const StyledContentBlock = styled(Grid)`
   }
 `;
 
-const StyledBlockImage = styled(GatsbyImage)`
+const StyledSectionImage = styled(GatsbyImage)`
   max-height: calc(100vh - 60px);
   grid-column: span 4;
   margin-bottom: 30px;
@@ -36,48 +36,51 @@ const StyledBlockImage = styled(GatsbyImage)`
   }
 `;
 
-const StyledBlockText = styled(StyledText)`
+const StyledSectionText = styled(StyledText)`
   grid-column: span 4;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: 4 / 6;
   }
 `;
 
-const ContentBlock = ({ image, text, orientation }) => {
+const ImageTextSection = ({ image, text, orientation }) => {
   if (image) {
-    const blockImage = getImage(image.asset);
+    const sectionImage = getImage(image.asset);
     const isLandscape = orientation === "landscape";
     if (text) {
       return (
-        <StyledBlockContainer key={text}>
-          <StyledContentBlock>
-            <StyledBlockImage
-              image={blockImage}
+        <StyledSectionContainer key={text}>
+          <StyledImageTextSection>
+            <StyledSectionImage
+              image={sectionImage}
               isLandscape={isLandscape}
-              alt={`Block image ${text}`}
+              alt={`Section image ${text}`}
             />
-            <StyledBlockText>{text}</StyledBlockText>
-          </StyledContentBlock>
-        </StyledBlockContainer>
+            <StyledSectionText>{text}</StyledSectionText>
+          </StyledImageTextSection>
+        </StyledSectionContainer>
       );
     } else {
       return (
-        <StyledBlockContainer key={text}>
-          <StyledContentBlock>
-            <StyledBlockImage image={blockImage} alt={`Block image ${text}`} />
-          </StyledContentBlock>
-        </StyledBlockContainer>
+        <StyledSectionContainer key={text}>
+          <StyledImageTextSection>
+            <StyledSectionImage
+              image={sectionImage}
+              alt={`Section image ${text}`}
+            />
+          </StyledImageTextSection>
+        </StyledSectionContainer>
       );
     }
   } else {
     return (
-      <StyledBlockContainer key={text}>
-        <StyledContentBlock>
-          <StyledBlockText>{text}</StyledBlockText>
-        </StyledContentBlock>
-      </StyledBlockContainer>
+      <StyledSectionContainer key={text}>
+        <StyledImageTextSection>
+          <StyledSectionText>{text}</StyledSectionText>
+        </StyledImageTextSection>
+      </StyledSectionContainer>
     );
   }
 };
 
-export default ContentBlock;
+export default ImageTextSection;

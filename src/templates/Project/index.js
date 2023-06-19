@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Grid from "components/global/Grid";
 import PageContainer from "components/global/PageContainer";
 import Text from "components/global/Text";
-import ContentBlock from "components/pages/project/ContentBlock";
+import ImageTextSection from "components/pages/project/ImageTextSection";
 import BeforeAfterSlider from "components/pages/project/BeforeAfterSlider";
 
 const StyledHeader = styled(Grid)`
@@ -179,7 +179,7 @@ export const query = graphql`
       slug {
         current
       }
-      contentBlocks {
+      ImageTextSections {
         image {
           asset {
             gatsbyImageData
@@ -216,7 +216,7 @@ const Project = ({ data }) => {
     address,
     image,
     year,
-    contentBlocks,
+    ImageTextSections,
     beforeAfterImages,
   } = data.sanityProject;
   const heroImage = getImage(image.asset);
@@ -253,8 +253,8 @@ const Project = ({ data }) => {
           <StyledText>{description}</StyledText>
         </StyledDescription>
       </StyledHeader>
-      {contentBlocks.map(({ image, text, orientation }) => (
-        <ContentBlock
+      {ImageTextSections.map(({ image, text, orientation }) => (
+        <ImageTextSection
           key={text}
           image={image}
           text={text}
