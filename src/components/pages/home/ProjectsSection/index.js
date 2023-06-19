@@ -51,6 +51,7 @@ const StyledCarouselContainer = styled(Grid)`
       padding: ${({ theme }) => theme.columnGap.desktop};
     }
     .gatsby-image-wrapper {
+      width: 100%;
       aspect-ratio: 1.25;
       @media ${(props) => props.theme.minWidth.md} {
         aspect-ratio: 1.65;
@@ -173,10 +174,12 @@ const ProjectsSection = () => {
         </div>
         <div className="slider-container">
           <Slider {...sliderSettings} ref={sliderRef}>
-            {projects.map(({ name, image }) => {
+            {projects.map(({ name, image, slug }) => {
               const getGatsbyImage = getImage(image.asset);
               return (
-                <GatsbyImage key={name} image={getGatsbyImage} alt={name} />
+                <Link to={"/projet/" + slug.current}>
+                  <GatsbyImage key={name} image={getGatsbyImage} alt={name} />
+                </Link>
               );
             })}
           </Slider>
