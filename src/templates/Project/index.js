@@ -23,7 +23,6 @@ const StyledHeroImage = styled(GatsbyImage)`
   grid-column: span 4;
   height: 100%;
   width: 100%;
-  border-bottom: solid ${(props) => props.theme.colors.black} 1px;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: span 7;
   }
@@ -126,7 +125,7 @@ const StyledYear = styled(PageContainer)`
   grid-row: 1 / 2;
   grid-column: 3 / 5;
   border-left: solid ${(props) => props.theme.colors.black} 1px;
-  margin-bottom: -15px;
+  margin-bottom: -14px;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: 2 / 3;
     margin-bottom: -25px;
