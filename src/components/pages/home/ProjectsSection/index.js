@@ -87,7 +87,7 @@ const ProjectsSection = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allSanityProject(filter: { featuredProject: { eq: true } }) {
+        allSanityProject(filter: { isFeaturedProject: { eq: true } }) {
           nodes {
             category
             city
