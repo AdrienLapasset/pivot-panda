@@ -27,6 +27,7 @@ const SharedStyled = css`
 const StyledButton = styled.button`
   ${SharedStyled}
   svg {
+    width: ${({ prev, next }) => (prev || next) && 20}px;
     margin-left: ${({ prev, next }) => (prev || next) && 0};
     transform: rotate(${({ prev }) => prev && 180}deg);
   }

@@ -34,7 +34,7 @@ const StyledCarouselContainer = styled(Grid)`
       flex-direction: column;
       height: 100%;
     }
-    & > div:not(.btn-container-desktop) {
+    & > div:not(.project-nav) {
       display: none;
       @media ${(props) => props.theme.minWidth.md} {
         display: block;
@@ -66,14 +66,18 @@ const StyledCarouselContainer = styled(Grid)`
       margin-right: 15px;
     }
   }
-  .btn-container-desktop {
+  .project-nav {
     display: none;
     @media ${(props) => props.theme.minWidth.md} {
-      display: flex;
       margin-top: auto;
+      display: block;
     }
-    button {
-      margin-right: 15px;
+    .btn-container-desktop {
+      margin-top: 10px;
+      display: flex;
+      button {
+        margin-right: 15px;
+      }
     }
   }
 `;
@@ -82,7 +86,7 @@ const ProjectsSection = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allSanityProject {
+        allSanityProject(filter: { featuredProject: { eq: true } }) {
           nodes {
             category
             city
@@ -105,9 +109,11 @@ const ProjectsSection = () => {
   const projects = data.allSanityProject.nodes;
   const initProject = projects[0];
   const [currentProject, setCurrentProject] = useState(initProject);
+  const [projectIndex, setProjectIndex] = useState(1);
   const sliderRef = useRef();
 
   const handleProjectChange = (oldIndex, newIndex) => {
+    setProjectIndex(newIndex + 1);
     const project = projects[newIndex];
     setCurrentProject(project);
   };
@@ -149,9 +155,20 @@ const ProjectsSection = () => {
             <Text type="label">Mission</Text>
             <Text type="projectInfo">{currentProject.mission}</Text>
           </div>
-          <div className="btn-container-desktop">
-            <Button prev onClick={() => sliderRef.current.slickPrev()}></Button>
-            <Button next onClick={() => sliderRef.current.slickNext()}></Button>
+          <div className="project-nav">
+            <Text type="label">
+              0{projectIndex}/0{projects.length}
+            </Text>
+            <div className="btn-container-desktop">
+              <Button
+                prev
+                onClick={() => sliderRef.current.slickPrev()}
+              ></Button>
+              <Button
+                next
+                onClick={() => sliderRef.current.slickNext()}
+              ></Button>
+            </div>
           </div>
         </div>
         <div className="slider-container">
