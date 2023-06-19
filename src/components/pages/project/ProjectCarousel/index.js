@@ -1,11 +1,8 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
-import { graphql, useStaticQuery, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Button from "components/global/Button";
-import Grid from "components/global/Grid";
 import Text from "components/global/Text";
-import SectionHeader from "components/pages/home/SectionHeader";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -51,7 +48,7 @@ const ProjectCarousel = ({ images }) => {
   const [imageIndex, setImageIndex] = useState(1);
   const sliderRef = useRef();
 
-  const handleImageChange = (oldIndex, newIndex) => {
+  const handleImageChange = (newIndex) => {
     setImageIndex(newIndex + 1);
     const image = images[newIndex];
     setCurrentImage(image);
