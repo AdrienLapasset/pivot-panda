@@ -26,7 +26,6 @@ const StyledHeroImage = styled(GatsbyImage)`
   border-bottom: solid ${(props) => props.theme.colors.black} 1px;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: span 7;
-    margin-bottom: 25px;
   }
 `;
 
@@ -40,9 +39,9 @@ const StyledVerticalLine = styled.div`
   @media ${(props) => props.theme.minWidth.md} {
     grid-row: 2 / 6;
     grid-column: 3 / 4;
-    height: calc(100% + 37px);
     position: relative;
-    top: -19px;
+    top: -13px;
+    height: calc(100% + 25px);
   }
 `;
 
@@ -80,38 +79,35 @@ const StyledTitle = styled(PageContainer)`
   }
 `;
 
-const StyledMission = styled(PageContainer)`
-  grid-row: 4 / 5;
+const StyledGridContainer = styled.div`
+  grid-row: 4 / 7;
   grid-column: span 4;
+  display: grid;
+  grid-template-rows: 60px 60px 60px;
+  row-gap: 15px;
   border-top: solid ${(props) => props.theme.colors.black} 1px;
   @media ${(props) => props.theme.minWidth.md} {
-    grid-row: 2 / 3;
+    border: solid ${(props) => props.theme.colors.black} 1px;
+    grid-row: 2 / 5;
     grid-column: 1 / 3;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 25px;
     margin-left: 25px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    border-left: solid ${(props) => props.theme.colors.black} 1px;
-    border-right: solid ${(props) => props.theme.colors.black} 1px;
   }
 `;
 
+const StyledMission = styled(PageContainer)``;
+
 const StyledContainer = styled.div`
-  grid-row: 5 / 6;
-  grid-column: span 4;
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(4, 1fr);
+  column-gap: 15px;
   border-top: solid ${(props) => props.theme.colors.black} 1px;
   @media ${(props) => props.theme.minWidth.md} {
-    grid-row: 3 / 4;
-    grid-column: 1 / 3;
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 25px;
     padding-left: 0;
-    margin-left: 25px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    border-left: solid ${(props) => props.theme.colors.black} 1px;
-    border-right: solid ${(props) => props.theme.colors.black} 1px;
   }
 `;
 
@@ -122,37 +118,23 @@ const StyledSurface = styled(PageContainer)`
   @media ${(props) => props.theme.minWidth.md} {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
-    padding-left: 0;
-    margin-left: 25px;
+    padding-left: 25px;
   }
 `;
 
 const StyledYear = styled(PageContainer)`
   grid-row: 1 / 2;
   grid-column: 3 / 5;
-  margin-bottom: -14px;
   border-left: solid ${(props) => props.theme.colors.black} 1px;
+  margin-bottom: -15px;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: 2 / 3;
-    margin-bottom: -11px;
-    margin-top: -12px;
-    padding-top: 9px;
+    margin-bottom: -25px;
   }
 `;
 
 const StyledAddress = styled(PageContainer)`
-  grid-row: 6 / 7;
-  grid-column: span 4;
   border-top: solid ${(props) => props.theme.colors.black} 1px;
-  @media ${(props) => props.theme.minWidth.md} {
-    grid-row: 4 / 5;
-    grid-column: 1 / 3;
-    margin-left: 25px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    border-top: none;
-    border: solid ${(props) => props.theme.colors.black} 1px;
-  }
 `;
 
 const StyledDescription = styled(PageContainer)`
@@ -247,24 +229,26 @@ const Project = ({ data }) => {
         <StyledCategory type="label">{category}</StyledCategory>
         <StyledCity type="label">{city}</StyledCity>
         <StyledTitle>{name}</StyledTitle>
-        <StyledMission>
-          <StyledText type="label">Mission Pivot Panda</StyledText>
-          <p>{mission}</p>
-        </StyledMission>
-        <StyledContainer>
-          <StyledSurface>
-            <StyledText type="label">Surface</StyledText>
-            <p>{surface} m²</p>
-          </StyledSurface>
-          <StyledYear>
-            <StyledText type="label">Année</StyledText>
-            <p>{projectYear}</p>
-          </StyledYear>
-        </StyledContainer>
-        <StyledAddress>
-          <StyledText type="label">Adresse</StyledText>
-          <p>{address}</p>
-        </StyledAddress>
+        <StyledGridContainer>
+          <StyledMission>
+            <StyledText type="label">Mission Pivot Panda</StyledText>
+            <p>{mission}</p>
+          </StyledMission>
+          <StyledContainer>
+            <StyledSurface>
+              <StyledText type="label">Surface</StyledText>
+              <p>{surface} m²</p>
+            </StyledSurface>
+            <StyledYear>
+              <StyledText type="label">Année</StyledText>
+              <p>{projectYear}</p>
+            </StyledYear>
+          </StyledContainer>
+          <StyledAddress>
+            <StyledText type="label">Adresse</StyledText>
+            <p>{address}</p>
+          </StyledAddress>
+        </StyledGridContainer>
         <StyledDescription>
           <StyledText>{description}</StyledText>
         </StyledDescription>
