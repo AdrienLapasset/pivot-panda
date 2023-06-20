@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledContainer = styled.div`
   padding: 0 ${(props) => props.theme.columnGap.mobile};
-  @media ${(props) => props.theme.minWidth.sm} {
+  @media ${(props) => props.theme.minWidth.md} {
     padding: 0 ${(props) => props.theme.columnGap.desktop};
   }
 `;

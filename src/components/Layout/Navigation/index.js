@@ -16,12 +16,14 @@ const StyledNav = styled.nav`
     padding: 25px 0;
   }
   img {
+    text-align: left;
+
     height: 26px;
     @media ${(props) => props.theme.minWidth.md} {
       height: 30px;
     }
   }
-  a {
+  a:not(.logo) {
     font-size: 10px;
     font-weight: 300;
     text-transform: uppercase;
@@ -38,7 +40,9 @@ const Navigation = () => {
     <StyledNav>
       <PageContainer>
         <Grid>
-          <img src={PPlogo} alt="Logo Pivot Panda" />
+          <Link className="logo" to="/">
+            <img src={PPlogo} alt="Logo Pivot Panda" />
+          </Link>
           <Link to="/realisations" activeClassName="active">
             Réalisations
           </Link>
