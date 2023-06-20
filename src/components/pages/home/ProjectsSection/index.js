@@ -177,7 +177,7 @@ const ProjectsSection = () => {
             {projects.map(({ name, image, slug }) => {
               const getGatsbyImage = getImage(image.asset);
               return (
-                <Link to={"/projet/" + slug.current}>
+                <Link key={name} to={"/projet/" + slug.current}>
                   <GatsbyImage key={name} image={getGatsbyImage} alt={name} />
                 </Link>
               );
