@@ -15,7 +15,7 @@ const StyledHeader = styled(Grid)`
   grid-template-rows: calc(50vh - 23px) 15px calc(50vh - 78px) 60px 60px 60px 1fr;
   row-gap: 15px;
   @media ${(props) => props.theme.minWidth.md} {
-    grid-template-rows: calc(100vh - 65px) 50px 50px 50px 1fr;
+    grid-template-rows: calc(100vh - 65px) 75px 75px 75px 1fr;
     row-gap: 25px;
   }
 `;
@@ -52,6 +52,7 @@ const StyledCategory = styled(Text)`
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: 4 / 5;
     align-self: start;
+    padding-top: 20px;
   }
 `;
 
@@ -61,6 +62,7 @@ const StyledCity = styled(Text)`
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: 5 / 6;
     align-self: start;
+    padding-top: 20px;
   }
 `;
 
@@ -89,30 +91,35 @@ const StyledGridContainer = styled.div`
   grid-column: span 4;
   display: grid;
   grid-template-rows: 60px 60px 60px;
-  row-gap: 15px;
   border-top: solid ${(props) => props.theme.colors.black} 1px;
+  row-gap: 15px;
   @media ${(props) => props.theme.minWidth.md} {
     border: solid ${(props) => props.theme.colors.black} 1px;
     grid-row: 2 / 5;
     grid-column: 1 / 3;
     grid-template-rows: 1fr 1fr 1fr;
-    row-gap: 25px;
+    row-gap: 0;
     margin-left: 25px;
+    height: 275px;
   }
 `;
 
-const StyledMission = styled(PageContainer)``;
+const StyledMission = styled(PageContainer)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
 const StyledContainer = styled.div`
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 15px;
   border-top: solid ${(props) => props.theme.colors.black} 1px;
+  margin-bottom: -15px;
   @media ${(props) => props.theme.minWidth.md} {
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 25px;
     padding-left: 0;
+    margin-bottom: 0;
   }
 `;
 
@@ -124,6 +131,9 @@ const StyledSurface = styled(PageContainer)`
     grid-row: 1 / 2;
     grid-column: 1 / 2;
     padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 `;
 
@@ -131,15 +141,19 @@ const StyledYear = styled(PageContainer)`
   grid-row: 1 / 2;
   grid-column: 3 / 5;
   border-left: solid ${(props) => props.theme.colors.black} 1px;
-  margin-bottom: -14px;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: 2 / 3;
-    margin-bottom: -25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 `;
 
 const StyledAddress = styled(PageContainer)`
   border-top: solid ${(props) => props.theme.colors.black} 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 const StyledDescription = styled(PageContainer)`
