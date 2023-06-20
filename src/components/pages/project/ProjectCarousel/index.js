@@ -11,6 +11,7 @@ import PageContainer from "components/global/PageContainer";
 const StyledBlockContainer = styled(PageContainer)`
   border-top: solid ${(props) => props.theme.colors.black} 1px;
   padding-top: 15px;
+  padding-bottom: 65px;
   .btn-container {
     display: flex;
     gap: 15px;
@@ -39,16 +40,21 @@ const StyledSlider = styled(Slider)`
   }
   .carousel-image {
     height: 50vh;
+    @media ${(props) => props.theme.minWidth.md} {
+      height: 600px;
+      max-height: calc(100vh - 180px);
+    }
   }
 `;
 
 const ProjectCarousel = ({ images }) => {
   const initImage = images[0];
   const [currentImage, setCurrentImage] = useState(initImage);
+  console.log(currentImage);
   const [imageIndex, setImageIndex] = useState(1);
   const sliderRef = useRef();
 
-  const handleImageChange = (newIndex) => {
+  const handleImageChange = (oldIndex, newIndex) => {
     setImageIndex(newIndex + 1);
     const image = images[newIndex];
     setCurrentImage(image);

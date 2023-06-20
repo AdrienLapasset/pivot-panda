@@ -9,6 +9,7 @@ import Text from "components/global/Text";
 import ImageTextSection from "components/pages/project/ImageTextSection";
 import BeforeAfterSlider from "components/pages/project/BeforeAfterSlider";
 import ProjectCarousel from "components/pages/project/ProjectCarousel";
+import OtherProjectsSection from "components/pages/project/otherProjectsSection";
 
 const StyledHeader = styled(Grid)`
   grid-template-rows: calc(50vh - 23px) 15px calc(50vh - 78px) 60px 60px 60px 1fr;
@@ -205,7 +206,7 @@ export const query = graphql`
       projectCarousel {
         image {
           asset {
-            gatsbyImageData(height: 500)
+            gatsbyImageData(height: 600)
           }
         }
       }
@@ -227,6 +228,7 @@ const Project = ({ data }) => {
     ImageTextSections,
     beforeAfterImages,
     projectCarousel,
+    isFeaturedProject,
   } = data.sanityProject;
   const heroImage = getImage(image.asset);
   const projectYear = new Date(year).getFullYear();
@@ -279,6 +281,7 @@ const Project = ({ data }) => {
         />
       ))}
       <ProjectCarousel images={projectCarousel} />
+      <OtherProjectsSection isFeaturedProject={isFeaturedProject} />
     </Layout>
   );
 };
