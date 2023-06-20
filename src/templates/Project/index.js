@@ -77,6 +77,10 @@ const StyledTitle = styled(PageContainer)`
     grid-column: 4 / 8;
     font-size: 70px;
     line-height: 75px;
+    border-bottom: solid ${(props) => props.theme.colors.black} 1px;
+    margin-left: -25px;
+    padding-left: 25px;
+    padding-bottom: 15px;
   }
 `;
 
@@ -141,15 +145,17 @@ const StyledAddress = styled(PageContainer)`
 const StyledDescription = styled(PageContainer)`
   grid-row: 7 / 8;
   grid-column: span 4;
-  border-top: solid ${(props) => props.theme.colors.black} 1px;
   padding-top: 30px;
   padding-bottom: 45px;
   white-space: pre-line;
+  border-top: solid ${(props) => props.theme.colors.black} 1px;
   @media ${(props) => props.theme.minWidth.md} {
     grid-row: 5 / 6;
-    grid-column: 4 / 8;
+    grid-column: 4 / 6;
     margin-left: -25px;
+    padding-top: 0;
     padding-bottom: 160px;
+    border-top: none;
   }
 `;
 

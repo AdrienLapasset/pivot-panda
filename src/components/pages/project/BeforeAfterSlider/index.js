@@ -43,7 +43,7 @@ const HandleContainer = styled.div`
 
 const StyledVerticalLine = styled.div`
   position: absolute;
-  width: 1px;
+  width: 5px;
   height: 100%;
   background-color: ${(props) => props.theme.colors.black};
   z-index: 1;

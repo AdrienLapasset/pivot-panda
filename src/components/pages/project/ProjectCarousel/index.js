@@ -19,11 +19,13 @@ const StyledBlockContainer = styled(PageContainer)`
   }
   @media ${(props) => props.theme.minWidth.md} {
     padding-top: 25px;
+    padding-right: 0;
   }
 `;
 
 const StyledSlider = styled(Slider)`
   margin-bottom: 15px;
+  overflow: hidden;
   @media ${(props) => props.theme.minWidth.md} {
     margin-bottom: 25px;
   }
