@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
-import PageContainer from "components/global/PageContainer";
 import SectionHeader from "components/pages/home/SectionHeader";
 import Text from "components/global/Text";
 
