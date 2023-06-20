@@ -11,11 +11,10 @@ const baseStyle = css`
     line-height: 50px;
   }
 `;
-
 const PageTitle = styled.h1`
   ${baseStyle}
-  font-size: 70px;
-  line-height: 75px;
+  font-size: 38px;
+  line-height: 45px;
   @media ${(props) => props.theme.minWidth.md} {
     font-size: 70px;
     line-height: 75px;
