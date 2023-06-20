@@ -3,13 +3,15 @@ import { ThemeProvider } from "styled-components";
 import theme from "styles/theme";
 import GlobalStyle from "styles/globalStyle";
 import Navigation from "./Navigation";
+import { useLocation } from "@reach/router";
 
 const Layout = ({ children }) => {
+  const { pathname } = useLocation();
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <Navigation />
+        {pathname !== "/contact/" && <Navigation />}
         {children}
       </ThemeProvider>
     </>
