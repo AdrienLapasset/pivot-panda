@@ -12,7 +12,12 @@ const StyledTitle = styled.h1`
 `;
 
 const Title = ({ children, className }) => {
-  return <StyledTitle className={className}>{children}</StyledTitle>;
+  return (
+    <StyledTitle
+      className={className}
+      dangerouslySetInnerHTML={{ __html: children }}
+    ></StyledTitle>
+  );
 };
 
 export default Title;

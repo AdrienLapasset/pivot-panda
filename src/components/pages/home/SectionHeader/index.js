@@ -30,6 +30,7 @@ const SectionHeader = ({
   title,
   buttonText,
   buttonTo,
+  buttonHref,
   children,
   className,
 }) => {
@@ -39,7 +40,9 @@ const SectionHeader = ({
         <StyledTitle>{title}</StyledTitle>
         <div>
           <Text> {children}</Text>
-          <Button to={buttonTo}>{buttonText}</Button>
+          <Button href={buttonHref} to={buttonTo}>
+            {buttonText}
+          </Button>
         </div>
       </StyledContainer>
     </PageContainer>

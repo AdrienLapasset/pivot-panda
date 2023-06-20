@@ -3,12 +3,11 @@ import styled from "styled-components";
 
 const StyledText = styled.p`
   font-size: ${({ type }) => (type === "label" ? "12px" : "14px")};
-  line-height: 21px;
+  /* line-height: 21px; */
   opacity: ${({ type }) => (type === "label" ? ".5" : "1")};
   text-transform: ${({ type }) => (type === "label" ? "uppercase" : "normal")};
-
   @media ${(props) => props.theme.minWidth.md} {
-    line-height: 25px;
+    /* line-height: 25px; */
   }
 `;
 const ProjectTitle = styled.h3`

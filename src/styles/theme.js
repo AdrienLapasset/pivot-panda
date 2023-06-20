@@ -1,6 +1,7 @@
 const theme = {
   colors: {
     black: "#3A3A1F",
+    transparentBlack: "rgba(58, 58, 31, 0.2)",
   },
   breakpoint: {
     xs: "375px",
@@ -28,6 +29,9 @@ const theme = {
     desktop: "25px",
   },
   border: "1px solid #3A3A1F",
+  aspectRatio: {
+    mobile: 1.25,
+  },
 };
 
 export default theme;
