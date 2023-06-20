@@ -108,7 +108,7 @@ const VerticalLine = styled.div`
   bottom: 0;
 `;
 
-const ProjectsList = ({ selectedCategory }) => {
+const ProjectsList = ({ selectedCategory, featuredOnly = false }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -126,17 +126,24 @@ const ProjectsList = ({ selectedCategory }) => {
             slug {
               current
             }
+            isFeaturedProject
           }
         }
       }
     `
   );
 
-  const projects = data.allSanityProject.nodes;
-  const filteredProjects =
+  let projects = data.allSanityProject.nodes;
+  let filteredProjects =
     selectedCategory && selectedCategory !== "Tous les projets"
       ? projects.filter((project) => project.category === selectedCategory)
       : projects;
+
+  if (featuredOnly) {
+    filteredProjects = filteredProjects.filter(
+      (project) => project.isFeaturedProject
+    );
+  }
 
   return (
     <PageContainer>
