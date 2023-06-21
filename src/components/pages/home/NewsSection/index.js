@@ -70,7 +70,7 @@ const NewsSection = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        allSanityNews(limit: 4, sort: { date: DESC }) {
+        allSanityNews(limit: 3, sort: { date: DESC }) {
           nodes {
             title
             content
