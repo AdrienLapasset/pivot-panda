@@ -4,6 +4,7 @@ import theme from "styles/theme";
 import GlobalStyle from "styles/globalStyle";
 import Navigation from "./Navigation";
 import { useLocation } from "@reach/router";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const { pathname } = useLocation();
@@ -13,6 +14,7 @@ const Layout = ({ children }) => {
         <GlobalStyle />
         {pathname !== "/contact/" && <Navigation />}
         {children}
+        <Footer />
       </ThemeProvider>
     </>
   );
