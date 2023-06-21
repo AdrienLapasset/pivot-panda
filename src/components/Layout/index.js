@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "styles/theme";
 import GlobalStyle from "styles/globalStyle";
 import Navigation from "./Navigation";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   return (
@@ -11,6 +12,7 @@ const Layout = ({ children }) => {
         <GlobalStyle />
         <Navigation />
         {children}
+        <Footer />
       </ThemeProvider>
     </>
   );
