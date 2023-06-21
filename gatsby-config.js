@@ -17,6 +17,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-root-import",
+    "gatsby-plugin-netlify",
     {
       resolve: "gatsby-source-sanity",
       options: {
