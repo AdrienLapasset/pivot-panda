@@ -11,7 +11,9 @@ const Layout = ({ children }) => {
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        {pathname !== "/contact/" && <Navigation />}
+        {pathname !== "/contact/" && pathname !== "/panda-invest/" && (
+          <Navigation />
+        )}
         {children}
       </ThemeProvider>
     </>

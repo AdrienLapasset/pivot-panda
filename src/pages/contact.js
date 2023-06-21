@@ -39,8 +39,7 @@ const StyledContainer = styled.div`
       padding-top: 40px;
       @media ${(props) => props.theme.minWidth.md} {
         border-bottom: 1px solid white;
-        padding: 170px ${({ theme }) => theme.columnGap.desktop}
-          ${({ theme }) => theme.columnGap.desktop};
+        padding: 170px 25px 25px;
       }
       h1 {
         grid-column: 1 / span 2;
@@ -150,7 +149,7 @@ const Contact = ({ location }) => {
   const { fromPage } = state;
   return (
     <Layout>
-      <StyledGrid>
+      <StyledGrid className="pageAnimation">
         <StyledContainer>
           <Link className="close-btn" to={fromPage}>
             <img src={closeBtn} alt="fermer la modal" />
