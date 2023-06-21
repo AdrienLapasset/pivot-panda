@@ -12,14 +12,14 @@ const StyledFooter = styled.footer`
   padding: 15px 0;
   align-items: center;
   @media ${(props) => props.theme.minWidth.md} {
-    padding: 25px 0;
+    padding: 0;
     padding-bottom: 0;
   }
   .logo {
     margin: 75px 0;
     @media ${(props) => props.theme.minWidth.md} {
-      margin: 72px 0;
-      padding-right: 25px;
+      padding: 25px 25px 0 0;
+      margin: 0;
     }
   }
   img {
@@ -36,14 +36,14 @@ const StyledPageContainer = styled(PageContainer)`
 `;
 
 const MobileGrid = styled(Grid)`
-  grid-template-rows: 1fr 105px 105px 135px;
+  grid-template-rows: 195px 105px 105px 135px;
   @media ${(props) => props.theme.minWidth.md} {
     display: none;
   }
 `;
 
 const DesktopGrid = styled(Grid)`
-  grid-template-rows: 250px 50px;
+  grid-template-rows: 200px 50px;
   display: none;
   @media ${(props) => props.theme.minWidth.md} {
     display: grid;
@@ -57,6 +57,7 @@ const StyledLogo = styled.div`
     grid-column: span 1;
     align-self: center;
     border-right: ${(props) => props.theme.border};
+    height: 100%;
   }
 `;
 
@@ -77,18 +78,47 @@ const StyledRow = styled.div`
     grid-column: span 2;
     padding-top: 0;
     border-top: none;
+    border-right: ${(props) => props.theme.border};
+    height: 100%;
+    padding-top: 25px;
+    padding-right: 25px;
   }
 `;
+
+const StyledResources = styled.div`
+  grid-column: span 4;
+  border-top: solid ${(props) => props.theme.colors.black} 1px;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  @media ${(props) => props.theme.minWidth.md} {
+    grid-column: span 2;
+    padding-top: 0;
+    border-top: none;
+    height: 100%;
+    padding-top: 25px;
+    padding-right: 0;
+    text-align: right;
+  }
+`;
+
 const StyledContact = styled.div`
   grid-column: 1 / 4;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: span 1;
+    border-right: ${(props) => props.theme.border};
+    height: 100%;
+    padding-top: 25px;
+    padding-right: 25px;
   }
 `;
 const StyledNetworks = styled.div`
   grid-column: 4 / 5;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: span 1;
+    border-right: ${(props) => props.theme.border};
+    height: 100%;
+    padding-top: 25px;
+    padding-right: 25px;
   }
 `;
 
@@ -99,9 +129,11 @@ const StyledText = styled(Text)`
 const StyledCredits = styled(PageContainer)`
   display: none;
   @media ${(props) => props.theme.minWidth.md} {
+    display: flex;
+    justify-content: space-between;
     grid-row: 2 / 3;
     grid-column: 2 / 8;
-    padding: 15px 25px 25px;
+    padding: 15px 25px 0;
     margin: 0 -25px;
     border-top: solid ${(props) => props.theme.colors.black} 1px;
   }
@@ -192,7 +224,6 @@ const Footer = () => {
             >
               LinkedIn
             </a>
-
             <a href="/#" target="_blank" rel="noopener noreferrer">
               Instagram
             </a>
@@ -202,7 +233,7 @@ const Footer = () => {
             18 rue Balthazar Dieudé, 13006, Marseille <br />
             38 rue du Chemin Vert, 75011, Paris
           </StyledRow>
-          <StyledRow>
+          <StyledResources>
             <StyledText type="label">Ressources</StyledText>
             <Link to="/" activeClassName="active">
               Plaquette de présentation
@@ -213,7 +244,7 @@ const Footer = () => {
             <Link to="/" activeClassName="active">
               Politique de confidentialité
             </Link>
-          </StyledRow>
+          </StyledResources>
           <StyledCredits>
             <p>© Pivot Panda 2023.</p>
             <p>Site créé par Adrien & Clément Lapasset</p>
