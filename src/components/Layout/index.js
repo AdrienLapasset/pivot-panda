@@ -16,7 +16,9 @@ const Layout = ({ children }) => {
           <Navigation />
         )}
         {children}
-        <Footer />
+        {pathname !== "/contact/" && pathname !== "/panda-invest/" && (
+          <Footer />
+        )}
       </ThemeProvider>
     </>
   );
