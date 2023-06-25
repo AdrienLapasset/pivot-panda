@@ -30,6 +30,16 @@ const StyledHeroImage = styled(GatsbyImage)`
   }
 `;
 
+const StyledHeroVideo = styled.video`
+  grid-row: 1 / 2;
+  grid-column: span 4;
+  height: 100%;
+  width: 100%;
+  @media ${(props) => props.theme.minWidth.md} {
+    grid-column: span 7;
+  }
+`;
+
 const StyledVerticalLine = styled.div`
   width: 1px;
   background-color: ${(props) => props.theme.colors.black};
@@ -200,6 +210,11 @@ export const query = graphql`
       slug {
         current
       }
+      video {
+        asset {
+          url
+        }
+      }
       ImageTextSections {
         image {
           asset {
@@ -245,6 +260,7 @@ const Project = ({ data }) => {
     address,
     image,
     year,
+    video,
     ImageTextSections,
     beforeAfterImages,
     projectCarousel,
@@ -252,10 +268,17 @@ const Project = ({ data }) => {
   } = data.sanityProject;
   const heroImage = getImage(image.asset);
   const projectYear = new Date(year).getFullYear();
+  const heroVideo = video && video.asset.url;
   return (
     <Layout>
       <StyledHeader>
-        <StyledHeroImage image={heroImage} alt={name} />
+        {heroVideo ? (
+          <StyledHeroVideo autoPlay muted loop>
+            <source src={heroVideo} type="video/mp4" />
+          </StyledHeroVideo>
+        ) : (
+          <StyledHeroImage image={heroImage} alt={name} />
+        )}
         <StyledVerticalLine />
         <StyledCategory type="label">{category}</StyledCategory>
         <StyledCity type="label">{city}</StyledCity>
