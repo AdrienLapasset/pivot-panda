@@ -4,6 +4,7 @@ import PPlogo from "assets/logos/logo-pivot-panda-paysage.svg";
 import Grid from "components/global/Grid";
 import { Link } from "gatsby";
 import PageContainer from "components/global/PageContainer";
+import { useLocation } from "@reach/router";
 
 const StyledNav = styled.nav`
   position: sticky;
@@ -36,6 +37,8 @@ const StyledNav = styled.nav`
 `;
 
 const Navigation = () => {
+  const { pathname } = useLocation();
+
   return (
     <StyledNav>
       <PageContainer>
@@ -43,13 +46,9 @@ const Navigation = () => {
           <Link className="logo" to="/">
             <img src={PPlogo} alt="Logo Pivot Panda" />
           </Link>
-          <Link to="/realisations" activeClassName="active">
-            Réalisations
-          </Link>
-          <Link to="/savoir-faire" activeClassName="active">
-            Savoir-faire{" "}
-          </Link>
-          <Link to="/contact" activeClassName="active">
+          <Link to="/realisations">Réalisations</Link>
+          <Link to="/savoir-faire">Savoir-faire</Link>
+          <Link to="/contact" state={{ fromPage: pathname }}>
             contact
           </Link>
         </Grid>

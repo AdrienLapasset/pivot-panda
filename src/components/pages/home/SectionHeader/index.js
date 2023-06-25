@@ -13,7 +13,7 @@ const StyledContainer = styled(Grid)`
     @media ${(props) => props.theme.minWidth.md} {
       grid-column: 5 / span 2;
     }
-    a {
+    & > a {
       margin-top: 17px;
     }
   }

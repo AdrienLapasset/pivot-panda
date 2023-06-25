@@ -2,6 +2,7 @@ const theme = {
   colors: {
     black: "#3A3A1F",
     transparentBlack: "rgba(58, 58, 31, 0.2)",
+    backgroundDark: "#1E1E28",
   },
   breakpoint: {
     xs: "375px",

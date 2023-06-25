@@ -6,11 +6,16 @@ import SectionHeader from "components/pages/home/SectionHeader";
 import NumbersSection from "components/pages/home/NumbersSection";
 import ProjectsSection from "components/pages/home/ProjectsSection";
 import NewsSection from "components/pages/home/NewsSection";
+import { Link } from "gatsby";
 
 const StyledSectionHeader = styled(SectionHeader)`
   margin-top: 15px;
   @media ${(props) => props.theme.minWidth.md} {
     margin-top: 35px;
+  }
+  a.pandaInvest {
+    display: inline-block;
+    text-decoration: underline;
   }
 `;
 
@@ -24,8 +29,12 @@ const IndexPage = () => {
         buttonTo="savoir-faire"
       >
         En tant que contractant général, Pivot Panda réalise différents types de
-        missions, de la conception de projet à la réalisation des travaux, avec
-        Panda Invest en tant qu’opérateur immobilier.
+        missions, de la conception de projet à la réalisation des travaux,
+        avec&nbsp;
+        <Link className="pandaInvest" to="/panda-invest">
+          Panda Invest
+        </Link>
+        &nbsp;en tant qu’opérateur immobilier.
       </StyledSectionHeader>
       <NumbersSection />
       <ProjectsSection />
