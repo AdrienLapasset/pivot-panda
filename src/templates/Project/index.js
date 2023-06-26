@@ -35,6 +35,7 @@ const StyledHeroVideo = styled.video`
   grid-column: span 4;
   height: 100%;
   width: 100%;
+  object-fit: cover;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: span 7;
   }
