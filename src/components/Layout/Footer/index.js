@@ -184,7 +184,7 @@ const Footer = () => {
           </DoubleElementRow>
           <StyledRow>
             <StyledText type="label">Nos locaux</StyledText>
-            18 rue Balthazar Dieudé, 13006, Marseille <br />
+            55 rue Sylvabelle, 13006, Marseille <br />
             38 rue du Chemin Vert, 75011, Paris
           </StyledRow>
 
