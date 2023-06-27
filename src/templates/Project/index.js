@@ -160,7 +160,7 @@ const StyledYear = styled(PageContainer)`
   }
 `;
 
-const StyledAddress = styled(PageContainer)`
+const StyledClient = styled(PageContainer)`
   border-top: solid ${(props) => props.theme.colors.black} 1px;
   display: flex;
   flex-direction: column;
@@ -201,7 +201,7 @@ export const query = graphql`
       surface
       mission
       year
-      address
+      client
       description
       image {
         asset {
@@ -258,7 +258,7 @@ const Project = ({ data }) => {
     description,
     mission,
     surface,
-    address,
+    client,
     image,
     year,
     video,
@@ -299,10 +299,10 @@ const Project = ({ data }) => {
               <p>{projectYear}</p>
             </StyledYear>
           </StyledContainer>
-          <StyledAddress>
-            <StyledText type="label">Adresse</StyledText>
-            <p>{address}</p>
-          </StyledAddress>
+          <StyledClient>
+            <StyledText type="label">Client</StyledText>
+            <p>{client}</p>
+          </StyledClient>
         </StyledGridContainer>
         <StyledDescription>
           <StyledText>{description}</StyledText>
