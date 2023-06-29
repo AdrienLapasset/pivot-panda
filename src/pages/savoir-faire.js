@@ -5,6 +5,7 @@ import Grid from "components/global/Grid";
 import Title from "components/global/Title";
 import Text from "components/global/Text";
 import PageContainer from "components/global/PageContainer";
+import NosMetiersSection from "components/pages/savoir-faire/NosMetiersSection";
 import { StaticImage } from "gatsby-plugin-image";
 
 const StyledContainer = styled.div`
@@ -40,8 +41,8 @@ const StyledApproche = styled(Grid)`
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: ${(props) => props.theme.columnGap.mobile};
     grid-column: 1 / 5;
-    border-left: ${({ theme }) => theme.border};
     @media ${({ theme }) => theme.minWidth.md} {
+      border-left: ${({ theme }) => theme.border};
       grid-column-gap: ${(props) => props.theme.columnGap.desktop};
       grid-column: 4 / 8;
     }
@@ -106,6 +107,7 @@ const SavoirFaire = () => {
             </Text>
           </div>
         </StyledApproche>
+        <NosMetiersSection />
       </StyledContainer>
     </Layout>
   );

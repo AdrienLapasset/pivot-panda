@@ -4,21 +4,21 @@ import styled from "styled-components";
 const StyledText = styled.p`
   color: ${({ white }) => white && "white"};
   font-size: 14px;
-  /* line-height: 21px; */
+  line-height: 21px;
   opacity: 1;
   text-transform: normal;
   @media ${(props) => props.theme.minWidth.md} {
-    /* line-height: 25px; */
+    line-height: 25px;
   }
 `;
 const Label = styled.aside`
   color: ${({ white }) => white && "white"};
   font-size: 12px;
-  /* line-height: 21px; */
+  line-height: 21px;
   opacity: 0.5;
   text-transform: uppercase;
   @media ${(props) => props.theme.minWidth.md} {
-    /* line-height: 25px; */
+    line-height: 25px;
   }
 `;
 const ProjectTitle = styled.h3`
