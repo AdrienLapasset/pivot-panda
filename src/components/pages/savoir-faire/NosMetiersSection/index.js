@@ -34,7 +34,7 @@ const StyledBody = styled.div`
 
 const NosMetiersSection = () => {
   const step2Ref = useRef(null);
-  const headersHeight = 170;
+  const headersHeight = 400;
   const [currentStep, setCurrentStep] = useState(1);
 
   useEffect(() => {
@@ -63,7 +63,16 @@ const NosMetiersSection = () => {
         <Title as="h2">nos métiers</Title>
       </PageContainer>
       <Styledheader>
-        <PageContainer>Stratégie immobilière {currentStep}</PageContainer>
+        <PageContainer>
+          {currentStep === 1
+            ? "Stratégie immobilière"
+            : currentStep === 2
+            ? "conception"
+            : currentStep === 3
+            ? "réalisation des travaux"
+            : ""}
+          {currentStep}
+        </PageContainer>
       </Styledheader>
       <StyledBody>
         <PageContainer>
