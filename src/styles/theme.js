@@ -32,6 +32,7 @@ const theme = {
   border: "1px solid #3A3A1F",
   aspectRatio: {
     mobile: 1.25,
+    desktop: 1.8,
   },
 };
 
