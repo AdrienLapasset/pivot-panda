@@ -24,10 +24,11 @@ const StyledTitle = styled.h1`
   ${baseStyle}
 `;
 
-const Title = ({ children, className, white, type }) => {
+const Title = ({ children, className, white, type, as }) => {
   if (type === "pageTitle")
     return (
       <PageTitle
+        as={as}
         white={white}
         className={className}
         dangerouslySetInnerHTML={{ __html: children }}
@@ -36,10 +37,13 @@ const Title = ({ children, className, white, type }) => {
   else
     return (
       <StyledTitle
+        as={as}
         white={white}
         className={className}
-        dangerouslySetInnerHTML={{ __html: children }}
-      ></StyledTitle>
+        // dangerouslySetInnerHTML={{ __html: children }}
+      >
+        {children}
+      </StyledTitle>
     );
 };
 

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Layout from "components/Layout";
 import Grid from "components/global/Grid";
 import Title from "components/global/Title";
+import Text from "components/global/Text";
 import PageContainer from "components/global/PageContainer";
 import { StaticImage } from "gatsby-plugin-image";
 
@@ -32,6 +33,42 @@ const StyledHeroSection = styled(Grid)`
     }
   }
 `;
+const StyledApproche = styled(Grid)`
+  border-bottom: ${({ theme }) => theme.border};
+  & > div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: ${(props) => props.theme.columnGap.mobile};
+    grid-column: 1 / 5;
+    border-left: ${({ theme }) => theme.border};
+    @media ${({ theme }) => theme.minWidth.md} {
+      grid-column-gap: ${(props) => props.theme.columnGap.desktop};
+      grid-column: 4 / 8;
+    }
+    h2 {
+      grid-column: 1 / 5;
+      padding: ${({ theme }) => theme.columnGap.mobile} 0 75px
+        ${({ theme }) => theme.columnGap.mobile};
+      @media ${({ theme }) => theme.minWidth.md} {
+        padding: ${({ theme }) => theme.columnGap.desktop} 0 175px
+          ${({ theme }) => theme.columnGap.desktop};
+      }
+    }
+    p {
+      margin-bottom: ${({ theme }) => theme.columnGap.mobile};
+      padding-left: ${({ theme }) => theme.columnGap.mobile};
+      grid-column: 1 / 5;
+      @media ${({ theme }) => theme.minWidth.md} {
+        grid-column: 1 / 3;
+        margin-bottom: ${({ theme }) => theme.columnGap.desktop};
+        padding-left: ${({ theme }) => theme.columnGap.desktop};
+      }
+      &:last-of-type {
+        margin-bottom: 120px;
+      }
+    }
+  }
+`;
 
 const SavoirFaire = () => {
   return (
@@ -48,6 +85,27 @@ const SavoirFaire = () => {
           src="../assets/imgs/page-savoir-faire-hero-img.jpg"
           alt="Pivot Panda - Savoir-faire"
         />
+        <StyledApproche>
+          <div>
+            <Title as="h2">
+              Une approche
+              <br />
+              simple et agile
+            </Title>
+            <Text>
+              Pivot Panda n’est pas une entreprise de travaux, un fournisseur de
+              mobilier, un consultant d’accompagnement en organisation.
+            </Text>
+            <Text>
+              Notre vocation est de concevoir un environnement adapte à notre
+              client, et pour cela nous nous appuyons sur une démarche issue du
+              Design Thinking simple et agile, qui mobilise des outils de
+              co-conception et qui font de vos collaborateurs des acteurs dans
+              la conception de votre futur Work Place pour ensuite les mettre en
+              œuvre.
+            </Text>
+          </div>
+        </StyledApproche>
       </StyledContainer>
     </Layout>
   );
