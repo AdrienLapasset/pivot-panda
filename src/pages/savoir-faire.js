@@ -7,6 +7,7 @@ import Text from "components/global/Text";
 import PageContainer from "components/global/PageContainer";
 import NosMetiersSectionMobile from "components/pages/savoir-faire/NosMetiersSectionMobile";
 import NosMetiersSectionDesktop from "components/pages/savoir-faire/NosMetiersSectionDesktop";
+import NotreProcessSection from "components/pages/savoir-faire/NotreProcessSection";
 import { StaticImage } from "gatsby-plugin-image";
 
 const StyledContainer = styled.div`
@@ -127,6 +128,7 @@ const SavoirFaire = () => {
           <NosMetiersSectionMobile />
           <NosMetiersSectionDesktop />
         </div>
+        <NotreProcessSection />
       </StyledContainer>
     </Layout>
   );
