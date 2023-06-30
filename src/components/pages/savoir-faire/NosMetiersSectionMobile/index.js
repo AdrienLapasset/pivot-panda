@@ -7,12 +7,13 @@ import Text from "components/global/Text";
 import PageContainer from "components/global/PageContainer";
 import { StaticImage } from "gatsby-plugin-image";
 
-const StyledContainer = styled.div`
+const StyledContainer = styled.section`
   h2 {
     margin: 70px 0 15px;
   }
+  border-bottom: ${({ theme }) => theme.border};
 `;
-const Styledheader = styled.div`
+const StyledMobileheader = styled.div`
   border-top: ${({ theme }) => theme.border};
   border-bottom: ${({ theme }) => theme.border};
   padding: 15px 0;
@@ -21,6 +22,25 @@ const Styledheader = styled.div`
   background-color: white;
   z-index: 1;
   margin-bottom: 60px;
+  text-transform: uppercase;
+  font-size: 16px;
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  aside {
+    font-size: 14px;
+    border: ${({ theme }) => theme.border};
+    border-radius: 100px;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: ${({ theme }) => theme.colors.black};
+  }
 `;
 const StyledBody = styled.div`
   p {
@@ -28,7 +48,14 @@ const StyledBody = styled.div`
   }
   .gatsby-image-wrapper {
     aspect-ratio: 0.75;
-    margin-bottom: 60px;
+    margin-bottom: 150px;
+  }
+  & > div > div {
+    &:last-of-type {
+      .gatsby-image-wrapper {
+        margin-bottom: 15px;
+      }
+    }
   }
 `;
 
@@ -62,7 +89,7 @@ const NosMetiersSection = () => {
       <PageContainer>
         <Title as="h2">nos métiers</Title>
       </PageContainer>
-      <Styledheader>
+      <StyledMobileheader>
         <PageContainer>
           {currentStep === 1
             ? "Stratégie immobilière"
@@ -71,9 +98,9 @@ const NosMetiersSection = () => {
             : currentStep === 3
             ? "réalisation des travaux"
             : ""}
-          {currentStep}
+          <aside>{currentStep}</aside>
         </PageContainer>
-      </Styledheader>
+      </StyledMobileheader>
       <StyledBody>
         <PageContainer>
           <div>

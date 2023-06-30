@@ -5,7 +5,8 @@ import Grid from "components/global/Grid";
 import Title from "components/global/Title";
 import Text from "components/global/Text";
 import PageContainer from "components/global/PageContainer";
-import NosMetiersSection from "components/pages/savoir-faire/NosMetiersSection";
+import NosMetiersSectionMobile from "components/pages/savoir-faire/NosMetiersSectionMobile";
+import NosMetiersSectionDesktop from "components/pages/savoir-faire/NosMetiersSectionDesktop";
 import { StaticImage } from "gatsby-plugin-image";
 
 const StyledContainer = styled.div`
@@ -14,6 +15,21 @@ const StyledContainer = styled.div`
     aspect-ratio: ${({ theme }) => theme.aspectRatio.mobile};
     @media ${({ theme }) => theme.minWidth.md} {
       aspect-ratio: ${({ theme }) => theme.aspectRatio.desktop};
+    }
+  }
+  .nosMetiersSection {
+    & > section {
+      &:first-of-type {
+        @media ${({ theme }) => theme.minWidth.md} {
+          display: none;
+        }
+      }
+      &:last-of-type {
+        display: none;
+        @media ${({ theme }) => theme.minWidth.md} {
+          display: block;
+        }
+      }
     }
   }
 `;
@@ -107,7 +123,10 @@ const SavoirFaire = () => {
             </Text>
           </div>
         </StyledApproche>
-        <NosMetiersSection />
+        <div className="nosMetiersSection">
+          <NosMetiersSectionMobile />
+          <NosMetiersSectionDesktop />
+        </div>
       </StyledContainer>
     </Layout>
   );
