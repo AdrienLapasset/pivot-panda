@@ -13,12 +13,16 @@ const StyledContainer = styled.section`
   margin: 100px 0;
 `;
 const StyledGrid = styled(Grid)`
+  padding-bottom: 100px;
   & > div {
     &:first-of-type {
       grid-column: 1 / span 2;
       align-self: flex-start;
       position: sticky;
       top: 100px;
+      h2 {
+        margin-bottom: 100px;
+      }
     }
     &:last-of-type {
       grid-column: 4 / span 2;
@@ -27,12 +31,13 @@ const StyledGrid = styled(Grid)`
   }
 `;
 const StyledStepDescriptionContainer = styled.div`
-  margin: 100px 0 250px;
+  margin-top: 100px;
   & > div {
     opacity: 0.5;
+    /* padding-bottom: 125px; */
+    min-height: 30vh;
     &:not(:last-child) {
       margin-bottom: 25px;
-      padding-bottom: 125px;
       border-bottom: ${({ theme }) => theme.border};
     }
     h3 {
@@ -91,7 +96,7 @@ const NotreProcessSection = () => {
         <StyledGrid>
           <div>
             <Title as="h2">Notre process</Title>
-            <ProcessWheel />
+            <ProcessWheel currentStep={currentStep} />
           </div>
           <StyledStepDescriptionContainer currentStep={currentStep}>
             <div ref={step1Ref}>
