@@ -9,6 +9,11 @@ const StyledContainer = styled.div`
     @media ${({ theme }) => theme.minWidth.md} {
       height: auto;
     }
+    .stepTitle {
+      fill: ${({ theme }) => theme.colors.black};
+      font-size: 18px;
+      text-transform: uppercase;
+    }
     .baseCircle {
       stroke: ${({ theme }) => theme.colors.black};
     }
@@ -34,7 +39,7 @@ const StyledContainer = styled.div`
         text {
           transform: translate(-6px, 7px);
           font-weight: 700;
-          font-size: 20px;
+          font-size: 18px;
         }
         &:nth-child(1) {
           circle {
@@ -155,8 +160,19 @@ const ProcessWheel = ({ currentStep }) => {
 
   const initDashoffset = -1010;
   const [dashoffset, setDashoffset] = useState(initDashoffset);
+  const [stepTitle, setStepTitle] = useState("Le panda dénicheur");
 
   useEffect(() => {
+    if (1 <= currentStep && currentStep <= 3) {
+      setStepTitle("Le panda dénicheur");
+    }
+    if (4 <= currentStep && currentStep <= 7) {
+      setStepTitle("Le panda designer");
+    }
+    if (8 <= currentStep && currentStep <= 11) {
+      setStepTitle("Le panda constructeur");
+    }
+
     setDashoffset(initDashoffset - currentStep * 100);
     currentStep === 1
       ? (circle1.current.r.baseVal.value = 20)
@@ -196,6 +212,19 @@ const ProcessWheel = ({ currentStep }) => {
   return (
     <StyledContainer currentStep={currentStep} dashoffset={dashoffset}>
       <svg viewBox="0 0 380 375" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {stepTitle === "Le panda constructeur" ? (
+          <text className="stepTitle" x="82" y="195">
+            {stepTitle}
+          </text>
+        ) : stepTitle === "Le panda designer" ? (
+          <text className="stepTitle" x="108" y="195">
+            {stepTitle}
+          </text>
+        ) : (
+          <text className="stepTitle" x="100" y="195">
+            {stepTitle}
+          </text>
+        )}
         <circle
           className="baseCircle"
           cx="189.822"
