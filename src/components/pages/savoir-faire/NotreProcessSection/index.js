@@ -1,44 +1,70 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import Layout from "components/Layout";
 import Grid from "components/global/Grid";
 import Title from "components/global/Title";
 import Text from "components/global/Text";
 import PageContainer from "components/global/PageContainer";
 import ProcessWheel from "./ProcessWheel";
-import { StaticImage } from "gatsby-plugin-image";
 
 const StyledContainer = styled.section`
   border-bottom: ${({ theme }) => theme.border};
-  margin: 100px 0;
+  margin: 75px 0;
+  @media ${({ theme }) => theme.minWidth.md} {
+    margin: 100px 0;
+  }
 `;
 const StyledGrid = styled(Grid)`
   padding-bottom: 100px;
+  display: block;
+  @media ${({ theme }) => theme.minWidth.md} {
+    display: grid;
+  }
   & > div {
     &:first-of-type {
-      grid-column: 1 / span 2;
-      align-self: flex-start;
-      position: sticky;
-      top: 100px;
+      @media ${({ theme }) => theme.minWidth.md} {
+        grid-column: 1 / span 2;
+        align-self: flex-start;
+        position: sticky;
+        top: 100px;
+      }
       h2 {
-        margin-bottom: 100px;
+        margin-bottom: 50px;
+
+        @media ${({ theme }) => theme.minWidth.md} {
+          margin-bottom: 100px;
+        }
       }
     }
     &:last-of-type {
-      grid-column: 4 / span 2;
-      display: grid;
+      @media ${({ theme }) => theme.minWidth.md} {
+        grid-column: 4 / span 2;
+        display: grid;
+      }
     }
   }
 `;
 const StyledStepDescriptionContainer = styled.div`
-  margin-top: 100px;
+  margin-top: 50px;
+  display: flex;
+  overflow-x: scroll;
+  @media ${({ theme }) => theme.minWidth.md} {
+    margin-top: 100px;
+    display: block;
+    overflow-x: unset;
+  }
   & > div {
     opacity: 0.5;
-    /* padding-bottom: 125px; */
-    min-height: 30vh;
+    flex: 0 0 270px;
+    margin-right: 50px;
+    @media ${({ theme }) => theme.minWidth.md} {
+      min-height: 30vh;
+      margin-right: 0;
+    }
     &:not(:last-child) {
-      margin-bottom: 25px;
-      border-bottom: ${({ theme }) => theme.border};
+      @media ${({ theme }) => theme.minWidth.md} {
+        border-bottom: ${({ theme }) => theme.border};
+        margin-bottom: 25px;
+      }
     }
     h3 {
       font-size: 18px;
@@ -90,6 +116,7 @@ const NotreProcessSection = () => {
   const step9Ref = useRef(null);
   const step10Ref = useRef(null);
   const step11Ref = useRef(null);
+  const stepContainer = useRef(null);
   const headersHeight = 250;
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -105,43 +132,92 @@ const NotreProcessSection = () => {
       const step8Top = step8Ref.current.getBoundingClientRect().top;
       const step9Top = step9Ref.current.getBoundingClientRect().top;
       const step10Top = step10Ref.current.getBoundingClientRect().top;
-      if (step1Top > headersHeight) {
-        setCurrentStep(1);
-      }
-      if (step1Top <= headersHeight) {
-        setCurrentStep(2);
-      }
-      if (step2Top <= headersHeight) {
-        setCurrentStep(3);
-      }
-      if (step3Top <= headersHeight) {
-        setCurrentStep(4);
-      }
-      if (step4Top <= headersHeight) {
-        setCurrentStep(5);
-      }
-      if (step5Top <= headersHeight) {
-        setCurrentStep(6);
-      }
-      if (step6Top <= headersHeight) {
-        setCurrentStep(7);
-      }
-      if (step7Top <= headersHeight) {
-        setCurrentStep(8);
-      }
-      if (step8Top <= headersHeight) {
-        setCurrentStep(9);
-      }
-      if (step9Top <= headersHeight) {
-        setCurrentStep(10);
-      }
-      if (step10Top <= headersHeight) {
-        setCurrentStep(11);
+      const step2Right = step2Ref.current.getBoundingClientRect().right;
+      const step3Right = step3Ref.current.getBoundingClientRect().right;
+      const step4Right = step4Ref.current.getBoundingClientRect().right;
+      const step5Right = step5Ref.current.getBoundingClientRect().right;
+      const step6Right = step6Ref.current.getBoundingClientRect().right;
+      const step7Right = step7Ref.current.getBoundingClientRect().right;
+      const step8Right = step8Ref.current.getBoundingClientRect().right;
+      const step9Right = step9Ref.current.getBoundingClientRect().right;
+      const step10Right = step10Ref.current.getBoundingClientRect().right;
+      const step11Right = step11Ref.current.getBoundingClientRect().right;
+
+      if (window.innerWidth < 1024) {
+        if (step2Right > window.innerWidth) {
+          setCurrentStep(1);
+        }
+        if (step2Right <= window.innerWidth) {
+          setCurrentStep(2);
+        }
+        if (step3Right <= window.innerWidth) {
+          setCurrentStep(3);
+        }
+        if (step4Right <= window.innerWidth) {
+          setCurrentStep(4);
+        }
+        if (step5Right <= window.innerWidth) {
+          setCurrentStep(5);
+        }
+        if (step6Right <= window.innerWidth) {
+          setCurrentStep(6);
+        }
+        if (step7Right <= window.innerWidth) {
+          setCurrentStep(7);
+        }
+        if (step8Right <= window.innerWidth) {
+          setCurrentStep(8);
+        }
+        if (step9Right <= window.innerWidth) {
+          setCurrentStep(9);
+        }
+        if (step10Right <= window.innerWidth) {
+          setCurrentStep(10);
+        }
+        if (step11Right <= window.innerWidth) {
+          setCurrentStep(11);
+        }
+      } else {
+        if (step1Top > headersHeight) {
+          setCurrentStep(1);
+        }
+        if (step1Top <= headersHeight) {
+          setCurrentStep(2);
+        }
+        if (step2Top <= headersHeight) {
+          setCurrentStep(3);
+        }
+        if (step3Top <= headersHeight) {
+          setCurrentStep(4);
+        }
+        if (step4Top <= headersHeight) {
+          setCurrentStep(5);
+        }
+        if (step5Top <= headersHeight) {
+          setCurrentStep(6);
+        }
+        if (step6Top <= headersHeight) {
+          setCurrentStep(7);
+        }
+        if (step7Top <= headersHeight) {
+          setCurrentStep(8);
+        }
+        if (step8Top <= headersHeight) {
+          setCurrentStep(9);
+        }
+        if (step9Top <= headersHeight) {
+          setCurrentStep(10);
+        }
+        if (step10Top <= headersHeight) {
+          setCurrentStep(11);
+        }
       }
     };
     window.addEventListener("scroll", handleStep);
+    stepContainer.current.addEventListener("scroll", handleStep);
     return () => {
       window.removeEventListener("scroll", handleStep);
+      stepContainer.current.removeEventListener("scroll", handleStep);
     };
   }, [
     step1Ref,
@@ -165,7 +241,10 @@ const NotreProcessSection = () => {
             <Title as="h2">Notre process</Title>
             <ProcessWheel currentStep={currentStep} />
           </div>
-          <StyledStepDescriptionContainer currentStep={currentStep}>
+          <StyledStepDescriptionContainer
+            currentStep={currentStep}
+            ref={stepContainer}
+          >
             <div ref={step1Ref}>
               <Text as="h3" type="projectTitle">
                 1. Montage et accompagnement
@@ -266,7 +345,7 @@ const NotreProcessSection = () => {
                 et urbanistique
               </Text>
             </div>
-            <div>
+            <div ref={step11Ref}>
               <Text as="h3" type="projectTitle">
                 4. Montage et accompagnement
               </Text>

@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import Title from "components/global/Title";
-import Text from "components/global/Text";
 
 const StyledContainer = styled.div`
   svg {
     width: 100%;
     overflow: visible;
+    height: 40vh;
+    @media ${({ theme }) => theme.minWidth.md} {
+      height: auto;
+    }
     .baseCircle {
       stroke: ${({ theme }) => theme.colors.black};
     }
@@ -189,7 +191,7 @@ const ProcessWheel = ({ currentStep }) => {
     currentStep === 11
       ? (circle11.current.r.baseVal.value = 20)
       : (circle11.current.r.baseVal.value = 12);
-  }, [currentStep]);
+  }, [currentStep, initDashoffset]);
 
   return (
     <StyledContainer currentStep={currentStep} dashoffset={dashoffset}>
@@ -199,7 +201,7 @@ const ProcessWheel = ({ currentStep }) => {
           cx="189.822"
           cy="191.263"
           r="178.408"
-          stroke-width="2"
+          strokeWidth="2"
           opacity="0.2"
         />
         <circle
@@ -207,9 +209,9 @@ const ProcessWheel = ({ currentStep }) => {
           cx="189.822"
           cy="191.263"
           r="178.408"
-          stroke-width="2"
+          strokeWidth="2"
         />
-        <g class="stepContainer">
+        <g className="stepContainer">
           <g>
             <circle ref={circle1} cx="190.488" cy="12.9932" r="12" />
             <text x="190.488" y="12.9932">
