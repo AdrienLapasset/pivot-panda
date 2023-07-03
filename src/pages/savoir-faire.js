@@ -87,6 +87,27 @@ const StyledApproche = styled(Grid)`
     }
   }
 `;
+const StyledLequipeSection = styled.section`
+  border-bottom: ${({ theme }) => theme.border};
+  padding-bottom: 15px;
+  @media ${({ theme }) => theme.minWidth.md} {
+    padding-bottom: 25px;
+  }
+  .grid {
+    margin-bottom: 25px;
+    display: block;
+    @media ${({ theme }) => theme.minWidth.md} {
+      display: grid;
+      margin-bottom: 50px;
+    }
+    h2 {
+      margin-bottom: 40px;
+    }
+    p {
+      grid-column: 4 / span 2;
+    }
+  }
+`;
 
 const SavoirFaire = () => {
   return (
@@ -129,6 +150,21 @@ const SavoirFaire = () => {
           <NosMetiersSectionDesktop />
         </div>
         <NotreProcessSection />
+        <StyledLequipeSection>
+          <PageContainer>
+            <Grid className="grid">
+              <Title as="h2">L'équipe</Title>
+              <Text>
+                Pivot Panda, est organisé autour de 4 associés et 5
+                collaborateurs.
+              </Text>
+            </Grid>
+            <StaticImage
+              src="../assets/imgs/l-equipe.jpg"
+              alt="Pivot Panda - Savoir-faire"
+            />
+          </PageContainer>
+        </StyledLequipeSection>
       </StyledContainer>
     </Layout>
   );
