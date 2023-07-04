@@ -41,6 +41,12 @@ const StyledLink = styled(Link)`
 const StyledA = styled.a`
   ${SharedStyled}
 `;
+const StyledAccordionButton = styled.button`
+  ${SharedStyled}
+  svg {
+    margin-left: 0;
+  }
+`;
 
 const Button = ({
   children,
@@ -84,6 +90,12 @@ const Button = ({
         {children}
         <Arrow />
       </StyledA>
+    );
+  else
+    return (
+      <StyledAccordionButton className={className}>
+        <Arrow />
+      </StyledAccordionButton>
     );
 };
 

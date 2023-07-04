@@ -8,6 +8,7 @@ import PageContainer from "components/global/PageContainer";
 import NosMetiersSectionMobile from "components/pages/savoir-faire/NosMetiersSectionMobile";
 import NosMetiersSectionDesktop from "components/pages/savoir-faire/NosMetiersSectionDesktop";
 import NotreProcessSection from "components/pages/savoir-faire/NotreProcessSection";
+import EngagementAccordion from "components/pages/savoir-faire/EngagementAccordion";
 import { StaticImage } from "gatsby-plugin-image";
 
 const StyledContainer = styled.div`
@@ -108,6 +109,35 @@ const StyledLequipeSection = styled.section`
     }
   }
 `;
+const StyledNosEngagementsSection = styled.section`
+  border-bottom: ${({ theme }) => theme.border};
+  padding: 100px 0 15px;
+  @media ${({ theme }) => theme.minWidth.md} {
+    padding-bottom: 25px;
+  }
+  .grid {
+    margin-bottom: 25px;
+    display: block;
+    @media ${({ theme }) => theme.minWidth.md} {
+      display: grid;
+      margin-bottom: 50px;
+    }
+    & > div {
+      h2 {
+        margin-bottom: 40px;
+      }
+
+      p {
+      }
+      &:last-of-type {
+        grid-column: 4 / span 4;
+        @media ${({ theme }) => theme.minWidth.lg} {
+          grid-column: 4 / span 3;
+        }
+      }
+    }
+  }
+`;
 
 const SavoirFaire = () => {
   return (
@@ -165,6 +195,23 @@ const SavoirFaire = () => {
             />
           </PageContainer>
         </StyledLequipeSection>
+        <StyledNosEngagementsSection>
+          <PageContainer>
+            <Grid className="grid">
+              <div>
+                <Title as="h2">Nos engagements</Title>
+                <Text>
+                  En tant qu’entreprise liée à la construction, nous nous
+                  engageons à apporter des solutions économiques viables,
+                  socialement équitables et écologiquement durables.Impliqués
+                  activement dans la vie culturelle et associative locale, nous
+                  nous engageons auprès de nombreuses associations.
+                </Text>
+              </div>
+              <EngagementAccordion />
+            </Grid>
+          </PageContainer>
+        </StyledNosEngagementsSection>
       </StyledContainer>
     </Layout>
   );
