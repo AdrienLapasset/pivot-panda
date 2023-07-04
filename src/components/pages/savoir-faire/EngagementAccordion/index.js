@@ -16,12 +16,13 @@ const StyledContainer = styled.div`
   }
   & > div {
     &:not(:first-child) {
-      header {
+      button {
         border-top: ${({ theme }) => theme.border};
       }
     }
   }
-  header {
+  button {
+    width: 100%;
     font-size: 16px;
     text-transform: uppercase;
     padding: 25px 15px;
@@ -95,10 +96,10 @@ const Accordion = () => {
   return (
     <StyledContainer>
       <div>
-        <header onClick={toggleSection1}>
+        <button onClick={toggleSection1}>
           Eco-conception
           <StyledButton isSectionOpen={isSection1Open} />
-        </header>
+        </button>
         <StyledContent
           isSectionOpen={isSection1Open}
           contentHeight={content1Height}
@@ -113,10 +114,10 @@ const Accordion = () => {
         </StyledContent>
       </div>
       <div>
-        <header onClick={toggleSection2}>
+        <button onClick={toggleSection2}>
           Economie locale
           <StyledButton isSectionOpen={isSection2Open} />
-        </header>
+        </button>
         <StyledContent
           isSectionOpen={isSection2Open}
           contentHeight={content2Height}
@@ -131,10 +132,10 @@ const Accordion = () => {
         </StyledContent>
       </div>
       <div>
-        <header onClick={toggleSection3}>
+        <button onClick={toggleSection3}>
           Vie d’entreprise
           <StyledButton isSectionOpen={isSection3Open} />
-        </header>
+        </button>
         <StyledContent
           isSectionOpen={isSection3Open}
           contentHeight={content3Height}

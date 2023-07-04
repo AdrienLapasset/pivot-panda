@@ -41,7 +41,7 @@ const StyledLink = styled(Link)`
 const StyledA = styled.a`
   ${SharedStyled}
 `;
-const StyledAccordionButton = styled.button`
+const StyledAccordionButton = styled.aside`
   ${SharedStyled}
   svg {
     margin-left: 0;

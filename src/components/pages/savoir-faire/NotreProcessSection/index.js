@@ -217,7 +217,7 @@ const NotreProcessSection = () => {
     stepContainer.current.addEventListener("scroll", handleStep);
     return () => {
       window.removeEventListener("scroll", handleStep);
-      stepContainer.current.removeEventListener("scroll", handleStep);
+      // stepContainer.current.removeEventListener("scroll", handleStep);
     };
   }, [
     step1Ref,
