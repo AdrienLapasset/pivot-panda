@@ -40,10 +40,8 @@ const Title = ({ children, className, white, type, as }) => {
         as={as}
         white={white}
         className={className}
-        // dangerouslySetInnerHTML={{ __html: children }}
-      >
-        {children}
-      </StyledTitle>
+        dangerouslySetInnerHTML={{ __html: children }}
+      ></StyledTitle>
     );
 };
 

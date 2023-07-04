@@ -188,11 +188,7 @@ const SavoirFaire = () => {
         />
         <StyledApproche>
           <div>
-            <Title as="h2">
-              Une approche
-              <br />
-              simple et agile
-            </Title>
+            <Title as="h2" children="Une approche<br>simple et agile"></Title>
             <Text>
               Pivot Panda n’est pas une entreprise de travaux, un fournisseur de
               mobilier, un consultant d’accompagnement en organisation.
