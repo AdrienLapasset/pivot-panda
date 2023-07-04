@@ -23,16 +23,15 @@ const StyledCarouselContainer = styled(Grid)`
   display: block;
   @media ${(props) => props.theme.minWidth.md} {
     display: grid;
-    padding: 0;
+    padding: 0 ${({ theme }) => theme.columnGap.desktop};
   }
   .info-container {
     @media ${(props) => props.theme.minWidth.md} {
       grid-column: 1 / span 2;
-      padding: ${({ theme }) => theme.columnGap.desktop};
-      align-self: start;
+      border-right: ${({ theme }) => theme.border};
       display: flex;
       flex-direction: column;
-      height: 100%;
+      padding: 25px 0;
     }
     & > div:not(.project-nav) {
       display: none;
@@ -44,11 +43,11 @@ const StyledCarouselContainer = styled(Grid)`
   }
   .slider-container {
     margin: ${({ theme }) => theme.columnGap.mobile} 0;
+    overflow: hidden;
     @media ${(props) => props.theme.minWidth.md} {
       margin: 0;
-      grid-column: 3 / span 5;
-      border-left: ${({ theme }) => theme.border};
-      padding: ${({ theme }) => theme.columnGap.desktop};
+      grid-column: 3 / 8;
+      padding: ${({ theme }) => theme.columnGap.desktop} 0;
     }
     .gatsby-image-wrapper {
       width: 100%;
