@@ -14,6 +14,7 @@ import OtherProjectsSection from "components/pages/project/otherProjectsSection"
 const StyledHeader = styled(Grid)`
   grid-template-rows: calc(50vh - 23px) 15px calc(50vh - 78px) 60px 60px 60px 1fr;
   row-gap: 15px;
+  align-items: center;
   @media ${(props) => props.theme.minWidth.md} {
     grid-template-rows: calc(100vh - 65px) 75px 75px 75px 1fr;
     row-gap: 25px;
