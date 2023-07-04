@@ -11,6 +11,7 @@ import NotreProcessSection from "components/pages/savoir-faire/NotreProcessSecti
 import EngagementAccordion from "components/pages/savoir-faire/EngagementAccordion";
 import leGrandBleuLogo from "assets/logos/logo-le-grand-bleu-marseille-horizontal.svg";
 import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 const StyledContainer = styled.div`
   .gatsby-image-wrapper {
@@ -55,6 +56,10 @@ const StyledHeroSection = styled(Grid)`
 `;
 const StyledApproche = styled(Grid)`
   border-bottom: ${({ theme }) => theme.border};
+  a {
+    display: inline;
+    text-decoration: underline;
+  }
   & > div {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -194,11 +199,12 @@ const SavoirFaire = () => {
             </Text>
             <Text>
               Notre vocation est de concevoir un environnement adapte à notre
-              client, et pour cela nous nous appuyons sur une démarche issue du
-              Design Thinking simple et agile, qui mobilise des outils de
-              co-conception et qui font de vos collaborateurs des acteurs dans
-              la conception de votre futur Work Place pour ensuite les mettre en
-              œuvre.
+              client, et pour cela nous nous appuyons sur une démarche issue
+              du&nbsp;
+              <Link to="/design-thinking">Design Thinking</Link> simple et
+              agile, qui mobilise des outils de co-conception et qui font de vos
+              collaborateurs des acteurs dans la conception de votre futur Work
+              Place pour ensuite les mettre en œuvre.
             </Text>
           </div>
         </StyledApproche>

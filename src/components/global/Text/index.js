@@ -23,6 +23,7 @@ const Label = styled.aside`
 `;
 const ProjectTitle = styled.h3`
   font-size: 16px;
+  color: ${({ white }) => white && "white"};
   @media ${(props) => props.theme.minWidth.md} {
     font-size: 24px;
   }

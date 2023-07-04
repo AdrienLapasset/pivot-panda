@@ -52,7 +52,6 @@ const StyledSlider = styled(Slider)`
 const ProjectCarousel = ({ images }) => {
   const initImage = images[0];
   const [currentImage, setCurrentImage] = useState(initImage);
-  console.log(currentImage);
   const [imageIndex, setImageIndex] = useState(1);
   const sliderRef = useRef();
 

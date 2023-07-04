@@ -8,17 +8,19 @@ import Footer from "./Footer";
 
 const Layout = ({ children }) => {
   const { pathname } = useLocation();
+
+  const isPageFullScreen =
+    pathname === "/contact/" ||
+    pathname === "/panda-invest/" ||
+    pathname === "/design-thinking/";
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        {pathname !== "/contact/" && pathname !== "/panda-invest/" && (
-          <Navigation />
-        )}
+        {!isPageFullScreen && <Navigation />}
         {children}
-        {pathname !== "/contact/" && pathname !== "/panda-invest/" && (
-          <Footer />
-        )}
+        {!isPageFullScreen && <Footer />}
       </ThemeProvider>
     </>
   );
