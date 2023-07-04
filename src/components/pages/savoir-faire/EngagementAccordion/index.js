@@ -54,7 +54,7 @@ const StyledContent = styled.div`
   @media ${({ theme }) => theme.minWidth.md} {
     padding: 0 25px;
   }
-  @media ${({ theme }) => theme.minWidth.xl} {
+  @media ${({ theme }) => theme.minWidth.lg} {
     display: grid;
     grid-column-gap: ${(props) => props.theme.columnGap.desktop};
     grid-template-columns: repeat(3, 1fr);

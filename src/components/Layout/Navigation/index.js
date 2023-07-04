@@ -10,7 +10,7 @@ const StyledNav = styled.nav`
   position: sticky;
   top: 0;
   background-color: white;
-  z-index: 1;
+  z-index: 2;
   padding: 15px 0;
   align-items: center;
   @media ${(props) => props.theme.minWidth.md} {

@@ -9,6 +9,7 @@ import NosMetiersSectionMobile from "components/pages/savoir-faire/NosMetiersSec
 import NosMetiersSectionDesktop from "components/pages/savoir-faire/NosMetiersSectionDesktop";
 import NotreProcessSection from "components/pages/savoir-faire/NotreProcessSection";
 import EngagementAccordion from "components/pages/savoir-faire/EngagementAccordion";
+import leGrandBleuLogo from "assets/logos/logo-le-grand-bleu-marseille-horizontal.svg";
 import { StaticImage } from "gatsby-plugin-image";
 
 const StyledContainer = styled.div`
@@ -110,8 +111,7 @@ const StyledLequipeSection = styled.section`
   }
 `;
 const StyledNosEngagementsSection = styled.section`
-  border-bottom: ${({ theme }) => theme.border};
-  padding: 100px 0 15px;
+  padding: 100px 0 0;
   @media ${({ theme }) => theme.minWidth.md} {
     padding-bottom: 25px;
   }
@@ -129,10 +129,37 @@ const StyledNosEngagementsSection = styled.section`
 
       p {
       }
+      &:first-of-type {
+        @media ${({ theme }) => theme.minWidth.md} {
+          grid-column: 1 / span 2;
+        }
+      }
       &:last-of-type {
         grid-column: 4 / span 4;
         @media ${({ theme }) => theme.minWidth.lg} {
           grid-column: 4 / span 3;
+        }
+      }
+    }
+  }
+`;
+const StyledPartenairesSection = styled.section`
+  .grid {
+    display: block;
+    margin: 50px 0;
+    @media ${({ theme }) => theme.minWidth.md} {
+      display: grid;
+      margin: 0 0 50px;
+    }
+    & > * {
+      &:first-child {
+        grid-column: 1 / span 2;
+      }
+      &:last-child {
+        grid-column: 4 / span 2;
+        img {
+          margin-bottom: 25px;
+          margin: 30px 0 15px;
         }
       }
     }
@@ -195,8 +222,8 @@ const SavoirFaire = () => {
             />
           </PageContainer>
         </StyledLequipeSection>
-        <StyledNosEngagementsSection>
-          <PageContainer>
+        <PageContainer>
+          <StyledNosEngagementsSection>
             <Grid className="grid">
               <div>
                 <Title as="h2">Nos engagements</Title>
@@ -210,8 +237,42 @@ const SavoirFaire = () => {
               </div>
               <EngagementAccordion />
             </Grid>
-          </PageContainer>
-        </StyledNosEngagementsSection>
+          </StyledNosEngagementsSection>
+          <StyledPartenairesSection>
+            <Grid className="grid">
+              <StaticImage
+                src="../assets/imgs/l-equipe.jpg"
+                alt="Pivot Panda - Savoir-faire"
+              />
+              <div>
+                <img src={leGrandBleuLogo} alt="" />
+                <Text>
+                  Le Grand Bleu est une association qui initie et développe les
+                  activités nautiques et aquatiquessur la commune de Marseille.
+                  Leur mission est d'offrir des opportunités pour que les
+                  enfants puissent apprendre, explorer et s'engager dans des
+                  activités nautiques en toute sécurité.
+                </Text>
+              </div>
+            </Grid>
+            <Grid className="grid">
+              <StaticImage
+                src="../assets/imgs/l-equipe.jpg"
+                alt="Pivot Panda - Savoir-faire"
+              />
+              <div>
+                <img src={leGrandBleuLogo} alt="" />
+                <Text>
+                  Le Grand Bleu est une association qui initie et développe les
+                  activités nautiques et aquatiquessur la commune de Marseille.
+                  Leur mission est d'offrir des opportunités pour que les
+                  enfants puissent apprendre, explorer et s'engager dans des
+                  activités nautiques en toute sécurité.
+                </Text>
+              </div>
+            </Grid>
+          </StyledPartenairesSection>
+        </PageContainer>
       </StyledContainer>
     </Layout>
   );
