@@ -54,11 +54,31 @@ const StyledContainer = styled.div`
         }
       }
       p {
-        padding: 30px ${({ theme }) => theme.columnGap.mobile} 0;
+        padding: 15px 15px 0;
         @media ${(props) => props.theme.minWidth.md} {
           grid-column: 4/6;
           align-self: end;
           padding: 0;
+        }
+        &:nth-of-type(1) {
+          display: block;
+          @media ${({ theme }) => theme.minWidth.md} {
+            display: none;
+          }
+        }
+        &:nth-of-type(2) {
+          display: none;
+          @media ${({ theme }) => theme.minWidth.md} {
+            display: block;
+          }
+        }
+        &:nth-of-type(3) {
+          display: block;
+          /* border-bottom: 1px solid white; */
+          padding-bottom: 60px;
+          @media ${({ theme }) => theme.minWidth.md} {
+            display: none;
+          }
         }
       }
     }
@@ -78,6 +98,7 @@ const StyledContainer = styled.div`
           display: flex;
           justify-content: space-between;
           align-items: center;
+          border-bottom: 1px solid white;
           & > p {
             font-size: 18px;
             text-transform: uppercase;
@@ -145,9 +166,7 @@ const StyledContainer = styled.div`
         &:nth-of-type(3) {
           padding: 0;
           margin: ${({ theme }) => theme.columnGap.mobile};
-          border-top: 1px solid rgba(255, 255, 255, 0.3);
           @media ${(props) => props.theme.minWidth.md} {
-            border-top: 0;
             margin: 0;
           }
         }
@@ -156,19 +175,28 @@ const StyledContainer = styled.div`
     &:nth-of-type(3) {
       & > p {
         margin-left: 15px;
+        display: none;
         @media ${(props) => props.theme.minWidth.md} {
           grid-column: 1 / span 2;
           margin-left: 25px;
+          display: block;
         }
       }
     }
   }
   .navBtnContainer {
     display: flex;
-    padding: 0 0 ${({ theme }) => theme.columnGap.desktop}
-      ${({ theme }) => theme.columnGap.desktop};
+    padding: 60px 0;
+    @media ${(props) => props.theme.minWidth.md} {
+      padding: 0 0
+        ${({ theme }) =>
+          theme.columnGap.desktop + " " + theme.columnGap.desktop};
+    }
     button {
-      margin-right: 25px;
+      margin-right: 15px;
+      @media ${(props) => props.theme.minWidth.md} {
+        margin-right: 25px;
+      }
     }
   }
 `;
@@ -183,19 +211,27 @@ const StyledSlider = styled(Slider)`
     }
     div {
       grid-column: 1 / span 2;
+      h3 {
+        margin-bottom: 10px;
+        font-size: 20px;
+        @media ${(props) => props.theme.minWidth.md} {
+          font-size: 24px;
+        }
+      }
       .labelContainer {
         display: flex;
         aside {
-          margin: 50px 25px 0 0;
+          margin: 15px 15px 0 0;
+          @media ${(props) => props.theme.minWidth.md} {
+            margin: 50px 25px 0 0;
+          }
         }
       }
     }
   }
 `;
 
-const DesignThinking = ({ location }) => {
-  const { state = {} } = location;
-  const { fromPage } = state;
+const DesignThinking = () => {
   const sliderRef = useRef();
   const [stepIndex, setStepIndex] = useState(1);
 
@@ -218,14 +254,22 @@ const DesignThinking = ({ location }) => {
     <Layout>
       <StyledGrid className="pageAnimation">
         <StyledContainer stepIndex={stepIndex}>
-          <Link className="close-btn" to={fromPage}>
+          <Link className="close-btn" to="/savoir-faire">
             <img src={closeBtn} alt="fermer la modal" />
           </Link>
           <div>
+            <Text white>Co-concevoir votre projet.</Text>
             <Title type="pageTitle" white>
               design thinking
             </Title>
             <Text white>Co-concevoir votre projet.</Text>
+            <Text white>
+              La méthode de Design Thinking nous permettra de travailler en
+              co-création durant les différentes phases du projet. Des
+              consultants spécialisées interviendront en fonction du besoin et
+              des étapes du projet pour adapter l’architecture, le design,
+              l’ergonomie, l’acoustique et la technique selon vos besoins.
+            </Text>
           </div>
           <div className="phaseContainer">
             <div>
