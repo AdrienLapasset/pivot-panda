@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PPlogo from "assets/logos/logo-pivot-panda-paysage.svg";
 import Grid from "components/global/Grid";
@@ -64,7 +64,7 @@ const Navigation = () => {
     return () => {
       window.removeEventListener("scroll", handleIsBorder);
     };
-  }, []);
+  }, [isInitBorder]);
   return (
     <StyledNav isBorder={isBorder}>
       <PageContainer>

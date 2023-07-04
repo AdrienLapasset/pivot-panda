@@ -28,5 +28,11 @@ module.exports = {
         overlayDrafts: true,
       },
     },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/assets/imgs/favicon.png",
+      },
+    },
   ],
 };

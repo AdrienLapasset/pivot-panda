@@ -50,15 +50,15 @@ const StyledSlider = styled(Slider)`
 `;
 
 const ProjectCarousel = ({ images }) => {
-  const initImage = images[0];
-  const [currentImage, setCurrentImage] = useState(initImage);
+  // const initImage = images[0];
+  // const [currentImage, setCurrentImage] = useState(initImage);
   const [imageIndex, setImageIndex] = useState(1);
   const sliderRef = useRef();
 
   const handleImageChange = (oldIndex, newIndex) => {
     setImageIndex(newIndex + 1);
-    const image = images[newIndex];
-    setCurrentImage(image);
+    // const image = images[newIndex];
+    // setCurrentImage(image);
   };
   const settings = {
     infinite: true,
@@ -87,9 +87,8 @@ const ProjectCarousel = ({ images }) => {
         {images.map(({ image }) => {
           const getGatsbyImage = getImage(image.asset);
           return (
-            <div className="carousel-item">
+            <div key={image.asset} className="carousel-item">
               <GatsbyImage
-                key={image}
                 className="carousel-image"
                 image={getGatsbyImage}
                 alt="Image à faire défiler"
