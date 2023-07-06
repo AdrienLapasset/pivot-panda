@@ -164,9 +164,7 @@ const Footer = () => {
           <DoubleElementRow>
             <StyledContact>
               <StyledText type="label">Nous contacter</StyledText>
-              <Link to="/" activeClassName="active">
-                contact@pivotpanda.com
-              </Link>
+              <Link to="/">contact@pivotpanda.com</Link>
             </StyledContact>
             <StyledNetworks>
               <StyledText type="label">Nous suivre</StyledText>
@@ -191,12 +189,8 @@ const Footer = () => {
 
           <StyledRow>
             <StyledText type="label">Ressources</StyledText>
-            <Link to="/" activeClassName="active">
-              Plaquette de présentation
-            </Link>
-            <Link to="/mentions-legales" activeClassName="active">
-              Mentions légales
-            </Link>
+            <Link to="/">Plaquette de présentation</Link>
+            <Link to="/mentions-legales">Mentions légales</Link>
           </StyledRow>
         </MobileGrid>
 
@@ -209,9 +203,7 @@ const Footer = () => {
           </StyledLogo>
           <StyledContact>
             <StyledText type="label">Nous contacter</StyledText>
-            <Link to="/" activeClassName="active">
-              contact@pivotpanda.com
-            </Link>
+            <Link to="/">contact@pivotpanda.com</Link>
           </StyledContact>
           <StyledNetworks>
             <StyledText type="label">Nous suivre</StyledText>
@@ -236,9 +228,7 @@ const Footer = () => {
             <a href={plaquette} download="Presentation-Pivot-Panda.pdf">
               Plaquette de présentation
             </a>
-            <Link to="/mentions-legales" activeClassName="active">
-              Mentions légales
-            </Link>
+            <Link to="/mentions-legales">Mentions légales</Link>
           </StyledResources>
           <StyledCredits>
             <p>© Pivot Panda 2023.</p>
