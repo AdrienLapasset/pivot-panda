@@ -12,7 +12,10 @@ import ProjectCarousel from "components/pages/project/ProjectCarousel";
 import OtherProjectsSection from "components/pages/project/otherProjectsSection";
 
 const StyledHeader = styled(Grid)`
-  grid-template-rows: calc(50vh - 23px) 15px calc(50vh - 78px) 60px 60px 60px 1fr;
+  grid-template-rows: ${({ architect }) =>
+    architect !== null
+      ? "calc(50vh - 23px) 15px calc(50vh - 78px) 60px 60px 60px 1fr"
+      : "calc(50vh - 23px) 15px calc(50vh - 78px) 60px 60px 60px 60px 1fr"};
   row-gap: 15px;
   align-items: center;
   @media ${(props) => props.theme.minWidth.md} {
@@ -99,7 +102,7 @@ const StyledTitle = styled(PageContainer)`
 `;
 
 const StyledGridContainer = styled.div`
-  grid-row: 4 / 7;
+  grid-row: 5 / 7;
   grid-column: span 4;
   display: grid;
   grid-template-rows: 60px 60px 60px;
@@ -109,7 +112,8 @@ const StyledGridContainer = styled.div`
     border: solid ${(props) => props.theme.colors.black} 1px;
     grid-row: 2 / 5;
     grid-column: 1 / 3;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: ${({ architect }) =>
+      architect !== null ? "1fr 1fr 1fr 1fr" : "1fr 1fr 1fr"};
     row-gap: 0;
     margin-left: 25px;
     height: 275px;
@@ -168,8 +172,15 @@ const StyledClient = styled(PageContainer)`
   justify-content: center;
 `;
 
+const StyledArchitect = styled(PageContainer)`
+  border-top: solid ${(props) => props.theme.colors.black} 1px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 const StyledDescription = styled(PageContainer)`
-  grid-row: 7 / 8;
+  grid-row: 8 / 9;
   grid-column: span 4;
   padding-top: 30px;
   padding-bottom: 45px;
@@ -203,6 +214,7 @@ export const query = graphql`
       mission
       year
       client
+      architect
       description
       image {
         asset {
@@ -260,6 +272,7 @@ const Project = ({ data }) => {
     mission,
     surface,
     client,
+    architect,
     image,
     year,
     video,
@@ -273,7 +286,7 @@ const Project = ({ data }) => {
   const heroVideo = video && video.asset.url;
   return (
     <Layout>
-      <StyledHeader>
+      <StyledHeader architect={architect}>
         {heroVideo ? (
           <StyledHeroVideo autoPlay muted loop>
             <source src={heroVideo} type="video/mp4" />
@@ -285,7 +298,7 @@ const Project = ({ data }) => {
         <StyledCategory type="label">{category}</StyledCategory>
         <StyledCity type="label">{city}</StyledCity>
         <StyledTitle>{name}</StyledTitle>
-        <StyledGridContainer>
+        <StyledGridContainer architect={architect}>
           <StyledMission>
             <StyledText type="label">Mission Pivot Panda</StyledText>
             <p>{mission}</p>
@@ -304,6 +317,12 @@ const Project = ({ data }) => {
             <StyledText type="label">Client</StyledText>
             <p>{client}</p>
           </StyledClient>
+          {architect !== null && (
+            <StyledArchitect>
+              <StyledText type="label">Architecte</StyledText>
+              {architect}
+            </StyledArchitect>
+          )}
         </StyledGridContainer>
         <StyledDescription>
           <StyledText>{description}</StyledText>
