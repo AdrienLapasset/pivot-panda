@@ -5,6 +5,7 @@ import Grid from "components/global/Grid";
 import { Link } from "gatsby";
 import PageContainer from "components/global/PageContainer";
 import Text from "components/global/Text";
+import plaquette from "assets/pdf/Presentation-Pivot-Panda.pdf";
 
 const StyledFooter = styled.footer`
   margin-top: 90px;
@@ -232,9 +233,9 @@ const Footer = () => {
           </StyledRow>
           <StyledResources>
             <StyledText type="label">Ressources</StyledText>
-            <Link to="/" activeClassName="active">
+            <a href={plaquette} download="Presentation-Pivot-Panda.pdf">
               Plaquette de présentation
-            </Link>
+            </a>
             <Link to="/mentions-legales" activeClassName="active">
               Mentions légales
             </Link>
