@@ -148,6 +148,9 @@ const StyledMobileCredits = styled(PageContainer)`
   @media ${(props) => props.theme.minWidth.md} {
     display: none;
   }
+  p {
+    font-size: 12px;
+  }
 `;
 
 const Footer = () => {
@@ -164,7 +167,9 @@ const Footer = () => {
           <DoubleElementRow>
             <StyledContact>
               <StyledText type="label">Nous contacter</StyledText>
-              <Link to="/">contact@pivotpanda.com</Link>
+              <Link to="/">
+                <Text>contact@pivotpanda.com</Text>
+              </Link>
             </StyledContact>
             <StyledNetworks>
               <StyledText type="label">Nous suivre</StyledText>
@@ -173,24 +178,40 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                LinkedIn
+                <Text>LinkedIn</Text>
               </a>
 
               <a href="/#" target="_blank" rel="noopener noreferrer">
-                Instagram
+                <Text>Instagram</Text>
               </a>
             </StyledNetworks>
           </DoubleElementRow>
           <StyledRow>
             <StyledText type="label">Nos locaux</StyledText>
-            55 rue Sylvabelle, 13006, Marseille <br />
-            38 rue du Chemin Vert, 75011, Paris
+            <a
+              href="https://goo.gl/maps/VRzrYuomuBYaicsL8"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Text>55 rue Sylvabelle, 13006, Marseille</Text>
+            </a>
+            <a
+              href="https://goo.gl/maps/pzQ5Fy1LzhAoyPkY9"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Text>38 rue du Chemin Vert, 75011, Paris</Text>
+            </a>
           </StyledRow>
 
           <StyledRow>
             <StyledText type="label">Ressources</StyledText>
-            <Link to="/">Plaquette de présentation</Link>
-            <Link to="/mentions-legales">Mentions légales</Link>
+            <Link to="/">
+              <Text>Plaquette de présentation</Text>
+            </Link>
+            <Link to="/mentions-legales">
+              <Text>Mentions légales</Text>
+            </Link>
           </StyledRow>
         </MobileGrid>
 
@@ -203,7 +224,9 @@ const Footer = () => {
           </StyledLogo>
           <StyledContact>
             <StyledText type="label">Nous contacter</StyledText>
-            <Link to="/">contact@pivotpanda.com</Link>
+            <Link to="/">
+              <Text>contact@pivotpanda.com</Text>
+            </Link>
           </StyledContact>
           <StyledNetworks>
             <StyledText type="label">Nous suivre</StyledText>
@@ -212,33 +235,47 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn
+              <Text>LinkedIn</Text>
             </a>
             <a href="/#" target="_blank" rel="noopener noreferrer">
-              Instagram
+              <Text>Instagram</Text>
             </a>
           </StyledNetworks>
           <StyledRow>
             <StyledText type="label">Nos locaux</StyledText>
-            55 rue Sylvabelle, 13006, Marseille <br />
-            38 rue du Chemin Vert, 75011, Paris
+            <a
+              href="https://goo.gl/maps/VRzrYuomuBYaicsL8"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Text>55 rue Sylvabelle, 13006, Marseille</Text>
+            </a>
+            <a
+              href="https://goo.gl/maps/pzQ5Fy1LzhAoyPkY9"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Text>38 rue du Chemin Vert, 75011, Paris</Text>
+            </a>
           </StyledRow>
           <StyledResources>
             <StyledText type="label">Ressources</StyledText>
             <a href={plaquette} download="Presentation-Pivot-Panda.pdf">
-              Plaquette de présentation
+              <Text>Plaquette de présentation</Text>
             </a>
-            <Link to="/mentions-legales">Mentions légales</Link>
+            <Link to="/mentions-legales">
+              <Text>Mentions légales</Text>
+            </Link>
           </StyledResources>
           <StyledCredits>
-            <p>© Pivot Panda 2023.</p>
-            <p>Site créé par Adrien & Clément Lapasset</p>
+            <Text>© Pivot Panda 2023</Text>
+            <Text>Site créé par Adrien & Clément Lapasset</Text>
           </StyledCredits>
         </DesktopGrid>
       </StyledPageContainer>
       <StyledMobileCredits>
-        © Pivot Panda 2023. <br />
-        Site créé par Adrien & Clément Lapasset
+        <Text>© Pivot Panda 2023</Text>
+        <Text>Site créé par Adrien & Clément Lapasset</Text>
       </StyledMobileCredits>
     </StyledFooter>
   );
