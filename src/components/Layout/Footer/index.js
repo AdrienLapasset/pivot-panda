@@ -196,9 +196,6 @@ const Footer = () => {
             <Link to="/mentions-legales" activeClassName="active">
               Mentions légales
             </Link>
-            <Link to="/" activeClassName="active">
-              Politique de confidentialité
-            </Link>
           </StyledRow>
         </MobileGrid>
 
@@ -240,9 +237,6 @@ const Footer = () => {
             </Link>
             <Link to="/mentions-legales" activeClassName="active">
               Mentions légales
-            </Link>
-            <Link to="/" activeClassName="active">
-              Politique de confidentialité
             </Link>
           </StyledResources>
           <StyledCredits>
