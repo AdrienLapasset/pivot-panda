@@ -247,113 +247,116 @@ const NotreProcessSection = () => {
           >
             <div ref={step1Ref}>
               <Text as="h3" type="projectTitle">
-                1. Montage et accompagnement
+                1. Recherche de biens uniques
               </Text>
               <Text>
-                Projections de plusieurs scénarios adaptables au bien Chiffrage
-                détaillé et simulation budgétaire Étude de faisabilité technique
-                et urbanistique
+                Pré-visite par nos soins <br /> Selon vos critères et avec notre
+                réseau et savoir faire <br /> Hotels particuliers <br />
+                Immeubles historiques <br /> Biens offmarkets <br /> Plateaux
+                haussmanniens <br /> Ensembles immobiliers
               </Text>
             </div>
             <div ref={step2Ref}>
               <Text as="h3" type="projectTitle">
-                2. Recherche de biens uniques
+                2. Analyse et étude architecturale et technique du site
               </Text>
               <Text>
-                Pré-visite par nos soins Selon vos critères et avec notre réseau
-                et savoir faire. Hotels particuliers Immeubles historiques Biens
-                offmarkets Plateaux haussmanniens Ensembles immobiliers
+                Projections de plusieurs scénarios adaptables au bien <br />
+                Chiffrage détaillé et simulation budgétaire <br /> Étude de
+                faisabilité technique et urbanistique
               </Text>
             </div>
             <div ref={step3Ref}>
               <Text as="h3" type="projectTitle">
-                3. Etude architecturale et technique
+                3. Montage et accompagnement en phase d’acquisition
               </Text>
               <Text>
-                Pré-visite par nos soins Selon vos critères et avec notre réseau
-                et savoir faire. Hotels particuliers Immeubles historiques Biens
-                offmarkets Plateaux haussmanniens Ensembles immobiliers
+                Accompagnement dans le choix du scénario <br /> Conseil quant
+                aux demandes d’autorisations d’urbanisme <br /> Conseil sur le
+                montage financier et bancaire
               </Text>
             </div>
             <div ref={step4Ref}>
               <Text as="h3" type="projectTitle">
-                4. Montage et accompagnement
+                4. Étude, design thinking, analyse des besoins
               </Text>
               <Text>
-                Projections de plusieurs scénarios adaptables au bien Chiffrage
-                détaillé et simulation budgétaire Étude de faisabilité technique
-                et urbanistique
+                Atelier de Design Thinking <br />
+                Programmation fonctionnelle et technique <br />
+                Microzoning <br /> Capacitaires, Faisabilité <br />
+                Autorisations administratives
               </Text>
             </div>
             <div ref={step5Ref}>
               <Text as="h3" type="projectTitle">
-                4. Montage et accompagnement
+                5. Intentions conceptuelles et choix architecturaux
               </Text>
               <Text>
-                Projections de plusieurs scénarios adaptables au bien Chiffrage
-                détaillé et simulation budgétaire Étude de faisabilité technique
-                et urbanistique
+                Design book : Storytelling <br /> Moodboard & Macrozoning
               </Text>
             </div>
             <div ref={step6Ref}>
               <Text as="h3" type="projectTitle">
-                4. Montage et accompagnement
+                6. Projet d’aménagement
               </Text>
               <Text>
-                Projections de plusieurs scénarios adaptables au bien Chiffrage
-                détaillé et simulation budgétaire Étude de faisabilité technique
-                et urbanistique
+                Conception des aménagements (ESQ, APS/APD et DCE) <br /> Carnet
+                de plans : Finitions de sol, Revêtements muraux, Cloisons et
+                faux plafonds, Principe de plomberie et d’électricité, Coupes et
+                élévations, Choix des finitions et équipements
               </Text>
             </div>
             <div ref={step7Ref}>
               <Text as="h3" type="projectTitle">
-                4. Montage et accompagnement
+                7. Préconisation du FF&E
               </Text>
               <Text>
-                Projections de plusieurs scénarios adaptables au bien Chiffrage
-                détaillé et simulation budgétaire Étude de faisabilité technique
-                et urbanistique
+                Prestation FF&E (Furniture, Fixture & Equipments) : Propositions
+                / Préconisations de mobilier, installations et équipements{" "}
+                <br /> Accompagnement sur les arbitrages et finitions <br />{" "}
+                Lancement en commande, Gestion de la logistique et du montage
               </Text>
             </div>
             <div ref={step8Ref}>
               <Text as="h3" type="projectTitle">
-                4. Montage et accompagnement
+                8. Consultation des entreprises
               </Text>
               <Text>
-                Projections de plusieurs scénarios adaptables au bien Chiffrage
-                détaillé et simulation budgétaire Étude de faisabilité technique
-                et urbanistique
+                Analyse des devis <br /> Sélection d’artisans et entreprises des
+                différents lots : Démolition, curage Cloisonnement structurel,
+                amovible et vitré Revêtement de sol, moquette, parquet
+                Revêtements muraux, peinture Plafond, faux plafond, Plomberie,
+                CVC Électricité courant fort / faible / salles informatiques
+                Contrôle d’accès et surveillance Menuiserie intérieures et
+                extérieures, Serrurerie Agencement et décoration, Signalétique
+                Paysagisme et aménagements extérieurs
               </Text>
             </div>
             <div ref={step9Ref}>
               <Text as="h3" type="projectTitle">
-                4. Montage et accompagnement
+                9. Contrôler le planning le budget
               </Text>
               <Text>
-                Projections de plusieurs scénarios adaptables au bien Chiffrage
-                détaillé et simulation budgétaire Étude de faisabilité technique
-                et urbanistique
+                Plannification des études et des travaux <br /> Gestion du
+                planning et du budget
               </Text>
             </div>
             <div ref={step10Ref}>
               <Text as="h3" type="projectTitle">
-                4. Montage et accompagnement
+                10. Supervision et éxécution des travaux
               </Text>
               <Text>
-                Projections de plusieurs scénarios adaptables au bien Chiffrage
-                détaillé et simulation budgétaire Étude de faisabilité technique
-                et urbanistique
+                Mise au point et synthèse des plans d’éxécution <br />{" "}
+                Implantation des ouvrages sur site <br /> Supervision des
+                bureaux d’études spécualisées <br /> Pilotage et coordination de
+                chantier
               </Text>
             </div>
             <div ref={step11Ref}>
               <Text as="h3" type="projectTitle">
-                4. Montage et accompagnement
+                11. Réception - Livraison
               </Text>
-              <Text>
-                Projections de plusieurs scénarios adaptables au bien Chiffrage
-                détaillé et simulation budgétaire Étude de faisabilité technique
-                et urbanistique
-              </Text>
+              <Text>Réception et suivi des levées de réserves</Text>
             </div>
           </StyledStepDescriptionContainer>
         </StyledGrid>

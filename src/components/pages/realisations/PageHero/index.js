@@ -39,10 +39,7 @@ const PageHero = () => {
     <StyledContainer>
       <PageContainer>
         <Grid>
-          <h1>
-            Nos <br />
-            réalisations
-          </h1>
+          <h1>Réalisations</h1>
           <p>
             Pivot Panda réalise différents types de projet tels que des
             coworkings, bureaux, colivings, projets d'hôtellerie, restaurants,

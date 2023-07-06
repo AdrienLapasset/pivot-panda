@@ -136,35 +136,38 @@ const NosMetiersSection = () => {
                 définir et mettre en œuvre votre projet immobilier.
               </Text>
               <StaticImage
-                src="../../../../assets/imgs/page-savoir-faire-hero-img.jpg"
+                src="../../../../assets/imgs/panda-denicheur.jpg"
                 alt="Pivot Panda - Savoir-faire"
               />
             </div>
             <div ref={step2Ref}>
               <Text as="h3" type="projectTitle">
-                Le panda dénicheur
+                Le panda designer
               </Text>
               <Text>
-                Nous vous guidons de manière singulière en commençant par la
-                recherche du bien immobilier qui vous correspond, pour ensuite
-                définir et mettre en œuvre votre projet immobilier.
+                Le relationnel et l’écoute sont la base de notre méthode de
+                travail : les besoins et les objectifs de nos clients sont
+                analysés avec soin et respectés en tous points, afin de réaliser
+                un projet créatif unique qui lui ressemble.
               </Text>
               <StaticImage
-                src="../../../../assets/imgs/page-savoir-faire-hero-img.jpg"
+                src="../../../../assets/imgs/panda-designer.jpg"
                 alt="Pivot Panda - Savoir-faire"
               />
             </div>
             <div>
               <Text as="h3" type="projectTitle">
-                Le panda dénicheur
+                Le panda constructeur
               </Text>
               <Text>
-                Nous vous guidons de manière singulière en commençant par la
-                recherche du bien immobilier qui vous correspond, pour ensuite
-                définir et mettre en œuvre votre projet immobilier.
+                Nous assurons une prestation globale, depuis la conception
+                jusqu’à la livraison, et s’engage sur la qualité de l’ouvrage,
+                les prix et les délais. Interlocuteurs unique de la maîtrise
+                d’ouvrage, nous coordonnons tous les acteurs du projet et est
+                donc garant de sa réussite.
               </Text>
               <StaticImage
-                src="../../../../assets/imgs/page-savoir-faire-hero-img.jpg"
+                src="../../../../assets/imgs/panda-constructeur.jpg"
                 alt="Pivot Panda - Savoir-faire"
               />
             </div>

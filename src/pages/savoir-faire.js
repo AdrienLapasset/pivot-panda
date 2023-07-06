@@ -10,6 +10,7 @@ import NosMetiersSectionDesktop from "components/pages/savoir-faire/NosMetiersSe
 import NotreProcessSection from "components/pages/savoir-faire/NotreProcessSection";
 import EngagementAccordion from "components/pages/savoir-faire/EngagementAccordion";
 import leGrandBleuLogo from "assets/logos/logo-le-grand-bleu-marseille-horizontal.svg";
+import marsatacLogo from "assets/logos/logo-marsatac.svg";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
 
@@ -243,7 +244,7 @@ const SavoirFaire = () => {
           <StyledPartenairesSection>
             <Grid className="grid">
               <StaticImage
-                src="../assets/imgs/l-equipe.jpg"
+                src="../assets/imgs/grand-bleu.jpg"
                 alt="Pivot Panda - Savoir-faire"
               />
               <div>
@@ -259,17 +260,17 @@ const SavoirFaire = () => {
             </Grid>
             <Grid className="grid">
               <StaticImage
-                src="../assets/imgs/l-equipe.jpg"
+                src="../assets/imgs/marsatac.jpg"
                 alt="Pivot Panda - Savoir-faire"
               />
               <div>
-                <img src={leGrandBleuLogo} alt="" />
+                <img src={marsatacLogo} alt="" />
                 <Text>
-                  Le Grand Bleu est une association qui initie et développe les
-                  activités nautiques et aquatiquessur la commune de Marseille.
-                  Leur mission est d'offrir des opportunités pour que les
-                  enfants puissent apprendre, explorer et s'engager dans des
-                  activités nautiques en toute sécurité.
+                  En étant partenaire du festival Marsatac nous contribuons à
+                  notre échelle au succès d’un évènement majeur sur le
+                  territoire, reconnu sur le plan local, national et
+                  international, un moment de rassemblement, d’émotion, et de
+                  découverte musicale.
                 </Text>
               </div>
             </Grid>

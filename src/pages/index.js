@@ -13,9 +13,17 @@ const StyledSectionHeader = styled(SectionHeader)`
   @media ${(props) => props.theme.minWidth.md} {
     margin-top: 35px;
   }
+  .intro {
+    @media ${(props) => props.theme.minWidth.md} {
+      font-size: 18px;
+    }
+  }
   a.pandaInvest {
     display: inline-block;
     text-decoration: underline;
+    @media ${(props) => props.theme.minWidth.md} {
+      font-size: 18px;
+    }
   }
 `;
 
@@ -25,16 +33,18 @@ const IndexPage = () => {
       <HeroSection />
       <StyledSectionHeader
         title="Dénicheurs et concepteurs de votre futur espace"
-        buttonText="nos métiers"
+        buttonText="Savoir-faire"
         buttonTo="savoir-faire"
       >
-        En tant que contractant général, Pivot Panda réalise différents types de
-        missions, de la conception de projet à la réalisation des travaux,
-        avec&nbsp;
-        <Link className="pandaInvest" to="/panda-invest">
-          Panda Invest
-        </Link>
-        &nbsp;en tant qu’opérateur immobilier.
+        <div className="intro">
+          En tant que contractant général, Pivot Panda réalise différents types
+          de missions, de la conception de projet à la réalisation des travaux,
+          avec&nbsp;
+          <Link className="pandaInvest" to="/panda-invest">
+            Panda Invest
+          </Link>
+          &nbsp;en tant qu’opérateur immobilier.
+        </div>
       </StyledSectionHeader>
       <NumbersSection />
       <ProjectsSection />
