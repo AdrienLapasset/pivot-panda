@@ -31,7 +31,7 @@ const RadioButtonLabel = styled.label`
   margin-left: 10px;
   text-transform: uppercase;
   font-size: 12px;
-  line-height: 25px;
+  line-height: 15px;
   cursor: pointer;
 `;
 

@@ -9,8 +9,14 @@ const StyledContainer = styled.div`
   height: 45px;
   border-top: 1px solid ${(props) => props.theme.colors.black};
   border-bottom: 1px solid ${(props) => props.theme.colors.black};
+  position: sticky;
+  top: 60px;
+  z-index: 1;
+  background-color: white;
   @media ${(props) => props.theme.minWidth.md} {
     height: 75px;
+    top: unset;
+    position: relative;
   }
 `;
 
@@ -19,13 +25,13 @@ const StyledPageContainer = styled(PageContainer)`
 `;
 
 const MobileDropdown = styled.select`
-  grid-column: 1 / 3;
   font-size: 12px;
   padding: 15px 0;
-  line-height: 15px;
   text-transform: uppercase;
   border: none;
   background-color: transparent;
+  grid-column: 1 / 5;
+  width: 150px;
   @media ${(props) => props.theme.minWidth.md} {
     display: none;
   }
@@ -34,9 +40,32 @@ const MobileDropdown = styled.select`
 const StyledRadioGroup = styled(Grid)`
   display: none;
   @media ${(props) => props.theme.minWidth.md} {
+    line-height: 15px;
     display: grid;
     align-items: center;
     height: 100%;
+  }
+  & > div {
+    @media ${(props) => props.theme.minWidth.md} {
+      &:nth-child(1) {
+        grid-column: 1 / 3;
+      }
+      &:nth-child(2) {
+        grid-column: 3 / 5;
+      }
+      &:nth-child(3) {
+        grid-column: 5 / 7;
+      }
+      &:nth-child(4) {
+        grid-column: 1 / 3;
+      }
+      &:nth-child(5) {
+        grid-column: 3 / 5;
+      }
+    }
+    @media ${(props) => props.theme.minWidth.lg} {
+      grid-column: unset !important;
+    }
   }
 `;
 
