@@ -5,7 +5,7 @@ import Title from "components/global/Title";
 import Text from "components/global/Text";
 import Button from "components/global/Button";
 import Grid from "components/global/Grid";
-import { Link } from "gatsby";
+import { navigate } from "gatsby";
 import closeBtn from "assets/icons/close-btn.svg";
 import ppLogo from "assets/logos/logo-pivot-panda-portrait-white.svg";
 
@@ -144,16 +144,14 @@ const StyledContainer = styled.div`
   }
 `;
 
-const Contact = ({ location }) => {
-  const { state = {} } = location;
-  const { fromPage } = state;
+const Contact = () => {
   return (
     <Layout>
       <StyledGrid className="pageAnimation">
         <StyledContainer>
-          <Link className="close-btn" to={fromPage}>
+          <button className="close-btn" onClick={() => navigate(-1)}>
             <img src={closeBtn} alt="fermer la modal" />
-          </Link>
+          </button>
           <div>
             <Title
               type="pageTitle"

@@ -74,9 +74,7 @@ const Navigation = () => {
           </Link>
           <Link to="/realisations">Réalisations</Link>
           <Link to="/savoir-faire">Savoir-faire</Link>
-          <Link to="/contact" state={{ fromPage: pathname }}>
-            contact
-          </Link>
+          <Link to="/contact">contact</Link>
         </Grid>
       </PageContainer>
     </StyledNav>

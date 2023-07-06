@@ -4,7 +4,6 @@ import Grid from "components/global/Grid";
 import Button from "components/global/Button";
 import HeroVideo from "assets/videos/placeholder.mp4";
 import PageContainer from "components/global/PageContainer";
-import { useLocation } from "@reach/router";
 
 const StyledContainer = styled.div`
   h1 {
@@ -40,7 +39,6 @@ const StyledRow = styled(Grid)`
   }
   p {
     font-size: 20px;
-    /* line-height: 9px; ne marche au format tablette */
     grid-column: 1/5;
     @media ${(props) => props.theme.minWidth.md} {
       grid-column: 3/6;
@@ -71,8 +69,6 @@ const StyledVideo = styled.video`
 `;
 
 const HeroSection = () => {
-  const { pathname } = useLocation();
-
   return (
     <StyledContainer>
       <PageContainer>
@@ -90,9 +86,7 @@ const HeroSection = () => {
           <aside>depuis 2019</aside>
         </StyledRow>
         <Grid>
-          <Button to="/contact" state={{ fromPage: pathname }}>
-            nous contacter
-          </Button>
+          <Button to="/contact">nous contacter</Button>
         </Grid>
       </PageContainer>
       <StyledVideo autoPlay muted loop>
