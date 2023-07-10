@@ -8,6 +8,7 @@ import Grid from "components/global/Grid";
 import { navigate } from "gatsby";
 import closeBtn from "assets/icons/close-btn.svg";
 import ppLogo from "assets/logos/logo-pivot-panda-portrait-white.svg";
+import plaquette from "assets/pdf/Presentation-Pivot-Panda.pdf";
 
 const StyledGrid = styled(Grid)`
   background-color: ${({ theme }) => theme.colors.backgroundDark};
@@ -61,7 +62,7 @@ const StyledContainer = styled.div`
     }
     &:nth-of-type(2) {
       @media ${(props) => props.theme.minWidth.md} {
-        padding-bottom: ${({ theme }) => theme.columnGap.desktop};
+        padding-bottom: 100px;
       }
       & > div {
         padding: ${({ theme }) => theme.columnGap.mobile};
@@ -167,7 +168,12 @@ const Contact = () => {
           </div>
           <div>
             <div>
-              <Button href="contact@pivotpanda.com" white>
+              <Button
+                target="_blank"
+                rel="noopener noreferrer"
+                href="mailto:contact@pivotpanda.com"
+                white
+              >
                 contact@pivotpanda.com
               </Button>
             </div>
@@ -175,29 +181,57 @@ const Contact = () => {
               <Text type="label" white>
                 Venez nous voir
               </Text>
-              <Text white>55 rue Sylvabelle, 13006, Marseille</Text>
-              <Text white>38 rue du Chemin Vert, 75011, Paris</Text>
+              <a
+                href="https://goo.gl/maps/VRzrYuomuBYaicsL8"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Text white>55 rue Sylvabelle, 13006, Marseille</Text>
+              </a>
+              <a
+                href="https://goo.gl/maps/pzQ5Fy1LzhAoyPkY9"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Text white>38 rue du Chemin Vert, 75011, Paris</Text>
+              </a>
             </div>
             <div>
               <div>
                 <Text type="label" white>
                   Suivez nous
                 </Text>
-                <Text white>LinkedIn</Text>
-                <Text white>Instagram</Text>
+                <a
+                  href="https://www.linkedin.com/company/pivot-panda/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Text white>LinkedIn</Text>
+                </a>
+                <a
+                  href="https://www.instagram.com/pivot_panda_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Text white>Instagram</Text>
+                </a>
               </div>
               <div>
                 <Text type="label" white>
                   Ressources
                 </Text>
-                <Text white>Plaquette de présentation</Text>
+                <a href={plaquette} download="Presentation-Pivot-Panda.pdf">
+                  <Text white>Plaquette de présentation</Text>
+                </a>
               </div>
             </div>
             <div>
               <Text type="label" white>
                 Ressources
               </Text>
-              <Text white>Plaquette de présentation</Text>
+              <a href={plaquette} download="Presentation-Pivot-Panda.pdf">
+                <Text white>Plaquette de présentation</Text>
+              </a>
             </div>
             <div>
               <img src={ppLogo} alt="Logo Pivot Panda" />

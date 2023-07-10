@@ -167,9 +167,13 @@ const Footer = () => {
           <DoubleElementRow>
             <StyledContact>
               <StyledText type="label">Nous contacter</StyledText>
-              <Link to="/">
+              <a
+                href="mailto:contact@pivotpanda.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Text>contact@pivotpanda.com</Text>
-              </Link>
+              </a>
             </StyledContact>
             <StyledNetworks>
               <StyledText type="label">Nous suivre</StyledText>
@@ -181,7 +185,11 @@ const Footer = () => {
                 <Text>LinkedIn</Text>
               </a>
 
-              <a href="/#" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.instagram.com/pivot_panda_/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Text>Instagram</Text>
               </a>
             </StyledNetworks>
@@ -224,9 +232,13 @@ const Footer = () => {
           </StyledLogo>
           <StyledContact>
             <StyledText type="label">Nous contacter</StyledText>
-            <Link to="/">
+            <a
+              href="mailto:contact@pivotpanda.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Text>contact@pivotpanda.com</Text>
-            </Link>
+            </a>
           </StyledContact>
           <StyledNetworks>
             <StyledText type="label">Nous suivre</StyledText>
@@ -237,7 +249,11 @@ const Footer = () => {
             >
               <Text>LinkedIn</Text>
             </a>
-            <a href="/#" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.instagram.com/pivot_panda_/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Text>Instagram</Text>
             </a>
           </StyledNetworks>

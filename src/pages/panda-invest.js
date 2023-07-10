@@ -82,10 +82,20 @@ const PandaInvest = () => {
               sagittis orci ut diam condimentum, vel euismod erat placerat. In
               iaculis arcu eros, eget tempus orci facilisis id.
             </Text>
-            <Button white href="https://www.linkedin.com/company/pivot-panda">
+            <Button
+              white
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.linkedin.com/company/pivot-panda"
+            >
               LinkedIn
             </Button>
-            <Button white href="https://www.instagram.com/">
+            <Button
+              white
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.instagram.com/pivot_panda_/"
+            >
               Instagram
             </Button>
           </div>
