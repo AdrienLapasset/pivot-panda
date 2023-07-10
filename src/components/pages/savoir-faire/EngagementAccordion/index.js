@@ -108,7 +108,7 @@ const Accordion = () => {
           <Text>
             Nos réalisations sont des projets de rénovation et de réhabilitation
             d’immeubles anciens plutôt que des constructions neuves. Nous
-            encourageons le réemploi de matériaux Nous selectionnons uniquement
+            encourageons le réemploi de matériaux. Nous sélectionnons uniquement
             des matériaux biosourcés et géosourcés.
           </Text>
         </StyledContent>
@@ -124,10 +124,9 @@ const Accordion = () => {
           ref={content2Ref}
         >
           <Text>
-            Nos réalisations sont des projets de rénovation et de réhabilitation
-            d’immeubles anciens plutôt que des constructions neuves. Nous
-            encourageons le réemploi de matériaux Nous selectionnons uniquement
-            des matériaux biosourcés et géosourcés.
+            Nous priorisons les entreprises, fournisseurs et prestataires
+            locaux. Nous mettons en avant l'artisanat dans nos projets et le
+            savoir-faire de partenaires qui nous entourent
           </Text>
         </StyledContent>
       </div>
@@ -142,10 +141,11 @@ const Accordion = () => {
           ref={content3Ref}
         >
           <Text>
-            Nos réalisations sont des projets de rénovation et de réhabilitation
-            d’immeubles anciens plutôt que des constructions neuves. Nous
-            encourageons le réemploi de matériaux Nous selectionnons uniquement
-            des matériaux biosourcés et géosourcés.
+            Nous portons notre attention sur le bien-être au travail des
+            collaborateurs. Nous développons les compétences des collaborateurs
+            par le biais de formations. Nous nous attachons à un objectif zéro
+            papier par la dématérialisation de nos données et la mise en place
+            de signature électronique pour toutes nos démarches administratives.
           </Text>
         </StyledContent>
       </div>

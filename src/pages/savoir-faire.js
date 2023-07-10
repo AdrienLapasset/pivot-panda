@@ -157,6 +157,14 @@ const StyledPartenairesSection = styled.section`
       display: grid;
       margin: 0 0 50px;
     }
+    .first-partner {
+      padding-bottom: 30px;
+      border-bottom: ${(props) => props.theme.border};
+      @media ${({ theme }) => theme.minWidth.md} {
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+    }
     & > * {
       &:first-child {
         grid-column: 1 / span 2;
@@ -164,8 +172,11 @@ const StyledPartenairesSection = styled.section`
       &:last-child {
         grid-column: 4 / span 2;
         img {
-          margin-bottom: 25px;
           margin: 30px 0 15px;
+          @media ${({ theme }) => theme.minWidth.md} {
+            margin-top: 0;
+            margin-bottom: 25px;
+          }
         }
       }
     }
@@ -247,7 +258,7 @@ const SavoirFaire = () => {
                 src="../assets/imgs/grand-bleu.jpg"
                 alt="Pivot Panda - Savoir-faire"
               />
-              <div>
+              <div className="first-partner">
                 <img src={leGrandBleuLogo} alt="" />
                 <Text>
                   Le Grand Bleu est une association qui initie et développe les

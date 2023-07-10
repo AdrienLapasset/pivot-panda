@@ -323,11 +323,12 @@ const DesignThinking = () => {
                 </div>
                 <div>
                   <Text type="projectTitle" white as="h3">
-                    Découvrir
+                    Définir
                   </Text>
                   <Text white>
-                    Vivre l’expérience au travers des yeux de ses utilisateurs :
-                    Observation, entgretien, immersion
+                    Identifier les points bloquants. Formuler des besoins et des
+                    problématiques et s’y tenir. Parcours utilisateur, points
+                    bloquants.
                   </Text>
                   <div className="labelContainer">
                     <Text type="label" white>
@@ -343,11 +344,11 @@ const DesignThinking = () => {
                 </div>
                 <div>
                   <Text type="projectTitle" white as="h3">
-                    Découvrir
+                    Développer
                   </Text>
                   <Text white>
-                    Vivre l’expérience au travers des yeux de ses utilisateurs :
-                    Observation, entgretien, immersion
+                    Idéer une solution et la tester à travers un produit <br />
+                    Design studio, proposition de valeur, KPIS
                   </Text>
                   <div className="labelContainer">
                     <Text type="label" white>
@@ -363,11 +364,12 @@ const DesignThinking = () => {
                 </div>
                 <div>
                   <Text type="projectTitle" white as="h3">
-                    Découvrir
+                    Délivrer
                   </Text>
                   <Text white>
-                    Vivre l’expérience au travers des yeux de ses utilisateurs :
-                    Observation, entgretien, immersion
+                    Identifier les points bloquants. Formuler des besoins et des
+                    problématiques et s’y tenir. Parcours utilisateur, points
+                    bloquants,
                   </Text>
                 </div>
               </StyledSlider>

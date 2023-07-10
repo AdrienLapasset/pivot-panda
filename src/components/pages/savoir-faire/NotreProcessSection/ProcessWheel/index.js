@@ -129,6 +129,7 @@ const StyledContainer = styled.div`
           }
           text {
             fill: ${({ currentStep }) => currentStep === 10 && "white"};
+            transform: translate(-10px, 7px);
           }
         }
         &:nth-child(11) {
@@ -138,6 +139,7 @@ const StyledContainer = styled.div`
           }
           text {
             fill: ${({ currentStep }) => currentStep === 11 && "white"};
+            transform: translate(-9px, 7px);
           }
         }
       }
