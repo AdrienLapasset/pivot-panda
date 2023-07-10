@@ -132,7 +132,7 @@ const ProjectsSection = () => {
       <StyledSectionHeader
         title="Sélection de projets"
         buttonText="Tous nos projets"
-        buttonTo="/realisation"
+        buttonTo="/realisations"
       >
         Basé à Marseille et Paris, nous réalisons des projets d’espaces de
         travail, de lieux de vie tels que des hôtels, des commerces, du
