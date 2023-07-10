@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
 import Button from "components/global/Button";
-import HeroVideo from "assets/videos/video-accueil.mp4";
+import HeroVideo from "assets/videos/hero-video-trimmed.mp4";
 import PageContainer from "components/global/PageContainer";
 
 const StyledContainer = styled.div`
