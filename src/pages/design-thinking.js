@@ -10,6 +10,7 @@ import closeBtn from "assets/icons/close-btn.svg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import PersonasIcon from "assets/icons/designThinking/Personas.js";
 
 const StyledGrid = styled(Grid)`
   background-color: ${({ theme }) => theme.colors.backgroundDark};
@@ -74,7 +75,6 @@ const StyledContainer = styled.div`
         }
         &:nth-of-type(3) {
           display: block;
-          /* border-bottom: 1px solid white; */
           padding-bottom: 60px;
           @media ${({ theme }) => theme.minWidth.md} {
             display: none;
@@ -220,10 +220,17 @@ const StyledSlider = styled(Slider)`
       }
       .labelContainer {
         display: flex;
-        aside {
+        .label {
           margin: 15px 15px 0 0;
           @media ${(props) => props.theme.minWidth.md} {
             margin: 50px 25px 0 0;
+          }
+          svg {
+            fill: white;
+            stroke: white;
+            opacity: 0.5;
+          }
+          aside {
           }
         }
       }
@@ -300,14 +307,17 @@ const DesignThinking = () => {
                     Observation, entgretien, immersion
                   </Text>
                   <div className="labelContainer">
+                    <div className="label">
+                      <PersonasIcon />
+                      <Text type="label" white>
+                        Personas
+                      </Text>
+                    </div>
                     <Text type="label" white>
-                      Personas
+                      SHADOWING
                     </Text>
                     <Text type="label" white>
-                      Personas
-                    </Text>
-                    <Text type="label" white>
-                      Personas
+                      INTERVIEWS
                     </Text>
                   </div>
                 </div>
