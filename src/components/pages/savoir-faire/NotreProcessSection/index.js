@@ -29,7 +29,6 @@ const StyledGrid = styled(Grid)`
       }
       h2 {
         margin-bottom: 50px;
-
         @media ${({ theme }) => theme.minWidth.md} {
           margin-bottom: 100px;
         }
@@ -57,8 +56,8 @@ const StyledStepDescriptionContainer = styled.div`
     flex: 0 0 270px;
     margin-right: 50px;
     @media ${({ theme }) => theme.minWidth.md} {
-      min-height: 30vh;
       margin-right: 0;
+      padding-bottom: 100px;
     }
     &:not(:last-child) {
       @media ${({ theme }) => theme.minWidth.md} {
@@ -66,8 +65,12 @@ const StyledStepDescriptionContainer = styled.div`
         margin-bottom: 25px;
       }
     }
+    &:last-child {
+      padding-bottom: 200px;
+    }
     h3 {
       font-size: 18px;
+      margin-bottom: 5px;
     }
     &:nth-child(1) {
       opacity: ${({ currentStep }) => currentStep === 1 && "1"};
