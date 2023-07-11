@@ -14,8 +14,8 @@ import OtherProjectsSection from "components/pages/project/otherProjectsSection"
 const StyledHeader = styled(Grid)`
   grid-template-rows: ${({ architect }) =>
     architect !== null
-      ? "calc(50vh - 23px) 15px calc(50vh - 78px) 60px 60px 60px 1fr"
-      : "calc(50vh - 23px) 15px calc(50vh - 78px) 60px 60px 60px 60px 1fr"};
+      ? "calc(50vh - 23px) 15px calc(50vh - 78px) 60px 60px 60px 60px 1fr"
+      : "calc(50vh - 23px) 15px calc(50vh - 78px) 60px 60px 60px 1fr"};
   row-gap: 15px;
   align-items: center;
   @media ${(props) => props.theme.minWidth.md} {
@@ -102,7 +102,7 @@ const StyledTitle = styled(PageContainer)`
 `;
 
 const StyledGridContainer = styled.div`
-  grid-row: 5 / 7;
+  grid-row: ${({ architect }) => (architect !== null ? "5 / 7" : "4 / 7")};
   grid-column: span 4;
   display: grid;
   grid-template-rows: 60px 60px 60px;
