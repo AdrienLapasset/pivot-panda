@@ -196,7 +196,7 @@ const StyledPartenairesSection = styled.section`
 const SavoirFaire = () => {
   return (
     <Layout>
-      <StyledContainer>
+      <StyledContainer className="pageAnimation">
         <PageContainer>
           <StyledHeroSection>
             <div>

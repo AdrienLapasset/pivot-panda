@@ -24,7 +24,7 @@ const StyledSectionTitle = styled(Text)`
 const MentionsLegales = () => {
   return (
     <Layout>
-      <PageContainer>
+      <PageContainer className="pageAnimation">
         <StyledTitle>Mentions légales</StyledTitle>
         <StyledSectionTitle>Éditeur et hébergeur du site</StyledSectionTitle>
         <Text>

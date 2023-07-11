@@ -30,25 +30,27 @@ const StyledSectionHeader = styled(SectionHeader)`
 const IndexPage = () => {
   return (
     <Layout>
-      <HeroSection />
-      <StyledSectionHeader
-        title="Dénicheurs et concepteurs de votre futur espace"
-        buttonText="Savoir-faire"
-        buttonTo="savoir-faire"
-      >
-        <div className="intro">
-          En tant que contractant général, Pivot Panda réalise différents types
-          de missions, de la conception de projet à la réalisation des travaux,
-          avec&nbsp;
-          <Link className="pandaInvest" to="/panda-invest">
-            Panda Invest
-          </Link>
-          &nbsp;en tant qu’opérateur immobilier.
-        </div>
-      </StyledSectionHeader>
-      <NumbersSection />
-      <ProjectsSection />
-      <NewsSection />
+      <div className="pageAnimation">
+        <HeroSection />
+        <StyledSectionHeader
+          title="Dénicheurs et concepteurs de votre futur espace"
+          buttonText="Savoir-faire"
+          buttonTo="savoir-faire"
+        >
+          <div className="intro">
+            En tant que contractant général, Pivot Panda réalise différents
+            types de missions, de la conception de projet à la réalisation des
+            travaux, avec&nbsp;
+            <Link className="pandaInvest" to="/panda-invest">
+              Panda Invest
+            </Link>
+            &nbsp;en tant qu’opérateur immobilier.
+          </div>
+        </StyledSectionHeader>
+        <NumbersSection />
+        <ProjectsSection />
+        <NewsSection />
+      </div>
     </Layout>
   );
 };
