@@ -31,7 +31,8 @@ const StyledSectionImage = styled(GatsbyImage)`
   margin-bottom: 30px;
   @media ${(props) => props.theme.minWidth.md} {
     max-height: calc(100vh - 80px);
-    grid-column: ${({ isLandscape }) => (isLandscape ? "span 7" : "span 4")};
+    grid-column: ${({ islandscape }) =>
+      islandscape === "true" ? "span 7" : "span 4"};
     margin-bottom: 50px;
   }
 `;
@@ -53,7 +54,7 @@ const ImageTextSection = ({ image, text, orientation }) => {
           <StyledImageTextSection>
             <StyledSectionImage
               image={sectionImage}
-              isLandscape={isLandscape}
+              islandscape={isLandscape.toString()}
               alt={`Section image ${text}`}
             />
             <StyledSectionText>{text}</StyledSectionText>

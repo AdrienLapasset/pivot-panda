@@ -20,8 +20,8 @@ const StyledProjectContainer = styled(Link)`
     display: flex;
     flex-direction: column-reverse;
     position: relative;
-    grid-column: ${(props) => props.gridColumnProject};
-    padding: 25px 0 0 ${(props) => props.paddingLeft};
+    grid-column: ${(props) => props.gridcolumnproject};
+    padding: 25px 0 0 ${(props) => props.paddingleft};
   }
 `;
 
@@ -171,8 +171,8 @@ const ProjectsList = ({ selectedCategory, featuredOnly = false }) => {
             <StyledProjectContainer
               to={"/projet/" + project.slug.current}
               key={i}
-              gridColumnProject={gridColumnProject}
-              paddingLeft={paddingLeft}
+              gridcolumnproject={gridColumnProject}
+              paddingleft={paddingLeft}
             >
               {isFirstInRow && <DesktopBottomLine />}
               <Grid>
