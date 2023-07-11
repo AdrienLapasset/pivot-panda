@@ -43,6 +43,7 @@ const StyledHeroSection = styled(Grid)`
     grid-column: 1 / 5;
     border-left: ${({ theme }) => theme.border};
     padding-left: ${({ theme }) => theme.columnGap.mobile};
+    margin-left: 30px;
     @media ${({ theme }) => theme.minWidth.md} {
       grid-column: 3 / 8;
       padding-left: ${({ theme }) => theme.columnGap.desktop};
@@ -113,6 +114,9 @@ const StyledLequipeSection = styled.section`
     }
     p {
       grid-column: 4 / span 2;
+      @media ${({ theme }) => theme.minWidth.md} {
+        padding-left: 25px;
+      }
     }
   }
 `;
@@ -162,7 +166,13 @@ const StyledPartenairesSection = styled.section`
       border-bottom: ${(props) => props.theme.border};
       @media ${({ theme }) => theme.minWidth.md} {
         padding-bottom: 0;
+        padding-left: 25px;
         border-bottom: none;
+      }
+    }
+    .second-partner {
+      @media ${({ theme }) => theme.minWidth.md} {
+        padding-left: 25px;
       }
     }
     & > * {
@@ -274,7 +284,7 @@ const SavoirFaire = () => {
                 src="../assets/imgs/marsatac.jpg"
                 alt="Pivot Panda - Savoir-faire"
               />
-              <div>
+              <div className="second-partner">
                 <img src={marsatacLogo} alt="" />
                 <Text>
                   En étant partenaire du festival Marsatac nous contribuons à

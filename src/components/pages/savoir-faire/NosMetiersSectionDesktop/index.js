@@ -64,14 +64,17 @@ const StyledGrid = styled(Grid)`
     }
     &:last-of-type {
       grid-column: 4 / span 3;
-      display: grid;
-      p {
-        margin: 15px 0 30px;
-        grid-column: 1 / span 2;
-      }
-      .gatsby-image-wrapper {
-        aspect-ratio: 0.75;
-        margin-bottom: 150px;
+      padding-left: 25px;
+      & > div {
+        display: grid;
+        p {
+          margin: 15px 0 30px;
+          width: 66%;
+        }
+        .gatsby-image-wrapper {
+          aspect-ratio: 0.75;
+          margin-bottom: 150px;
+        }
       }
       & > div {
         &:last-of-type {

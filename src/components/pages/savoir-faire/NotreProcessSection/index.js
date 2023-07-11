@@ -47,6 +47,7 @@ const StyledStepDescriptionContainer = styled.div`
   display: flex;
   overflow-x: scroll;
   @media ${({ theme }) => theme.minWidth.md} {
+    padding-left: 25px;
     margin-top: 100px;
     display: block;
     overflow-x: unset;
