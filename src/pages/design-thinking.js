@@ -10,7 +10,19 @@ import closeBtn from "assets/icons/close-btn.svg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import PersonasIcon from "assets/icons/designThinking/Personas.js";
+import personas from "assets/icons/designThinking/personas.svg";
+import interviews from "assets/icons/designThinking/interviews.svg";
+import shadowing from "assets/icons/designThinking/shadowing.svg";
+import usersjourney from "assets/icons/designThinking/usersjourney.svg";
+import affinitydiagrams from "assets/icons/designThinking/affinitydiagrams.svg";
+import painpoint from "assets/icons/designThinking/painpoint.svg";
+import whatistheproblem from "assets/icons/designThinking/whatistheproblem.svg";
+import brainstorming from "assets/icons/designThinking/brainstorming.svg";
+import studiodesign from "assets/icons/designThinking/studiodesign.svg";
+import synthesis from "assets/icons/designThinking/synthesis.svg";
+import minimum from "assets/icons/designThinking/minimum.svg";
+import work from "assets/icons/designThinking/work.svg";
+import programmation from "assets/icons/designThinking/programmation.svg";
 
 const StyledGrid = styled(Grid)`
   background-color: ${({ theme }) => theme.colors.backgroundDark};
@@ -223,14 +235,11 @@ const StyledSlider = styled(Slider)`
         .label {
           margin: 15px 15px 0 0;
           @media ${(props) => props.theme.minWidth.md} {
-            margin: 50px 25px 0 0;
+            margin: 40px 25px 0 0;
           }
-          svg {
-            fill: white;
-            stroke: white;
-            opacity: 0.5;
-          }
-          aside {
+          img {
+            height: 45px;
+            margin: 0 auto 5px;
           }
         }
       }
@@ -304,21 +313,27 @@ const DesignThinking = () => {
                   </Text>
                   <Text white>
                     Vivre l’expérience au travers des yeux de ses utilisateurs :
-                    Observation, entgretien, immersion
+                    Observation, entgretien, immersion.
                   </Text>
                   <div className="labelContainer">
                     <div className="label">
-                      <PersonasIcon />
+                      <img src={personas} alt="" />
                       <Text type="label" white>
                         Personas
                       </Text>
                     </div>
-                    <Text type="label" white>
-                      SHADOWING
-                    </Text>
-                    <Text type="label" white>
-                      INTERVIEWS
-                    </Text>
+                    <div className="label">
+                      <img src={shadowing} alt="" />
+                      <Text type="label" white>
+                        SHADOWING
+                      </Text>
+                    </div>
+                    <div className="label">
+                      <img src={interviews} alt="" />
+                      <Text type="label" white>
+                        INTERVIEWS
+                      </Text>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -331,15 +346,30 @@ const DesignThinking = () => {
                     bloquants.
                   </Text>
                   <div className="labelContainer">
-                    <Text type="label" white>
-                      Personas
-                    </Text>
-                    <Text type="label" white>
-                      Personas
-                    </Text>
-                    <Text type="label" white>
-                      Personas
-                    </Text>
+                    <div className="label">
+                      <img src={affinitydiagrams} alt="" />
+                      <Text type="label" white>
+                        affinity diagrams
+                      </Text>
+                    </div>
+                    <div className="label">
+                      <img src={usersjourney} alt="" />
+                      <Text type="label" white>
+                        user’s journey
+                      </Text>
+                    </div>
+                    <div className="label">
+                      <img src={painpoint} alt="" />
+                      <Text type="label" white>
+                        pain point
+                      </Text>
+                    </div>
+                    <div className="label">
+                      <img src={whatistheproblem} alt="" />
+                      <Text type="label" white>
+                        what is the problem
+                      </Text>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -348,18 +378,33 @@ const DesignThinking = () => {
                   </Text>
                   <Text white>
                     Idéer une solution et la tester à travers un produit <br />
-                    Design studio, proposition de valeur, KPIS
+                    Design studio, proposition de valeur, KPIS.
                   </Text>
                   <div className="labelContainer">
-                    <Text type="label" white>
-                      Personas
-                    </Text>
-                    <Text type="label" white>
-                      Personas
-                    </Text>
-                    <Text type="label" white>
-                      Personas
-                    </Text>
+                    <div className="label">
+                      <img src={brainstorming} alt="" />
+                      <Text type="label" white>
+                        brainstorming
+                      </Text>
+                    </div>
+                    <div className="label">
+                      <img src={studiodesign} alt="" />
+                      <Text type="label" white>
+                        studio design
+                      </Text>
+                    </div>
+                    <div className="label">
+                      <img src={synthesis} alt="" />
+                      <Text type="label" white>
+                        synthesis
+                      </Text>
+                    </div>
+                    <div className="label">
+                      <img src={minimum} alt="" />
+                      <Text type="label" white>
+                        minimum viable product
+                      </Text>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -369,8 +414,22 @@ const DesignThinking = () => {
                   <Text white>
                     Identifier les points bloquants. Formuler des besoins et des
                     problématiques et s’y tenir. Parcours utilisateur, points
-                    bloquants,
+                    bloquants.
                   </Text>
+                  <div className="labelContainer">
+                    <div className="label">
+                      <img src={work} alt="" />
+                      <Text type="label" white>
+                        WORK EXPERIENCE LAB
+                      </Text>
+                    </div>
+                    <div className="label">
+                      <img src={programmation} alt="" />
+                      <Text type="label" white>
+                        PROGRAMMATION
+                      </Text>
+                    </div>
+                  </div>
                 </div>
               </StyledSlider>
               <div className="navBtnContainer">
