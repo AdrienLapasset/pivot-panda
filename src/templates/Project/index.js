@@ -286,66 +286,68 @@ const Project = ({ data }) => {
   const heroVideo = video && video.asset.url;
   return (
     <Layout>
-      <StyledHeader architect={architect}>
-        {heroVideo ? (
-          <StyledHeroVideo autoPlay muted loop>
-            <source src={heroVideo} type="video/mp4" />
-          </StyledHeroVideo>
-        ) : (
-          <StyledHeroImage image={heroImage} alt={name} />
-        )}
-        <StyledVerticalLine />
-        <StyledCategory type="label">{category}</StyledCategory>
-        <StyledCity type="label">{city}</StyledCity>
-        <StyledTitle>{name}</StyledTitle>
-        <StyledGridContainer architect={architect}>
-          <StyledMission>
-            <StyledText type="label">Mission Pivot Panda</StyledText>
-            <p>{mission}</p>
-          </StyledMission>
-          <StyledContainer>
-            <StyledSurface>
-              <StyledText type="label">Surface</StyledText>
-              <p>{surface} m²</p>
-            </StyledSurface>
-            <StyledYear>
-              <StyledText type="label">Année</StyledText>
-              <p>{projectYear}</p>
-            </StyledYear>
-          </StyledContainer>
-          <StyledClient>
-            <StyledText type="label">Client</StyledText>
-            <p>{client}</p>
-          </StyledClient>
-          {architect !== null && (
-            <StyledArchitect>
-              <StyledText type="label">Architecte</StyledText>
-              {architect}
-            </StyledArchitect>
+      <div className="pageAnimation">
+        <StyledHeader architect={architect}>
+          {heroVideo ? (
+            <StyledHeroVideo autoPlay muted loop>
+              <source src={heroVideo} type="video/mp4" />
+            </StyledHeroVideo>
+          ) : (
+            <StyledHeroImage image={heroImage} alt={name} />
           )}
-        </StyledGridContainer>
-        <StyledDescription>
-          <StyledText>{description}</StyledText>
-        </StyledDescription>
-      </StyledHeader>
-      {ImageTextSections.map(({ image, text, orientation }) => (
-        <ImageTextSection
-          key={text}
-          image={image}
-          text={text}
-          orientation={orientation}
-        />
-      ))}
-      {beforeAfterImages.map(({ imageBefore, imageAfter, text }) => (
-        <BeforeAfterSlider
-          key={text}
-          imageBefore={imageBefore}
-          imageAfter={imageAfter}
-          text={text}
-        />
-      ))}
-      <ProjectCarousel images={projectCarousel} />
-      <OtherProjectsSection isFeaturedProject={isFeaturedProject} />
+          <StyledVerticalLine />
+          <StyledCategory type="label">{category}</StyledCategory>
+          <StyledCity type="label">{city}</StyledCity>
+          <StyledTitle>{name}</StyledTitle>
+          <StyledGridContainer architect={architect}>
+            <StyledMission>
+              <StyledText type="label">Mission Pivot Panda</StyledText>
+              <p>{mission}</p>
+            </StyledMission>
+            <StyledContainer>
+              <StyledSurface>
+                <StyledText type="label">Surface</StyledText>
+                <p>{surface} m²</p>
+              </StyledSurface>
+              <StyledYear>
+                <StyledText type="label">Année</StyledText>
+                <p>{projectYear}</p>
+              </StyledYear>
+            </StyledContainer>
+            <StyledClient>
+              <StyledText type="label">Client</StyledText>
+              <p>{client}</p>
+            </StyledClient>
+            {architect !== null && (
+              <StyledArchitect>
+                <StyledText type="label">Architecte</StyledText>
+                {architect}
+              </StyledArchitect>
+            )}
+          </StyledGridContainer>
+          <StyledDescription>
+            <StyledText>{description}</StyledText>
+          </StyledDescription>
+        </StyledHeader>
+        {ImageTextSections.map(({ image, text, orientation }) => (
+          <ImageTextSection
+            key={text}
+            image={image}
+            text={text}
+            orientation={orientation}
+          />
+        ))}
+        {beforeAfterImages.map(({ imageBefore, imageAfter, text }) => (
+          <BeforeAfterSlider
+            key={text}
+            imageBefore={imageBefore}
+            imageAfter={imageAfter}
+            text={text}
+          />
+        ))}
+        <ProjectCarousel images={projectCarousel} />
+        <OtherProjectsSection isFeaturedProject={isFeaturedProject} />
+      </div>
     </Layout>
   );
 };

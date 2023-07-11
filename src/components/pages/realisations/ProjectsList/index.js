@@ -169,6 +169,7 @@ const ProjectsList = ({ selectedCategory, featuredOnly = false }) => {
 
           return (
             <StyledProjectContainer
+              className="pageAnimation"
               to={"/projet/" + project.slug.current}
               key={i}
               gridcolumnproject={gridColumnProject}
