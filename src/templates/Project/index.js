@@ -289,7 +289,7 @@ const Project = ({ data }) => {
       <div className="pageAnimation">
         <StyledHeader architect={architect}>
           {heroVideo ? (
-            <StyledHeroVideo autoPlay muted loop>
+            <StyledHeroVideo autoPlay muted loop playsInline>
               <source src={heroVideo} type="video/mp4" />
             </StyledHeroVideo>
           ) : (
