@@ -13,9 +13,11 @@ const Realisations = () => {
 
   return (
     <Layout>
-      <PageHero />
-      <CategoryFilters onCategoryChange={handleCategoryChange} />
-      <ProjectsList selectedCategory={selectedCategory} />
+      <div className="pageAnimation">
+        <PageHero />
+        <CategoryFilters onCategoryChange={handleCategoryChange} />
+        <ProjectsList selectedCategory={selectedCategory} />
+      </div>
     </Layout>
   );
 };
