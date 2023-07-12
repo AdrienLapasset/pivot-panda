@@ -313,7 +313,7 @@ const DesignThinking = () => {
                   </Text>
                   <Text white>
                     Vivre l’expérience au travers des yeux de ses utilisateurs :
-                    Observation, entgretien, immersion.
+                    observation, entretien, immersion.
                   </Text>
                   <div className="labelContainer">
                     <div className="label">
@@ -377,7 +377,7 @@ const DesignThinking = () => {
                     Développer
                   </Text>
                   <Text white>
-                    Idéer une solution et la tester à travers un produit <br />
+                    Idéer une solution et la tester à travers un produit. <br />
                     Design studio, proposition de valeur, KPIS.
                   </Text>
                   <div className="labelContainer">
@@ -450,7 +450,7 @@ const DesignThinking = () => {
             <Text white>
               La méthode de Design Thinking nous permettra de travailler en
               co-création durant les différentes phases du projet. Des
-              consultants spécialisées interviendront en fonction du besoin et
+              consultants spécialisés interviendront en fonction du besoin et
               des étapes du projet pour adapter l’architecture, le design,
               l’ergonomie, l’acoustique et la technique selon vos besoins.
             </Text>
