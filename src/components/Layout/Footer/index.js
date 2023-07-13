@@ -125,6 +125,7 @@ const StyledNetworks = styled.div`
 
 const StyledText = styled(Text)`
   padding-bottom: 15px;
+  white-space: nowrap;
 `;
 
 const StyledCredits = styled(PageContainer)`
