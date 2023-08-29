@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import Grid from "components/global/Grid";
 import PageContainer from "components/global/PageContainer";
 import RadioButton from "./RadioButton";
+import arrowSelect from "assets/icons/arrow-select.svg";
 
 const StyledContainer = styled.div`
   height: 45px;
@@ -32,6 +33,12 @@ const MobileDropdown = styled.select`
   background-color: transparent;
   grid-column: 1 / 5;
   width: 150px;
+  appearance: none;
+  background-image: url(${arrowSelect});
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  outline: none;
   @media ${(props) => props.theme.minWidth.md} {
     display: none;
   }
