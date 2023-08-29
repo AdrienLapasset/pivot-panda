@@ -153,7 +153,11 @@ const Contact = () => {
       <Layout>
         <StyledGrid className="pageAnimation">
           <StyledContainer>
-            <button className="close-btn" onClick={() => navigate(-1)}>
+            <button
+              aria-label="fermer la modal"
+              className="close-btn"
+              onClick={() => navigate(-1)}
+            >
               <img src={closeBtn} alt="fermer la modal" />
             </button>
             <div>

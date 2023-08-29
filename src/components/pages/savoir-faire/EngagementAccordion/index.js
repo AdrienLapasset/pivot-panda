@@ -96,7 +96,7 @@ const Accordion = () => {
   return (
     <StyledContainer>
       <div>
-        <button onClick={toggleSection1}>
+        <button onClick={toggleSection1} aria-label="Eco-conception">
           Eco-conception
           <StyledButton isSectionOpen={isSection1Open} />
         </button>
@@ -114,7 +114,7 @@ const Accordion = () => {
         </StyledContent>
       </div>
       <div>
-        <button onClick={toggleSection2}>
+        <button onClick={toggleSection2} aria-label="Economie locale">
           Economie locale
           <StyledButton isSectionOpen={isSection2Open} />
         </button>
@@ -131,7 +131,7 @@ const Accordion = () => {
         </StyledContent>
       </div>
       <div>
-        <button onClick={toggleSection3}>
+        <button onClick={toggleSection3} aria-label="Vie d’entreprise">
           Vie d’entreprise
           <StyledButton isSectionOpen={isSection3Open} />
         </button>
