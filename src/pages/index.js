@@ -7,6 +7,7 @@ import NumbersSection from "components/pages/home/NumbersSection";
 import ProjectsSection from "components/pages/home/ProjectsSection";
 import NewsSection from "components/pages/home/NewsSection";
 import { Link } from "gatsby";
+import Seo from "components/Seo";
 
 const StyledSectionHeader = styled(SectionHeader)`
   margin-top: 15px;
@@ -29,27 +30,30 @@ const StyledSectionHeader = styled(SectionHeader)`
 
 const IndexPage = () => {
   return (
-    <Layout>
-      <div className="pageAnimation">
-        <HeroSection />
-        <StyledSectionHeader
-          title="Dénicheurs et concepteurs de votre futur espace"
-          buttonText="Savoir-faire"
-          buttonTo="savoir-faire"
-        >
-          En tant que contractant général, Pivot Panda réalise différents types
-          de missions, de la conception de projet à la réalisation des travaux,
-          avec&nbsp;
-          <Link className="pandaInvest" to="/panda-invest">
-            Panda Invest
-          </Link>
-          &nbsp;en tant qu’opérateur immobilier.
-        </StyledSectionHeader>
-        <NumbersSection />
-        <ProjectsSection />
-        <NewsSection />
-      </div>
-    </Layout>
+    <>
+      <Seo />
+      <Layout>
+        <div className="pageAnimation">
+          <HeroSection />
+          <StyledSectionHeader
+            title="Dénicheurs et concepteurs de votre futur espace"
+            buttonText="Savoir-faire"
+            buttonTo="savoir-faire"
+          >
+            En tant que contractant général, Pivot Panda réalise différents
+            types de missions, de la conception de projet à la réalisation des
+            travaux, avec&nbsp;
+            <Link className="pandaInvest" to="/panda-invest">
+              Panda Invest
+            </Link>
+            &nbsp;en tant qu’opérateur immobilier.
+          </StyledSectionHeader>
+          <NumbersSection />
+          <ProjectsSection />
+          <NewsSection />
+        </div>
+      </Layout>
+    </>
   );
 };
 

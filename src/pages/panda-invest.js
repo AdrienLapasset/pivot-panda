@@ -7,6 +7,7 @@ import Button from "components/global/Button";
 import Grid from "components/global/Grid";
 import { Link } from "gatsby";
 import closeBtn from "assets/icons/close-btn.svg";
+import Seo from "components/Seo";
 
 const StyledGrid = styled(Grid)`
   background-color: ${({ theme }) => theme.colors.backgroundDark};
@@ -64,36 +65,40 @@ const StyledContainer = styled.div`
 
 const PandaInvest = () => {
   return (
-    <Layout>
-      <StyledGrid className="pageAnimation">
-        <StyledContainer>
-          <Link className="close-btn" to="/">
-            <img src={closeBtn} alt="fermer la modal" />
-          </Link>
-          <Title type="pageTitle" white>
-            Panda invest
-          </Title>
-          <div>
-            <Text white>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et
-              massa mi. Maecenas vitae mattis tellus. Nullam quis imperdiet
-              augue. Vestibulum auctor ornare leo, non suscipit magna interdum
-              eu. Pellentesque commodo lacus at sodales sodales. Quisque
-              sagittis orci ut diam condimentum, vel euismod erat placerat. In
-              iaculis arcu eros, eget tempus orci facilisis id.
-            </Text>
-            <Button
-              target="_blank"
-              rel="noopener noreferrer"
-              href="mailto:contact@pivotpanda.com"
-              white
-            >
-              contact@pivotpanda.com
-            </Button>
-          </div>
-        </StyledContainer>
-      </StyledGrid>
-    </Layout>
+    <>
+      <Seo pageTitle="Panda Invest" />
+
+      <Layout>
+        <StyledGrid className="pageAnimation">
+          <StyledContainer>
+            <Link className="close-btn" to="/">
+              <img src={closeBtn} alt="fermer la modal" />
+            </Link>
+            <Title type="pageTitle" white>
+              Panda invest
+            </Title>
+            <div>
+              <Text white>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et
+                massa mi. Maecenas vitae mattis tellus. Nullam quis imperdiet
+                augue. Vestibulum auctor ornare leo, non suscipit magna interdum
+                eu. Pellentesque commodo lacus at sodales sodales. Quisque
+                sagittis orci ut diam condimentum, vel euismod erat placerat. In
+                iaculis arcu eros, eget tempus orci facilisis id.
+              </Text>
+              <Button
+                target="_blank"
+                rel="noopener noreferrer"
+                href="mailto:contact@pivotpanda.com"
+                white
+              >
+                contact@pivotpanda.com
+              </Button>
+            </div>
+          </StyledContainer>
+        </StyledGrid>
+      </Layout>
+    </>
   );
 };
 

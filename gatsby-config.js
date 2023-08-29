@@ -2,22 +2,21 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 
-require("dotenv").config({
-  path: `.env`,
-});
+// require("dotenv").config({
+//   path: `.env`,
+// });
 
 module.exports = {
   siteMetadata: {
     title: `Pivot Panda`,
-    siteUrl: `https://www.yourdomain.tld`,
+    titleTemplate: "Pivot Panda - %s",
+    siteUrl: `https://pivotpanda.com/`,
+    description:
+      "Basé à Marseille et Paris, nous réalisons des projets d’espaces de travail, de lieux de vie tels que des hôtels, des commerces, du co-living, co-working ou des logements meublés, centrés sur les usages et adaptés aux besoins du client.",
+    author: "Adrien Lapasset, Clément Lapasset",
+    lang: "fr",
   },
   plugins: [
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-styled-components",
-    "gatsby-plugin-root-import",
-    "gatsby-plugin-netlify",
     {
       resolve: "gatsby-source-sanity",
       options: {
@@ -34,5 +33,12 @@ module.exports = {
         icon: "src/assets/imgs/favicon.png",
       },
     },
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-root-import",
+    "gatsby-plugin-netlify",
+    "gatsby-plugin-react-helmet",
   ],
 };

@@ -23,6 +23,7 @@ import synthesis from "assets/icons/designThinking/synthesis.svg";
 import minimum from "assets/icons/designThinking/minimum.svg";
 import work from "assets/icons/designThinking/work.svg";
 import programmation from "assets/icons/designThinking/programmation.svg";
+import Seo from "components/Seo";
 
 const StyledGrid = styled(Grid)`
   background-color: ${({ theme }) => theme.colors.backgroundDark};
@@ -267,197 +268,201 @@ const DesignThinking = () => {
   };
 
   return (
-    <Layout>
-      <StyledGrid className="pageAnimation">
-        <StyledContainer stepIndex={stepIndex}>
-          <Link className="close-btn" to="/savoir-faire">
-            <img src={closeBtn} alt="fermer la modal" />
-          </Link>
-          <div>
-            <Text white>Co-concevoir votre projet.</Text>
-            <Title type="pageTitle" white>
-              design thinking
-            </Title>
-            <Text white>Co-concevoir votre projet.</Text>
-            <Text white>
-              La méthode de Design Thinking nous permettra de travailler en
-              co-création durant les différentes phases du projet. Des
-              consultants spécialisées interviendront en fonction du besoin et
-              des étapes du projet pour adapter l’architecture, le design,
-              l’ergonomie, l’acoustique et la technique selon vos besoins.
-            </Text>
-          </div>
-          <div className="phaseContainer">
+    <>
+      <Seo pageTitle="Design thinking" />
+      <Layout>
+        <StyledGrid className="pageAnimation">
+          <StyledContainer stepIndex={stepIndex}>
+            <Link className="close-btn" to="/savoir-faire">
+              <img src={closeBtn} alt="fermer la modal" />
+            </Link>
             <div>
-              <Text white>Phase</Text>
-              <aside className="phaseNumbers">
-                <div>
-                  <span>1</span>
-                </div>
-                <div>
-                  <span>2</span>
-                </div>
-                <div>
-                  <span>3</span>
-                </div>
-                <div>
-                  <span>4</span>
-                </div>
-              </aside>
+              <Text white>Co-concevoir votre projet.</Text>
+              <Title type="pageTitle" white>
+                design thinking
+              </Title>
+              <Text white>Co-concevoir votre projet.</Text>
+              <Text white>
+                La méthode de Design Thinking nous permettra de travailler en
+                co-création durant les différentes phases du projet. Des
+                consultants spécialisées interviendront en fonction du besoin et
+                des étapes du projet pour adapter l’architecture, le design,
+                l’ergonomie, l’acoustique et la technique selon vos besoins.
+              </Text>
             </div>
-            <div>
-              <StyledSlider {...sliderSettings} ref={sliderRef}>
-                <div>
-                  <Text type="projectTitle" white as="h3">
-                    Découvrir
-                  </Text>
-                  <Text white>
-                    Vivre l’expérience au travers des yeux de ses utilisateurs :
-                    observation, entretien, immersion.
-                  </Text>
-                  <div className="labelContainer">
-                    <div className="label">
-                      <img src={personas} alt="" />
-                      <Text type="label" white>
-                        Personas
-                      </Text>
-                    </div>
-                    <div className="label">
-                      <img src={shadowing} alt="" />
-                      <Text type="label" white>
-                        SHADOWING
-                      </Text>
-                    </div>
-                    <div className="label">
-                      <img src={interviews} alt="" />
-                      <Text type="label" white>
-                        INTERVIEWS
-                      </Text>
+            <div className="phaseContainer">
+              <div>
+                <Text white>Phase</Text>
+                <aside className="phaseNumbers">
+                  <div>
+                    <span>1</span>
+                  </div>
+                  <div>
+                    <span>2</span>
+                  </div>
+                  <div>
+                    <span>3</span>
+                  </div>
+                  <div>
+                    <span>4</span>
+                  </div>
+                </aside>
+              </div>
+              <div>
+                <StyledSlider {...sliderSettings} ref={sliderRef}>
+                  <div>
+                    <Text type="projectTitle" white as="h3">
+                      Découvrir
+                    </Text>
+                    <Text white>
+                      Vivre l’expérience au travers des yeux de ses utilisateurs
+                      : observation, entretien, immersion.
+                    </Text>
+                    <div className="labelContainer">
+                      <div className="label">
+                        <img src={personas} alt="" />
+                        <Text type="label" white>
+                          Personas
+                        </Text>
+                      </div>
+                      <div className="label">
+                        <img src={shadowing} alt="" />
+                        <Text type="label" white>
+                          SHADOWING
+                        </Text>
+                      </div>
+                      <div className="label">
+                        <img src={interviews} alt="" />
+                        <Text type="label" white>
+                          INTERVIEWS
+                        </Text>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <Text type="projectTitle" white as="h3">
-                    Définir
-                  </Text>
-                  <Text white>
-                    Identifier les points bloquants. Formuler des besoins et des
-                    problématiques et s’y tenir. Parcours utilisateur, points
-                    bloquants.
-                  </Text>
-                  <div className="labelContainer">
-                    <div className="label">
-                      <img src={affinitydiagrams} alt="" />
-                      <Text type="label" white>
-                        affinity diagrams
-                      </Text>
-                    </div>
-                    <div className="label">
-                      <img src={usersjourney} alt="" />
-                      <Text type="label" white>
-                        user’s journey
-                      </Text>
-                    </div>
-                    <div className="label">
-                      <img src={painpoint} alt="" />
-                      <Text type="label" white>
-                        pain point
-                      </Text>
-                    </div>
-                    <div className="label">
-                      <img src={whatistheproblem} alt="" />
-                      <Text type="label" white>
-                        what is the problem
-                      </Text>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <Text type="projectTitle" white as="h3">
-                    Développer
-                  </Text>
-                  <Text white>
-                    Idéer une solution et la tester à travers un produit. <br />
-                    Design studio, proposition de valeur, KPIS.
-                  </Text>
-                  <div className="labelContainer">
-                    <div className="label">
-                      <img src={brainstorming} alt="" />
-                      <Text type="label" white>
-                        brainstorming
-                      </Text>
-                    </div>
-                    <div className="label">
-                      <img src={studiodesign} alt="" />
-                      <Text type="label" white>
-                        studio design
-                      </Text>
-                    </div>
-                    <div className="label">
-                      <img src={synthesis} alt="" />
-                      <Text type="label" white>
-                        synthesis
-                      </Text>
-                    </div>
-                    <div className="label">
-                      <img src={minimum} alt="" />
-                      <Text type="label" white>
-                        minimum viable product
-                      </Text>
+                  <div>
+                    <Text type="projectTitle" white as="h3">
+                      Définir
+                    </Text>
+                    <Text white>
+                      Identifier les points bloquants. Formuler des besoins et
+                      des problématiques et s’y tenir. Parcours utilisateur,
+                      points bloquants.
+                    </Text>
+                    <div className="labelContainer">
+                      <div className="label">
+                        <img src={affinitydiagrams} alt="" />
+                        <Text type="label" white>
+                          affinity diagrams
+                        </Text>
+                      </div>
+                      <div className="label">
+                        <img src={usersjourney} alt="" />
+                        <Text type="label" white>
+                          user’s journey
+                        </Text>
+                      </div>
+                      <div className="label">
+                        <img src={painpoint} alt="" />
+                        <Text type="label" white>
+                          pain point
+                        </Text>
+                      </div>
+                      <div className="label">
+                        <img src={whatistheproblem} alt="" />
+                        <Text type="label" white>
+                          what is the problem
+                        </Text>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <Text type="projectTitle" white as="h3">
-                    Délivrer
-                  </Text>
-                  <Text white>
-                    Identifier les points bloquants. Formuler des besoins et des
-                    problématiques et s’y tenir. Parcours utilisateur, points
-                    bloquants.
-                  </Text>
-                  <div className="labelContainer">
-                    <div className="label">
-                      <img src={work} alt="" />
-                      <Text type="label" white>
-                        WORK EXPERIENCE LAB
-                      </Text>
-                    </div>
-                    <div className="label">
-                      <img src={programmation} alt="" />
-                      <Text type="label" white>
-                        PROGRAMMATION
-                      </Text>
+                  <div>
+                    <Text type="projectTitle" white as="h3">
+                      Développer
+                    </Text>
+                    <Text white>
+                      Idéer une solution et la tester à travers un produit.{" "}
+                      <br />
+                      Design studio, proposition de valeur, KPIS.
+                    </Text>
+                    <div className="labelContainer">
+                      <div className="label">
+                        <img src={brainstorming} alt="" />
+                        <Text type="label" white>
+                          brainstorming
+                        </Text>
+                      </div>
+                      <div className="label">
+                        <img src={studiodesign} alt="" />
+                        <Text type="label" white>
+                          studio design
+                        </Text>
+                      </div>
+                      <div className="label">
+                        <img src={synthesis} alt="" />
+                        <Text type="label" white>
+                          synthesis
+                        </Text>
+                      </div>
+                      <div className="label">
+                        <img src={minimum} alt="" />
+                        <Text type="label" white>
+                          minimum viable product
+                        </Text>
+                      </div>
                     </div>
                   </div>
+                  <div>
+                    <Text type="projectTitle" white as="h3">
+                      Délivrer
+                    </Text>
+                    <Text white>
+                      Identifier les points bloquants. Formuler des besoins et
+                      des problématiques et s’y tenir. Parcours utilisateur,
+                      points bloquants.
+                    </Text>
+                    <div className="labelContainer">
+                      <div className="label">
+                        <img src={work} alt="" />
+                        <Text type="label" white>
+                          WORK EXPERIENCE LAB
+                        </Text>
+                      </div>
+                      <div className="label">
+                        <img src={programmation} alt="" />
+                        <Text type="label" white>
+                          PROGRAMMATION
+                        </Text>
+                      </div>
+                    </div>
+                  </div>
+                </StyledSlider>
+                <div className="navBtnContainer">
+                  <Button
+                    white
+                    prev
+                    onClick={() => sliderRef.current.slickPrev()}
+                  ></Button>
+                  <Button
+                    white
+                    next
+                    onClick={() => sliderRef.current.slickNext()}
+                  ></Button>
                 </div>
-              </StyledSlider>
-              <div className="navBtnContainer">
-                <Button
-                  white
-                  prev
-                  onClick={() => sliderRef.current.slickPrev()}
-                ></Button>
-                <Button
-                  white
-                  next
-                  onClick={() => sliderRef.current.slickNext()}
-                ></Button>
               </div>
             </div>
-          </div>
-          <div>
-            <Text white>
-              La méthode de Design Thinking nous permettra de travailler en
-              co-création durant les différentes phases du projet. Des
-              consultants spécialisés interviendront en fonction du besoin et
-              des étapes du projet pour adapter l’architecture, le design,
-              l’ergonomie, l’acoustique et la technique selon vos besoins.
-            </Text>
-          </div>
-        </StyledContainer>
-      </StyledGrid>
-    </Layout>
+            <div>
+              <Text white>
+                La méthode de Design Thinking nous permettra de travailler en
+                co-création durant les différentes phases du projet. Des
+                consultants spécialisés interviendront en fonction du besoin et
+                des étapes du projet pour adapter l’architecture, le design,
+                l’ergonomie, l’acoustique et la technique selon vos besoins.
+              </Text>
+            </div>
+          </StyledContainer>
+        </StyledGrid>
+      </Layout>
+    </>
   );
 };
 

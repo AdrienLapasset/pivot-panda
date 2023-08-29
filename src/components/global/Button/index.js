@@ -66,6 +66,7 @@ const Button = ({
         prev={prev}
         next={next}
         white={white}
+        aria-label={children}
       >
         {children}
         <Arrow />

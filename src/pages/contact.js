@@ -9,6 +9,7 @@ import { navigate } from "gatsby";
 import closeBtn from "assets/icons/close-btn.svg";
 import ppLogo from "assets/logos/logo-pivot-panda-portrait-white.svg";
 import plaquette from "assets/pdf/Presentation-Pivot-Panda.pdf";
+import Seo from "components/Seo";
 
 const StyledGrid = styled(Grid)`
   background-color: ${({ theme }) => theme.colors.backgroundDark};
@@ -147,74 +148,85 @@ const StyledContainer = styled.div`
 
 const Contact = () => {
   return (
-    <Layout>
-      <StyledGrid className="pageAnimation">
-        <StyledContainer>
-          <button className="close-btn" onClick={() => navigate(-1)}>
-            <img src={closeBtn} alt="fermer la modal" />
-          </button>
-          <div>
-            <Title
-              type="pageTitle"
-              white
-              children={"nous<br>Contacter"}
-            ></Title>
-            <Text white>
-              Vous avez un projet ?<br />
-              N'hésitez pas à nous contacter pour en discuter ! Notre équipe est
-              à votre écoute et prête à vous accompagner pour concrétiser vos
-              idées.
-            </Text>
-          </div>
-          <div>
+    <>
+      <Seo pageTitle="Contact" />
+      <Layout>
+        <StyledGrid className="pageAnimation">
+          <StyledContainer>
+            <button className="close-btn" onClick={() => navigate(-1)}>
+              <img src={closeBtn} alt="fermer la modal" />
+            </button>
             <div>
-              <Button
-                target="_blank"
-                rel="noopener noreferrer"
-                href="mailto:contact@pivotpanda.com"
+              <Title
+                type="pageTitle"
                 white
-              >
-                contact@pivotpanda.com
-              </Button>
-            </div>
-            <div>
-              <Text type="label" white>
-                Venez nous voir
+                children={"nous<br>Contacter"}
+              ></Title>
+              <Text white>
+                Vous avez un projet ?<br />
+                N'hésitez pas à nous contacter pour en discuter ! Notre équipe
+                est à votre écoute et prête à vous accompagner pour concrétiser
+                vos idées.
               </Text>
-              <a
-                href="https://goo.gl/maps/VRzrYuomuBYaicsL8"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Text white>55 rue Sylvabelle, 13006, Marseille</Text>
-              </a>
-              <a
-                href="https://goo.gl/maps/pzQ5Fy1LzhAoyPkY9"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <Text white>38 rue du Chemin Vert, 75011, Paris</Text>
-              </a>
             </div>
             <div>
               <div>
+                <Button
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="mailto:contact@pivotpanda.com"
+                  white
+                >
+                  contact@pivotpanda.com
+                </Button>
+              </div>
+              <div>
                 <Text type="label" white>
-                  Suivez nous
+                  Venez nous voir
                 </Text>
                 <a
-                  href="https://www.linkedin.com/company/pivot-panda/"
+                  href="https://goo.gl/maps/VRzrYuomuBYaicsL8"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noreferrer"
                 >
-                  <Text white>LinkedIn</Text>
+                  <Text white>55 rue Sylvabelle, 13006, Marseille</Text>
                 </a>
                 <a
-                  href="https://www.instagram.com/pivot_panda_/"
+                  href="https://goo.gl/maps/pzQ5Fy1LzhAoyPkY9"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noreferrer"
                 >
-                  <Text white>Instagram</Text>
+                  <Text white>38 rue du Chemin Vert, 75011, Paris</Text>
                 </a>
+              </div>
+              <div>
+                <div>
+                  <Text type="label" white>
+                    Suivez nous
+                  </Text>
+                  <a
+                    href="https://www.linkedin.com/company/pivot-panda/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Text white>LinkedIn</Text>
+                  </a>
+                  <a
+                    href="https://www.instagram.com/pivot_panda_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Text white>Instagram</Text>
+                  </a>
+                </div>
+                <div>
+                  <Text type="label" white>
+                    Ressources
+                  </Text>
+                  <a href={plaquette} download="Presentation-Pivot-Panda.pdf">
+                    <Text white>Plaquette de présentation</Text>
+                  </a>
+                </div>
               </div>
               <div>
                 <Text type="label" white>
@@ -224,23 +236,15 @@ const Contact = () => {
                   <Text white>Plaquette de présentation</Text>
                 </a>
               </div>
+              <div>
+                <img src={ppLogo} alt="Logo Pivot Panda" />
+                <Text white>© Pivot Panda 2023</Text>
+              </div>
             </div>
-            <div>
-              <Text type="label" white>
-                Ressources
-              </Text>
-              <a href={plaquette} download="Presentation-Pivot-Panda.pdf">
-                <Text white>Plaquette de présentation</Text>
-              </a>
-            </div>
-            <div>
-              <img src={ppLogo} alt="Logo Pivot Panda" />
-              <Text white>© Pivot Panda 2023</Text>
-            </div>
-          </div>
-        </StyledContainer>
-      </StyledGrid>
-    </Layout>
+          </StyledContainer>
+        </StyledGrid>
+      </Layout>
+    </>
   );
 };
 

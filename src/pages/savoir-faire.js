@@ -13,6 +13,7 @@ import leGrandBleuLogo from "assets/logos/logo-le-grand-bleu-marseille-horizonta
 import marsatacLogo from "assets/logos/logo-marsatac.svg";
 import { StaticImage } from "gatsby-plugin-image";
 import { Link } from "gatsby";
+import Seo from "components/Seo";
 
 const StyledContainer = styled.div`
   .gatsby-image-wrapper {
@@ -195,110 +196,113 @@ const StyledPartenairesSection = styled.section`
 
 const SavoirFaire = () => {
   return (
-    <Layout>
-      <StyledContainer className="pageAnimation">
-        <PageContainer>
-          <StyledHeroSection>
-            <div>
-              <Title type="pageTitle">Savoir-faire</Title>
-            </div>
-          </StyledHeroSection>
-        </PageContainer>
-        <StaticImage
-          src="../assets/imgs/page-savoir-faire-hero-img.jpg"
-          alt="Pivot Panda - Savoir-faire"
-        />
-        <StyledApproche>
-          <div>
-            <Title as="h2" children="Une approche<br>simple et agile"></Title>
-            <Text>
-              Pivot Panda n’est pas une entreprise de travaux, un fournisseur de
-              mobilier, un consultant d’accompagnement en organisation.
-            </Text>
-            <Text>
-              Notre vocation est de concevoir un environnement adapte à notre
-              client, et pour cela nous nous appuyons sur une démarche issue
-              du&nbsp;
-              <Link to="/design-thinking">Design Thinking</Link> simple et
-              agile, qui mobilise des outils de co-conception et qui font de vos
-              collaborateurs des acteurs dans la conception de votre futur Work
-              Place pour ensuite les mettre en œuvre.
-            </Text>
-          </div>
-        </StyledApproche>
-        <div className="nosMetiersSection">
-          <NosMetiersSectionMobile />
-          <NosMetiersSectionDesktop />
-        </div>
-        <NotreProcessSection />
-        <StyledLequipeSection>
+    <>
+      <Seo pageTitle="Savoir-faire" />
+      <Layout>
+        <StyledContainer className="pageAnimation">
           <PageContainer>
-            <Grid className="grid">
-              <Title as="h2">L'équipe</Title>
-              <Text>
-                Pivot Panda, est organisé autour de 4 associés et 5
-                collaborateurs.
-              </Text>
-            </Grid>
-            <StaticImage
-              src="../assets/imgs/l-equipe.jpg"
-              alt="Pivot Panda - Savoir-faire"
-            />
-          </PageContainer>
-        </StyledLequipeSection>
-        <PageContainer>
-          <StyledNosEngagementsSection>
-            <Grid className="grid">
+            <StyledHeroSection>
               <div>
-                <Title as="h2">Nos engagements</Title>
-                <Text>
-                  En tant qu’entreprise liée à la construction, nous nous
-                  engageons à apporter des solutions économiques viables,
-                  socialement équitables et écologiquement durables.Impliqués
-                  activement dans la vie culturelle et associative locale, nous
-                  nous engageons auprès de nombreuses associations.
-                </Text>
+                <Title type="pageTitle">Savoir-faire</Title>
               </div>
-              <EngagementAccordion />
-            </Grid>
-          </StyledNosEngagementsSection>
-          <StyledPartenairesSection>
-            <Grid className="grid">
+            </StyledHeroSection>
+          </PageContainer>
+          <StaticImage
+            src="../assets/imgs/page-savoir-faire-hero-img.jpg"
+            alt="Pivot Panda - Savoir-faire"
+          />
+          <StyledApproche>
+            <div>
+              <Title as="h2" children="Une approche<br>simple et agile"></Title>
+              <Text>
+                Pivot Panda n’est pas une entreprise de travaux, un fournisseur
+                de mobilier, un consultant d’accompagnement en organisation.
+              </Text>
+              <Text>
+                Notre vocation est de concevoir un environnement adapte à notre
+                client, et pour cela nous nous appuyons sur une démarche issue
+                du&nbsp;
+                <Link to="/design-thinking">Design Thinking</Link> simple et
+                agile, qui mobilise des outils de co-conception et qui font de
+                vos collaborateurs des acteurs dans la conception de votre futur
+                Work Place pour ensuite les mettre en œuvre.
+              </Text>
+            </div>
+          </StyledApproche>
+          <div className="nosMetiersSection">
+            <NosMetiersSectionMobile />
+            <NosMetiersSectionDesktop />
+          </div>
+          <NotreProcessSection />
+          <StyledLequipeSection>
+            <PageContainer>
+              <Grid className="grid">
+                <Title as="h2">L'équipe</Title>
+                <Text>
+                  Pivot Panda, est organisé autour de 4 associés et 5
+                  collaborateurs.
+                </Text>
+              </Grid>
               <StaticImage
-                src="../assets/imgs/grand-bleu.jpg"
+                src="../assets/imgs/l-equipe.jpg"
                 alt="Pivot Panda - Savoir-faire"
               />
-              <div className="first-partner">
-                <img src={leGrandBleuLogo} alt="" />
-                <Text>
-                  Le Grand Bleu est une association qui initie et développe les
-                  activités nautiques et aquatiquessur la commune de Marseille.
-                  Leur mission est d'offrir des opportunités pour que les
-                  enfants puissent apprendre, explorer et s'engager dans des
-                  activités nautiques en toute sécurité.
-                </Text>
-              </div>
-            </Grid>
-            <Grid className="grid">
-              <StaticImage
-                src="../assets/imgs/marsatac.jpg"
-                alt="Pivot Panda - Savoir-faire"
-              />
-              <div className="second-partner">
-                <img src={marsatacLogo} alt="" />
-                <Text>
-                  En étant partenaire du festival Marsatac nous contribuons à
-                  notre échelle au succès d’un évènement majeur sur le
-                  territoire, reconnu sur le plan local, national et
-                  international, un moment de rassemblement, d’émotion, et de
-                  découverte musicale.
-                </Text>
-              </div>
-            </Grid>
-          </StyledPartenairesSection>
-        </PageContainer>
-      </StyledContainer>
-    </Layout>
+            </PageContainer>
+          </StyledLequipeSection>
+          <PageContainer>
+            <StyledNosEngagementsSection>
+              <Grid className="grid">
+                <div>
+                  <Title as="h2">Nos engagements</Title>
+                  <Text>
+                    En tant qu’entreprise liée à la construction, nous nous
+                    engageons à apporter des solutions économiques viables,
+                    socialement équitables et écologiquement durables.Impliqués
+                    activement dans la vie culturelle et associative locale,
+                    nous nous engageons auprès de nombreuses associations.
+                  </Text>
+                </div>
+                <EngagementAccordion />
+              </Grid>
+            </StyledNosEngagementsSection>
+            <StyledPartenairesSection>
+              <Grid className="grid">
+                <StaticImage
+                  src="../assets/imgs/grand-bleu.jpg"
+                  alt="Pivot Panda - Savoir-faire"
+                />
+                <div className="first-partner">
+                  <img src={leGrandBleuLogo} alt="" />
+                  <Text>
+                    Le Grand Bleu est une association qui initie et développe
+                    les activités nautiques et aquatiquessur la commune de
+                    Marseille. Leur mission est d'offrir des opportunités pour
+                    que les enfants puissent apprendre, explorer et s'engager
+                    dans des activités nautiques en toute sécurité.
+                  </Text>
+                </div>
+              </Grid>
+              <Grid className="grid">
+                <StaticImage
+                  src="../assets/imgs/marsatac.jpg"
+                  alt="Pivot Panda - Savoir-faire"
+                />
+                <div className="second-partner">
+                  <img src={marsatacLogo} alt="" />
+                  <Text>
+                    En étant partenaire du festival Marsatac nous contribuons à
+                    notre échelle au succès d’un évènement majeur sur le
+                    territoire, reconnu sur le plan local, national et
+                    international, un moment de rassemblement, d’émotion, et de
+                    découverte musicale.
+                  </Text>
+                </div>
+              </Grid>
+            </StyledPartenairesSection>
+          </PageContainer>
+        </StyledContainer>
+      </Layout>
+    </>
   );
 };
 
