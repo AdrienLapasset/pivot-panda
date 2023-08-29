@@ -158,6 +158,8 @@ const StyledYear = styled(PageContainer)`
   grid-row: 1 / 2;
   grid-column: 3 / 5;
   border-left: solid ${(props) => props.theme.colors.black} 1px;
+  position: sticky;
+  top: 0;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: 2 / 3;
     display: flex;
