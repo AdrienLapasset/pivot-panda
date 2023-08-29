@@ -42,6 +42,9 @@ const MobileDropdown = styled.select`
   @media ${(props) => props.theme.minWidth.md} {
     display: none;
   }
+  option {
+    text-transform: capitalize;
+  }
 `;
 
 const StyledRadioGroup = styled(Grid)`
