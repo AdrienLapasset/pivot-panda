@@ -83,14 +83,20 @@ const Accordion = () => {
   const toggleSection1 = () => {
     setContent1Height(content1Ref.current.scrollHeight);
     setSection1Open(!isSection1Open);
+    setSection2Open(false);
+    setSection3Open(false);
   };
   const toggleSection2 = () => {
     setContent2Height(content2Ref.current.scrollHeight);
     setSection2Open(!isSection2Open);
+    setSection1Open(false);
+    setSection3Open(false);
   };
   const toggleSection3 = () => {
     setContent3Height(content3Ref.current.scrollHeight);
     setSection3Open(!isSection3Open);
+    setSection2Open(false);
+    setSection1Open(false);
   };
 
   return (
