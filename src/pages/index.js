@@ -40,13 +40,16 @@ const IndexPage = () => {
             buttonText="Savoir-faire"
             buttonTo="savoir-faire"
           >
-            En tant que contractant général, Pivot Panda réalise différents
-            types de missions, de la conception de projet à la réalisation des
-            travaux, avec&nbsp;
+            Pivot Panda développe pour ses clients des projets de la recherche
+            de foncier en passant par la conception et jusqu’à la réalisation
+            des travaux avec comme prisme permanent : répondre aux bons usages !{" "}
+            <br />
+            Pivot Panda s’appuie aussi sur&nbsp;
             <Link className="pandaInvest" to="/panda-invest">
               Panda Invest
             </Link>
-            &nbsp;en tant qu’opérateur immobilier.
+            &nbsp;pour prendre part à des projets soit à valeur ajoutée, soit
+            patrimonial en tertiaire et activité ou hôtellerie.
           </StyledSectionHeader>
           <NumbersSection />
           <ProjectsSection />

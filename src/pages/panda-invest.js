@@ -79,12 +79,18 @@ const PandaInvest = () => {
             </Title>
             <div>
               <Text white>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et
-                massa mi. Maecenas vitae mattis tellus. Nullam quis imperdiet
-                augue. Vestibulum auctor ornare leo, non suscipit magna interdum
-                eu. Pellentesque commodo lacus at sodales sodales. Quisque
-                sagittis orci ut diam condimentum, vel euismod erat placerat. In
-                iaculis arcu eros, eget tempus orci facilisis id.
+                Structure organisée comme un opérateur, investisseur et maître
+                d’ouvrage, Panda Invest est organisé pour développer des projets
+                immobiliers singuliers, mettant la programmation,
+                l’architecture, l’exploitation au service des utilisateurs.
+                <br />
+                Panda Invest recherche des montages plus vertueux, optimisés et
+                innovants.
+                <br />
+                Panda Invest prend part à des projets avec des partenaires ou
+                des clients en ayant le besoin ou juste l’envie.
+                <br />
+                Pour en parler, n’hésitez pas à nous contacter.
               </Text>
               <Button
                 target="_blank"
