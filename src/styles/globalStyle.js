@@ -27,6 +27,11 @@ textarea {
   font-weight: 400;
   display: block;
   box-sizing: border-box;
+  color: ${(props) => props.theme.colors.black};
+}
+
+p {
+  line-height: 25px;
 }
 
 a {
@@ -50,6 +55,18 @@ button {
   background-color: transparent;
   &:hover {
     color: ${(props) => props.theme.colors.grey};
+  }
+}
+
+.pageAnimation {
+  animation: pageAnimation 0.4s ${({ theme }) =>
+    theme.cubicBezier.base} forwards;
+  opacity: 0;
+}
+
+@keyframes pageAnimation {
+  100% {
+    opacity: 1;
   }
 }
 `;

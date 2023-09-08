@@ -1,22 +1,26 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import theme from "styles/theme";
 import GlobalStyle from "styles/globalStyle";
-// import Navigation from "./Navigation";
-// import Footer from "./Footer";
-
-const StyledContainer = styled.div``;
+import Navigation from "./Navigation";
+import { useLocation } from "@reach/router";
+import Footer from "./Footer";
 
 const Layout = ({ children }) => {
+  const { pathname } = useLocation();
+
+  const isPageFullScreen =
+    pathname === "/contact/" ||
+    pathname === "/panda-invest/" ||
+    pathname === "/design-thinking/";
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <StyledContainer>
-          {/* <Navigation /> */}
-          {children}
-          {/* <Footer /> */}
-        </StyledContainer>
+        {!isPageFullScreen && <Navigation />}
+        {children}
+        {!isPageFullScreen && <Footer />}
       </ThemeProvider>
     </>
   );

@@ -1,74 +1,62 @@
 import * as React from "react";
 import styled from "styled-components";
-import { StaticImage } from "gatsby-plugin-image";
 import Layout from "components/Layout";
-import PPlogo from "assets/logo.svg";
+import HeroSection from "components/pages/home/HeroSection";
+import SectionHeader from "components/pages/home/SectionHeader";
+import NumbersSection from "components/pages/home/NumbersSection";
+import ProjectsSection from "components/pages/home/ProjectsSection";
+import NewsSection from "components/pages/home/NewsSection";
+import { Link } from "gatsby";
+import Seo from "components/Seo";
 
-const StyledContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 15px;
-  text-align: center;
-  @media ${(props) => props.theme.minWidth.lg} {
-    padding: 25px;
-  }
-  .logo {
-    height: 170px;
-  }
-  h1 {
-    color: ${(props) => props.theme.colors.black};
-    text-transform: uppercase;
-    font-size: 28px;
-    font-weight: 700;
-    margin: 40px 0;
-    @media ${(props) => props.theme.minWidth.lg} {
-      font-size: 33px;
-    }
+const StyledSectionHeader = styled(SectionHeader)`
+  margin-top: 15px;
+  @media ${(props) => props.theme.minWidth.md} {
+    margin-top: 35px;
   }
   p {
-    color: ${(props) => props.theme.colors.black};
-    margin-bottom: 10px;
-    @media ${(props) => props.theme.minWidth.lg} {
-      margin-bottom: 25px;
+    @media ${(props) => props.theme.minWidth.md} {
+      font-size: 18px;
     }
   }
-  a {
-    display: inline;
+  a.pandaInvest {
+    display: inline-block;
     text-decoration: underline;
-  }
-  .gatsby-image-wrapper {
-    margin-top: -30px;
-    z-index: -1;
-    @media ${(props) => props.theme.minWidth.sm} {
-      margin-top: -80px;
+    @media ${(props) => props.theme.minWidth.md} {
+      font-size: 18px;
     }
   }
 `;
 
 const IndexPage = () => {
   return (
-    <Layout>
-      <StyledContainer>
-        <img className="logo" src={PPlogo} alt="Logo" />
-        <h1>Le site de pivot panda se refait une beauté !</h1>
-        <p>
-          Nous travaillons actuellement sur notre nouveau site. Pendant ce
-          temps, nous vous prions de bien vouloir patienter.{" "}
-        </p>
-        <p>
-          Vous pouvez nous contacter à l'adresse suivante :{" "}
-          <a href="mailto:contact@pivotpanda.com">contact@pivotpanda.com</a>
-        </p>
-        <StaticImage
-          src="../assets/coming-soon-panda.png"
-          alt="Panda"
-          height={500}
-        />
-      </StyledContainer>
-    </Layout>
+    <>
+      <Seo />
+      <Layout>
+        <div className="pageAnimation">
+          <HeroSection />
+          <StyledSectionHeader
+            title="Dénicheurs et concepteurs de votre futur espace"
+            buttonText="Savoir-faire"
+            buttonTo="savoir-faire"
+          >
+            Pivot Panda développe pour ses clients des projets de la recherche
+            de foncier en passant par la conception et jusqu’à la réalisation
+            des travaux avec comme prisme permanent : répondre aux bons usages !{" "}
+            <br />
+            Pivot Panda s’appuie aussi sur&nbsp;
+            <Link className="pandaInvest" to="/panda-invest">
+              Panda Invest
+            </Link>
+            &nbsp;pour prendre part à des projets soit à valeur ajoutée, soit
+            patrimonial en tertiaire et activité ou hôtellerie.
+          </StyledSectionHeader>
+          <NumbersSection />
+          <ProjectsSection />
+          <NewsSection />
+        </div>
+      </Layout>
+    </>
   );
 };
 
