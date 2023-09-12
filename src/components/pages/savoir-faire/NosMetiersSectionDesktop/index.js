@@ -164,10 +164,10 @@ const NosMetiersSection = () => {
               </Text>
               <Text>
                 Nous assurons une prestation globale, depuis la conception
-                jusqu’à la livraison, et s’engage sur la qualité de l’ouvrage,
-                les prix et les délais. Interlocuteurs unique de la maîtrise
-                d’ouvrage, nous coordonnons tous les acteurs du projet et est
-                donc garant de sa réussite.
+                jusqu’à la livraison, et nous nous engageons sur la qualité de
+                l’ouvrage, les prix et les délais. Interlocuteur(s) unique de la
+                maîtrise d’ouvrage, nous coordonnons tous les acteurs du projet
+                et sommes donc garants de sa réussite.
               </Text>
               <StaticImage
                 src="../../../../assets/imgs/panda-constructeur.jpg"

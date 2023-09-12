@@ -219,13 +219,13 @@ const SavoirFaire = () => {
                 de mobilier, un consultant d’accompagnement en organisation.
               </Text>
               <Text>
-                Notre vocation est de concevoir un environnement adapte à notre
+                Notre vocation est de concevoir un environnement adapté à notre
                 client, et pour cela nous nous appuyons sur une démarche issue
                 du&nbsp;
                 <Link to="/design-thinking">Design Thinking</Link> simple et
-                agile, qui mobilise des outils de co-conception et qui font de
+                agile, qui mobilise des outils de co-conception et qui fait de
                 vos collaborateurs des acteurs dans la conception de votre futur
-                Work Place pour ensuite les mettre en œuvre.
+                Work Place pour ensuite le mettre en œuvre.
               </Text>
             </div>
           </StyledApproche>

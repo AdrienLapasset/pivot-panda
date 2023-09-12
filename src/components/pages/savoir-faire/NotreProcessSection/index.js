@@ -327,13 +327,22 @@ const NotreProcessSection = () => {
               </Text>
               <Text>
                 Analyse des devis <br /> Sélection d’artisans et entreprises des
-                différents lots : Démolition, curage Cloisonnement structurel,
-                amovible et vitré Revêtement de sol, moquette, parquet
-                Revêtements muraux, peinture Plafond, faux plafond, Plomberie,
-                CVC Électricité courant fort / faible / salles informatiques
-                Contrôle d’accès et surveillance Menuiserie intérieures et
-                extérieures, Serrurerie Agencement et décoration, Signalétique
-                Paysagisme et aménagements extérieurs
+                différents lots :
+                <ul>
+                  <li>- Démolition, curage</li>
+                  <li>- Cloisonnement structurel, amovible et vitré</li>
+                  <li>- Revêtement de sol, moquette, parquet</li>
+                  <li>- Revêtements muraux, peinture</li>
+                  <li>- Plafond, faux plafond</li>
+                  <li>- Plomberie, CVC</li>
+                  <li>
+                    - Électricité courant fort / faible / salles informatiques
+                  </li>
+                  <li>- Contrôle d’accès et surveillance</li>
+                  <li>- Menuiserie intérieures et extérieures, serrurerie</li>
+                  <li>- Agencement et décoration, signalétique</li>
+                  <li>- Paysagisme et aménagements extérieurs</li>
+                </ul>
               </Text>
             </div>
             <div ref={step9Ref}>
@@ -352,8 +361,8 @@ const NotreProcessSection = () => {
               <Text>
                 Mise au point et synthèse des plans d’éxécution <br />{" "}
                 Implantation des ouvrages sur site <br /> Supervision des
-                bureaux d’études spécualisées <br /> Pilotage et coordination de
-                chantier
+                bureaux d’études spécialisé(e)s <br /> Pilotage et coordination
+                de chantier
               </Text>
             </div>
             <div ref={step11Ref}>
