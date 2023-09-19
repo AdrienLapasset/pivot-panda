@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import styled from "styled-components";
 import Grid from "components/global/Grid";
 import Title from "components/global/Title";
@@ -73,169 +73,108 @@ const StyledStepDescriptionContainer = styled.div`
       font-size: 18px;
       margin-bottom: 5px;
     }
-    &:nth-child(1) {
-      opacity: ${({ currentStep }) => currentStep === 1 && "1"};
-    }
-    &:nth-child(2) {
-      opacity: ${({ currentStep }) => currentStep === 2 && "1"};
-    }
-    &:nth-child(3) {
-      opacity: ${({ currentStep }) => currentStep === 3 && "1"};
-    }
-    &:nth-child(4) {
-      opacity: ${({ currentStep }) => currentStep === 4 && "1"};
-    }
-    &:nth-child(5) {
-      opacity: ${({ currentStep }) => currentStep === 5 && "1"};
-    }
-    &:nth-child(6) {
-      opacity: ${({ currentStep }) => currentStep === 6 && "1"};
-    }
-    &:nth-child(7) {
-      opacity: ${({ currentStep }) => currentStep === 7 && "1"};
-    }
-    &:nth-child(8) {
-      opacity: ${({ currentStep }) => currentStep === 8 && "1"};
-    }
-    &:nth-child(9) {
-      opacity: ${({ currentStep }) => currentStep === 9 && "1"};
-    }
-    &:nth-child(10) {
-      opacity: ${({ currentStep }) => currentStep === 10 && "1"};
-    }
-    &:nth-child(11) {
-      opacity: ${({ currentStep }) => currentStep === 11 && "1"};
+    &:nth-child(${({ currentStep }) => currentStep}) {
+      opacity: 1;
     }
   }
 `;
+
 const NotreProcessSection = () => {
-  const step1Ref = useRef(null);
-  const step2Ref = useRef(null);
-  const step3Ref = useRef(null);
-  const step4Ref = useRef(null);
-  const step5Ref = useRef(null);
-  const step6Ref = useRef(null);
-  const step7Ref = useRef(null);
-  const step8Ref = useRef(null);
-  const step9Ref = useRef(null);
-  const step10Ref = useRef(null);
-  const step11Ref = useRef(null);
+  const steps = [
+    {
+      title: "1. Recherche de biens uniques",
+      description:
+        "Pré-visite par nos soins \nSelon vos critères et avec notre réseau et savoir-faire \nHôtels particuliers \nImmeubles historiques \n Biens off-markets \nPlateaux haussmanniens \nEnsembles immobiliers",
+    },
+    {
+      title: "2. Analyse et étude architecturale et technique du site",
+      description:
+        "Projections de plusieurs scénarios adaptables au bien \nChiffrage détaillé et simulation budgétaire \nÉtude de faisabilité technique et urbanistique",
+    },
+    {
+      title: "3. Montage et accompagnement en phase d’acquisition",
+      description:
+        "Accompagnement dans le choix du scénario \nConseil quant aux demandes d’autorisations d’urbanisme \nConseil sur le montage financier et bancaire",
+    },
+    {
+      title: "4. Étude, design thinking, analyse des besoins",
+      description:
+        "Atelier de Design Thinking \nProgrammation fonctionnelle et technique \nMicrozoning \nCapacitaires, Faisabilité \nAutorisations administratives",
+    },
+    {
+      title: "5. Intentions conceptuelles et choix architecturaux",
+      description: "Design book : Storytelling \n Moodboard & Macrozoning",
+    },
+    {
+      title: "6. Projet d’aménagement",
+      description:
+        "Conception des aménagements (ESQ, APS/APD et DCE) \n Carnet de plans : Finitions de sol, Revêtements muraux, Cloisons et faux plafonds, Principe de plomberie et d’électricité, Coupes et élévations, Choix des finitions et équipements",
+    },
+    {
+      title: "7. Préconisation du FF&E",
+      description:
+        "Prestation FF&E (Furniture, Fixture & Equipments) : Propositions / Préconisations de mobilier, installations et équipements \n Accompagnement sur les arbitrages et finitions \nLancement en commande, Gestion de la logistique et du montage",
+    },
+    {
+      title: "8. Consultation des entreprises",
+      description:
+        "Analyse des devis \n Sélection d’artisans et entreprises des différents lots : \n- Démolition, curage\n- Cloisonnement structurel, amovible et vitré\n- Revêtement de sol, moquette, parquet\n- Revêtements muraux, peinture\n- Plafond, faux plafond\n- Plomberie, CVC\n- Électricité courant fort / faible / salles informatiques\n- Contrôle d’accès et surveillance\n- Menuiserie intérieures et extérieures, serrurerie\n- Agencement et décoration, signalétique\n- Paysagisme et aménagements extérieurs",
+    },
+    {
+      title: "9. Contrôler le planning le budget",
+      description:
+        "Plannification des études et des travaux \n Gestion du planning et du budget",
+    },
+    {
+      title: "10. Supervision et éxécution des travaux",
+      description:
+        "Mise au point et synthèse des plans d’éxécution \nImplantation des ouvrages sur site \n Supervision des bureaux d’études spécialisé(e)s \n Pilotage et coordination de chantier",
+    },
+    {
+      title: "11. Réception - Livraison",
+      description: "Réception et suivi des levées de réserves",
+    },
+  ];
+
+  const stepRefs = useRef([]);
   const stepContainer = useRef(null);
-  const headersHeight = 250;
+  const headersHeight = 400;
   const [currentStep, setCurrentStep] = useState(1);
 
-  useEffect(() => {
-    const handleStep = () => {
-      const step1Top = step1Ref.current.getBoundingClientRect().top;
-      const step2Top = step2Ref.current.getBoundingClientRect().top;
-      const step3Top = step3Ref.current.getBoundingClientRect().top;
-      const step4Top = step4Ref.current.getBoundingClientRect().top;
-      const step5Top = step5Ref.current.getBoundingClientRect().top;
-      const step6Top = step6Ref.current.getBoundingClientRect().top;
-      const step7Top = step7Ref.current.getBoundingClientRect().top;
-      const step8Top = step8Ref.current.getBoundingClientRect().top;
-      const step9Top = step9Ref.current.getBoundingClientRect().top;
-      const step10Top = step10Ref.current.getBoundingClientRect().top;
-      const step2Right = step2Ref.current.getBoundingClientRect().right;
-      const step3Right = step3Ref.current.getBoundingClientRect().right;
-      const step4Right = step4Ref.current.getBoundingClientRect().right;
-      const step5Right = step5Ref.current.getBoundingClientRect().right;
-      const step6Right = step6Ref.current.getBoundingClientRect().right;
-      const step7Right = step7Ref.current.getBoundingClientRect().right;
-      const step8Right = step8Ref.current.getBoundingClientRect().right;
-      const step9Right = step9Ref.current.getBoundingClientRect().right;
-      const step10Right = step10Ref.current.getBoundingClientRect().right;
-      const step11Right = step11Ref.current.getBoundingClientRect().right;
+  const handleRef = (el, index) => {
+    stepRefs.current[index] = el;
+  };
 
-      if (window.innerWidth < 1024) {
-        if (step2Right > window.innerWidth) {
-          setCurrentStep(1);
-        }
-        if (step2Right <= window.innerWidth) {
-          setCurrentStep(2);
-        }
-        if (step3Right <= window.innerWidth) {
-          setCurrentStep(3);
-        }
-        if (step4Right <= window.innerWidth) {
-          setCurrentStep(4);
-        }
-        if (step5Right <= window.innerWidth) {
-          setCurrentStep(5);
-        }
-        if (step6Right <= window.innerWidth) {
-          setCurrentStep(6);
-        }
-        if (step7Right <= window.innerWidth) {
-          setCurrentStep(7);
-        }
-        if (step8Right <= window.innerWidth) {
-          setCurrentStep(8);
-        }
-        if (step9Right <= window.innerWidth) {
-          setCurrentStep(9);
-        }
-        if (step10Right <= window.innerWidth) {
-          setCurrentStep(10);
-        }
-        if (step11Right <= window.innerWidth) {
-          setCurrentStep(11);
-        }
-      } else {
-        if (step1Top > headersHeight) {
-          setCurrentStep(1);
-        }
-        if (step1Top <= headersHeight) {
-          setCurrentStep(2);
-        }
-        if (step2Top <= headersHeight) {
-          setCurrentStep(3);
-        }
-        if (step3Top <= headersHeight) {
-          setCurrentStep(4);
-        }
-        if (step4Top <= headersHeight) {
-          setCurrentStep(5);
-        }
-        if (step5Top <= headersHeight) {
-          setCurrentStep(6);
-        }
-        if (step6Top <= headersHeight) {
-          setCurrentStep(7);
-        }
-        if (step7Top <= headersHeight) {
-          setCurrentStep(8);
-        }
-        if (step8Top <= headersHeight) {
-          setCurrentStep(9);
-        }
-        if (step9Top <= headersHeight) {
-          setCurrentStep(10);
-        }
-        if (step10Top <= headersHeight) {
-          setCurrentStep(11);
+  const handleStep = useCallback(() => {
+    for (let i = 0; i < steps.length; i++) {
+      if (stepRefs.current[i]) {
+        const rect = stepRefs.current[i].getBoundingClientRect();
+        const isMobile = window.innerWidth < 1024;
+        if (isMobile) {
+          if (rect.right <= window.innerWidth && rect.left >= 0) {
+            setCurrentStep(i + 1);
+            break;
+          }
+        } else {
+          if (rect.top <= headersHeight && rect.bottom >= headersHeight) {
+            setCurrentStep(i + 1);
+            break;
+          }
         }
       }
-    };
+    }
+  }, [stepRefs, steps.length]);
+
+  useEffect(() => {
+    const currentStepContainer = stepContainer.current;
+
     window.addEventListener("scroll", handleStep);
-    stepContainer.current.addEventListener("scroll", handleStep);
+    currentStepContainer.addEventListener("scroll", handleStep);
     return () => {
       window.removeEventListener("scroll", handleStep);
-      // stepContainer.current.removeEventListener("scroll", handleStep);
+      currentStepContainer.removeEventListener("scroll", handleStep);
     };
-  }, [
-    step1Ref,
-    step2Ref,
-    step3Ref,
-    step4Ref,
-    step5Ref,
-    step6Ref,
-    step7Ref,
-    step8Ref,
-    step9Ref,
-    step10Ref,
-    step11Ref,
-  ]);
+  }, [handleStep]);
 
   return (
     <StyledContainer>
@@ -249,128 +188,14 @@ const NotreProcessSection = () => {
             currentStep={currentStep}
             ref={stepContainer}
           >
-            <div ref={step1Ref}>
-              <Text as="h3" type="projectTitle">
-                1. Recherche de biens uniques
-              </Text>
-              <Text>
-                Pré-visite par nos soins <br /> Selon vos critères et avec notre
-                réseau et savoir faire <br /> Hotels particuliers <br />
-                Immeubles historiques <br /> Biens offmarkets <br /> Plateaux
-                haussmanniens <br /> Ensembles immobiliers
-              </Text>
-            </div>
-            <div ref={step2Ref}>
-              <Text as="h3" type="projectTitle">
-                2. Analyse et étude architecturale et technique du site
-              </Text>
-              <Text>
-                Projections de plusieurs scénarios adaptables au bien <br />
-                Chiffrage détaillé et simulation budgétaire <br /> Étude de
-                faisabilité technique et urbanistique
-              </Text>
-            </div>
-            <div ref={step3Ref}>
-              <Text as="h3" type="projectTitle">
-                3. Montage et accompagnement en phase d’acquisition
-              </Text>
-              <Text>
-                Accompagnement dans le choix du scénario <br /> Conseil quant
-                aux demandes d’autorisations d’urbanisme <br /> Conseil sur le
-                montage financier et bancaire
-              </Text>
-            </div>
-            <div ref={step4Ref}>
-              <Text as="h3" type="projectTitle">
-                4. Étude, design thinking, analyse des besoins
-              </Text>
-              <Text>
-                Atelier de Design Thinking <br />
-                Programmation fonctionnelle et technique <br />
-                Microzoning <br /> Capacitaires, Faisabilité <br />
-                Autorisations administratives
-              </Text>
-            </div>
-            <div ref={step5Ref}>
-              <Text as="h3" type="projectTitle">
-                5. Intentions conceptuelles et choix architecturaux
-              </Text>
-              <Text>
-                Design book : Storytelling <br /> Moodboard & Macrozoning
-              </Text>
-            </div>
-            <div ref={step6Ref}>
-              <Text as="h3" type="projectTitle">
-                6. Projet d’aménagement
-              </Text>
-              <Text>
-                Conception des aménagements (ESQ, APS/APD et DCE) <br /> Carnet
-                de plans : Finitions de sol, Revêtements muraux, Cloisons et
-                faux plafonds, Principe de plomberie et d’électricité, Coupes et
-                élévations, Choix des finitions et équipements
-              </Text>
-            </div>
-            <div ref={step7Ref}>
-              <Text as="h3" type="projectTitle">
-                7. Préconisation du FF&E
-              </Text>
-              <Text>
-                Prestation FF&E (Furniture, Fixture & Equipments) : Propositions
-                / Préconisations de mobilier, installations et équipements{" "}
-                <br /> Accompagnement sur les arbitrages et finitions <br />{" "}
-                Lancement en commande, Gestion de la logistique et du montage
-              </Text>
-            </div>
-            <div ref={step8Ref}>
-              <Text as="h3" type="projectTitle">
-                8. Consultation des entreprises
-              </Text>
-              <Text>
-                Analyse des devis <br /> Sélection d’artisans et entreprises des
-                différents lots :
-                <ul>
-                  <li>- Démolition, curage</li>
-                  <li>- Cloisonnement structurel, amovible et vitré</li>
-                  <li>- Revêtement de sol, moquette, parquet</li>
-                  <li>- Revêtements muraux, peinture</li>
-                  <li>- Plafond, faux plafond</li>
-                  <li>- Plomberie, CVC</li>
-                  <li>
-                    - Électricité courant fort / faible / salles informatiques
-                  </li>
-                  <li>- Contrôle d’accès et surveillance</li>
-                  <li>- Menuiserie intérieures et extérieures, serrurerie</li>
-                  <li>- Agencement et décoration, signalétique</li>
-                  <li>- Paysagisme et aménagements extérieurs</li>
-                </ul>
-              </Text>
-            </div>
-            <div ref={step9Ref}>
-              <Text as="h3" type="projectTitle">
-                9. Contrôler le planning le budget
-              </Text>
-              <Text>
-                Plannification des études et des travaux <br /> Gestion du
-                planning et du budget
-              </Text>
-            </div>
-            <div ref={step10Ref}>
-              <Text as="h3" type="projectTitle">
-                10. Supervision et éxécution des travaux
-              </Text>
-              <Text>
-                Mise au point et synthèse des plans d’éxécution <br />{" "}
-                Implantation des ouvrages sur site <br /> Supervision des
-                bureaux d’études spécialisé(e)s <br /> Pilotage et coordination
-                de chantier
-              </Text>
-            </div>
-            <div ref={step11Ref}>
-              <Text as="h3" type="projectTitle">
-                11. Réception - Livraison
-              </Text>
-              <Text>Réception et suivi des levées de réserves</Text>
-            </div>
+            {steps.map((step, index) => (
+              <div ref={(el) => handleRef(el, index)} key={index}>
+                <Text as="h3" type="projectTitle">
+                  {step.title}
+                </Text>
+                <Text>{step.description}</Text>
+              </div>
+            ))}
           </StyledStepDescriptionContainer>
         </StyledGrid>
       </PageContainer>
