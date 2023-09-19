@@ -87,7 +87,7 @@ const NotreProcessSection = () => {
     {
       title: "1. Recherche de biens uniques",
       description:
-        "Pré-visite par nos soins \nSelon vos critères et avec notre réseau et savoir-faire \nHôtels particuliers \nImmeubles historiques \n Biens off-markets \nPlateaux haussmanniens \nEnsembles immobiliers",
+        "Pré-visite par nos soins \nSelon vos critères et avec notre réseau et savoir-faire : \n- Hôtels particuliers \n- Immeubles historiques \n- Biens off-markets \n- Plateaux haussmanniens \n- Ensembles immobiliers",
     },
     {
       title:
@@ -112,7 +112,7 @@ const NotreProcessSection = () => {
     {
       title: "6. Projet d’aménagement",
       description:
-        "Conception des aménagements (ESQ, APS/APD et DCE) \n Carnet de plans : Finitions de sol, Revêtements muraux, Cloisons et faux plafonds, Principe de plomberie et d’électricité, Coupes et élévations, Choix des finitions et équipements",
+        "Conception des aménagements (ESQ, APS/APD et DCE) \n Carnet de plans : finitions de sol, revêtements muraux, cloisons et faux plafonds, principe de plomberie et d’électricité, coupes et élévations, choix des finitions et équipements",
     },
     {
       title: "7. Préconisation du FF&E",
