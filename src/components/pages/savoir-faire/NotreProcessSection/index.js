@@ -78,6 +78,9 @@ const StyledStepDescriptionContainer = styled.div`
     }
   }
 `;
+const DescriptionText = styled(Text)`
+  white-space: pre-line;
+`;
 
 const NotreProcessSection = () => {
   const steps = [
@@ -87,9 +90,10 @@ const NotreProcessSection = () => {
         "Pré-visite par nos soins \nSelon vos critères et avec notre réseau et savoir-faire \nHôtels particuliers \nImmeubles historiques \n Biens off-markets \nPlateaux haussmanniens \nEnsembles immobiliers",
     },
     {
-      title: "2. Analyse et étude architecturale et technique du site",
+      title:
+        "2. Contractualisation, analyse, étude architecturale et technique du site",
       description:
-        "Projections de plusieurs scénarios adaptables au bien \nChiffrage détaillé et simulation budgétaire \nÉtude de faisabilité technique et urbanistique",
+        "Création du contrat \nProjections de plusieurs scénarios adaptables au bien \nChiffrage détaillé et simulation budgétaire \nÉtude de faisabilité technique et urbanistique",
     },
     {
       title: "3. Montage et accompagnement en phase d’acquisition",
@@ -193,7 +197,7 @@ const NotreProcessSection = () => {
                 <Text as="h3" type="projectTitle">
                   {step.title}
                 </Text>
-                <Text>{step.description}</Text>
+                <DescriptionText>{step.description}</DescriptionText>
               </div>
             ))}
           </StyledStepDescriptionContainer>
