@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { graphql } from "gatsby";
 import Layout from "components/Layout";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -11,6 +11,7 @@ import BeforeAfterSlider from "components/pages/project/BeforeAfterSlider";
 import ProjectCarousel from "components/pages/project/ProjectCarousel";
 import OtherProjectsSection from "components/pages/project/otherProjectsSection";
 import Seo from "components/Seo";
+import { FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 
 const StyledHeader = styled(Grid)`
   grid-template-rows: ${({ architect }) =>
@@ -43,6 +44,25 @@ const StyledHeroVideo = styled.video`
   object-fit: cover;
   @media ${(props) => props.theme.minWidth.md} {
     grid-column: span 7;
+  }
+`;
+
+const StyledSoundButton = styled.button`
+  position: absolute;
+  top: 85px;
+  right: 10px;
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  color: ${(props) => props.theme.colors.backgroundDark};
+  background-color: rgba(228, 228, 228, 0.5);
+  box-shadow: 0px 0px 8px ${(props) => props.theme.colors.transparentBlack};
+  border-radius: 50%;
+  svg {
+    width: 40px;
+    height: 40px;
   }
 `;
 
@@ -287,6 +307,7 @@ const Project = ({ data }) => {
   const heroImage = getImage(image.asset);
   const projectYear = new Date(year).getFullYear();
   const heroVideo = video && video.asset.url;
+  const [isMuted, setIsMuted] = useState(true);
 
   return (
     <>
@@ -299,9 +320,20 @@ const Project = ({ data }) => {
         <div className="pageAnimation">
           <StyledHeader architect={architect}>
             {heroVideo ? (
-              <StyledHeroVideo autoPlay muted loop playsInline>
-                <source src={heroVideo} type="video/mp4" />
-              </StyledHeroVideo>
+              <>
+                <StyledHeroVideo autoPlay muted={isMuted} loop playsInline>
+                  <source src={heroVideo} type="video/mp4" />
+                </StyledHeroVideo>
+                <StyledSoundButton
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    setIsMuted(!isMuted);
+                  }}
+                >
+                  {isMuted ? <FaVolumeUp /> : <FaVolumeMute />}
+                </StyledSoundButton>
+              </>
             ) : (
               <StyledHeroImage image={heroImage} alt={name} />
             )}

@@ -257,7 +257,7 @@ const SavoirFaire = () => {
                   <Text>
                     En tant qu’entreprise liée à la construction, nous nous
                     engageons à apporter des solutions économiques viables,
-                    socialement équitables et écologiquement durables.Impliqués
+                    socialement équitables et écologiquement durables. Impliqués
                     activement dans la vie culturelle et associative locale,
                     nous nous engageons auprès de nombreuses associations.
                   </Text>
@@ -275,7 +275,7 @@ const SavoirFaire = () => {
                   <img src={leGrandBleuLogo} alt="" />
                   <Text>
                     Le Grand Bleu est une association qui initie et développe
-                    les activités nautiques et aquatiquessur la commune de
+                    les activités nautiques et aquatiques sur la commune de
                     Marseille. Leur mission est d'offrir des opportunités pour
                     que les enfants puissent apprendre, explorer et s'engager
                     dans des activités nautiques en toute sécurité.
