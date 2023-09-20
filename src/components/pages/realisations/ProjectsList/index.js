@@ -112,7 +112,7 @@ const ProjectsList = ({ selectedCategory, featuredOnly = false }) => {
   const data = useStaticQuery(
     graphql`
       query {
-        allSanityProject {
+        allSanityProject(sort: { orderRank: ASC }) {
           nodes {
             category
             city
