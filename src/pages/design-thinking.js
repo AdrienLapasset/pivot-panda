@@ -416,9 +416,8 @@ const DesignThinking = () => {
                       Délivrer
                     </Text>
                     <Text white>
-                      Identifier les points bloquants. Formuler des besoins et
-                      des problématiques et s’y tenir. Parcours utilisateur,
-                      points bloquants.
+                      Prototyper sa solution, explorer des options, réaliser des
+                      tests. <br /> Présenter ses résultats.
                     </Text>
                     <div className="labelContainer">
                       <div className="label">
