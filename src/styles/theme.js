@@ -1,6 +1,6 @@
 const theme = {
   colors: {
-    black: "#3A3A1F",
+    black: "#1E1E28", //#3A3A1F (ancienne couleur)
     grey: "#939393",
     greyLight: "#AAAAAA",
     greyLightest: "#E4E4E4",
@@ -32,7 +32,7 @@ const theme = {
     mobile: "15px",
     desktop: "25px",
   },
-  border: "1px solid #3A3A1F",
+  border: "1px solid #1E1E28",
   aspectRatio: {
     mobile: 1.25,
     desktop: 1.8,
