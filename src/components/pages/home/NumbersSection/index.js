@@ -86,20 +86,20 @@ const NumbersSection = () => {
     <StyledContainer>
       <StyledGrid>
         <StyledNumberContainer>
-          <p>+10</p>
-          <Text type="label">projets en cours</Text>
+          <p>2023</p>
+          <Text type="label">ouverture de nos bureaux à Paris</Text>
         </StyledNumberContainer>
         <StyledNumberContainer>
-          <p>+10 000m2</p>
-          <Text type="label">réalisés ou en cours</Text>
+          <p>8,5M€</p>
+          <Text type="label">chiffre d’affaire en 2023</Text>
         </StyledNumberContainer>
         <StyledNumberContainer>
-          <p>5 000m2</p>
-          <Text type="label">achetés ou en cours d’acquisition</Text>
+          <p>25</p>
+          <Text type="label">opérations livrées depuis 2019</Text>
         </StyledNumberContainer>
         <StyledNumberContainer>
-          <p>120</p>
-          <Text type="label">chambres d’hôtel en cours de développement</Text>
+          <p>10 000 m²</p>
+          <Text type="label">surface projet traitée l’année précédente</Text>
         </StyledNumberContainer>
       </StyledGrid>
     </StyledContainer>
