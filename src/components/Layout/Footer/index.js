@@ -154,7 +154,23 @@ const StyledMobileCredits = styled(PageContainer)`
   }
 `;
 
+const StyledSignature = styled(Text)`
+  display: flex;
+  gap: 3px;
+  a {
+    font-size: 12px;
+  }
+  @media ${(props) => props.theme.minWidth.md} {
+    gap: 5px;
+    a {
+      font-size: 14px;
+    }
+  }
+`;
+
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <StyledFooter>
       <StyledPageContainer>
@@ -285,14 +301,40 @@ const Footer = () => {
             </Link>
           </StyledResources>
           <StyledCredits>
-            <Text>© Pivot Panda 2023</Text>
-            <Text>Site créé par Adrien & Clément Lapasset</Text>
+            <Text>© Pivot Panda {currentYear}</Text>
+            <StyledSignature>
+              Site créé par
+              <a href="https://alapasset.dev" target="_blank" rel="noreferrer">
+                Adrien
+              </a>
+              &
+              <a
+                href="https://clementlapasset.dev"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Clément Lapasset
+              </a>
+            </StyledSignature>
           </StyledCredits>
         </DesktopGrid>
       </StyledPageContainer>
       <StyledMobileCredits>
-        <Text>© Pivot Panda 2023</Text>
-        <Text>Site créé par Adrien & Clément Lapasset</Text>
+        <Text>© Pivot Panda {currentYear}</Text>
+        <StyledSignature>
+          Site :
+          <a href="https://alapasset.dev" target="_blank" rel="noreferrer">
+            Adrien
+          </a>
+          &
+          <a
+            href="https://clementlapasset.dev"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Clément Lapasset
+          </a>
+        </StyledSignature>
       </StyledMobileCredits>
     </StyledFooter>
   );
