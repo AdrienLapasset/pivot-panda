@@ -13,6 +13,16 @@ const RadioButtonInput = styled.input`
   border-radius: 50%;
   cursor: pointer;
 
+  &:hover::after {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin: 4px;
+    background-color: ${(props) => props.theme.colors.grey};
+    border-radius: 50%;
+  }
+
   &:checked {
     background-color: ${(props) => props.theme.colors.white};
   }
@@ -33,6 +43,11 @@ const RadioButtonLabel = styled.label`
   font-size: 12px;
   line-height: 15px;
   cursor: pointer;
+
+  ${RadioButtonInput}:not(:checked) + &:hover,
+  ${RadioButtonInput}:hover:not(:checked) + & {
+    color: ${(props) => props.theme.colors.grey};
+  }
 `;
 
 const RadioButton = ({ category, onChange, selectedCategory }) => {
