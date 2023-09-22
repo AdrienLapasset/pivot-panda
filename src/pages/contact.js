@@ -167,7 +167,8 @@ const Contact = () => {
                 children={"nous<br>Contacter"}
               ></Title>
               <Text white>
-                Vous avez un projet ? Vous souhaitez rejoindre l’équipe ? <br />
+                Vous avez un projet ? Vous souhaitez rejoindre l’équipe&nbsp;?
+                <br />
                 N'hésitez pas à nous contacter pour en discuter ! Notre équipe
                 est à votre écoute et prête à vous accompagner pour concrétiser
                 vos idées.
