@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
@@ -16,6 +16,9 @@ const StyledProjectsList = styled.div`
 
 const StyledProjectContainer = styled(Link)`
   padding-top: 15px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  transition-delay: ${(props) => props.delay || "0s"};
   @media ${(props) => props.theme.minWidth.md} {
     display: flex;
     flex-direction: column-reverse;
@@ -145,10 +148,28 @@ const ProjectsList = ({ selectedCategory, featuredOnly = false }) => {
     );
   }
 
+  const [projectsOpacity, setProjectsOpacity] = useState(0);
+  const [displayedProjects, setDisplayedProjects] = useState(filteredProjects);
+  const filteredProjectsRef = useRef(filteredProjects);
+
+  useEffect(() => {
+    filteredProjectsRef.current = filteredProjects;
+  }, [filteredProjects]);
+
+  useEffect(() => {
+    setProjectsOpacity(0);
+    const timeoutFade = setTimeout(() => {
+      setDisplayedProjects(filteredProjectsRef.current);
+      setProjectsOpacity(1);
+    }, 500);
+
+    return () => clearTimeout(timeoutFade);
+  }, [selectedCategory]);
+
   return (
     <PageContainer>
       <StyledProjectsList>
-        {filteredProjects.map((project, i) => {
+        {displayedProjects.map((project, i) => {
           const image = getImage(project.image.asset);
           let gridColumnProject;
           let gridColumnProjectTags;
@@ -173,6 +194,8 @@ const ProjectsList = ({ selectedCategory, featuredOnly = false }) => {
               key={i}
               gridcolumnproject={gridColumnProject}
               paddingleft={paddingLeft}
+              delay={`${i * 0.1}s`}
+              style={{ opacity: projectsOpacity }}
             >
               {isFirstInRow && <DesktopBottomLine />}
               <Grid>
