@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
-// import defaultImage from "assets/imgs/defaultImage.jpg"
 
 const query = graphql`
   query SEO {
@@ -36,6 +35,10 @@ const SEO = ({ pageTitle, articleDescription, imageUrl }) => {
       titleTemplate={titleTemplate}
       htmlAttributes={{ lang }}
       meta={[
+        {
+          name: `google-site-verification`,
+          content: "Fc5QPQAm57bq_EOEjRNsGcYCbUfSKuVSn6xeTwXLU4c",
+        },
         {
           name: `description`,
           content: description,
